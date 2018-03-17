@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <include android:id="@+id/include"
+        layout="@layout/layout_title"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/include"
+        android:background="@color/view"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_available_gold"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/white"
+            android:paddingLeft="10dp">
+
+            <TextView
+                android:id="@+id/tv_withdrawals_gold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="12dp"
+                android:layout_toRightOf="@+id/iv_find_news_img"
+                android:text="@string/withdraw_gold"
+                android:textColor="@color/find_title"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_withdrawals_gold_num"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/tv_withdrawals_gold"
+                android:gravity="center_vertical"
+                android:text="0"
+                android:textColor="@color/find_title"
+                android:textSize="14sp" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignLeft="@+id/tv_setting_account_seccurity"
+
+                android:layout_alignParentBottom="true"
+                android:background="@color/view" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:paddingLeft="10dp"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="59dp">
+
+            <TextView
+                android:id="@+id/tv_et_login_phone_verification_code_text"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:text="@string/withdraw_money"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="10dp"
+                />
+
+
+            <EditText
+                android:layout_toRightOf="@+id/tv_et_login_phone_verification_code_text"
+                android:id="@+id/et_withdrawals_money"
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:layout_toLeftOf="@+id/tv_login_phone_verifi_code"
+                android:inputType="number"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:paddingLeft="10dp"
+                android:background="@color/view"
+                android:textColor="@color/find_title"
+                android:textColorHint="@color/find_msg"
+                android:textSize="14sp" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:paddingLeft="10dp"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="59dp">
+
+            <TextView
+                android:id="@+id/tv_withdrawals_ali_number"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:text="@string/withdraw_ali_number"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="10dp"
+                />
+
+
+            <EditText
+                android:layout_toRightOf="@+id/tv_withdrawals_ali_number"
+                android:id="@+id/et_withdrawals_ali_number"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/tv_login_phone_verifi_code"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:inputType="number"
+                android:paddingLeft="10dp"
+                android:hint="@string/withdraw_ali_number_hint"
+                android:background="@color/view"
+                android:textColor="@color/find_title"
+                android:textColorHint="@color/find_msg"
+                android:textSize="14sp" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:paddingLeft="10dp"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="59dp">
+
+            <TextView
+                android:id="@+id/tv_withdrawals_user_name"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:text="@string/withdraw_user_name"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="10dp"
+                />
+
+
+            <EditText
+                android:layout_toRightOf="@+id/tv_withdrawals_user_name"
+                android:id="@+id/ed_withdrawals_user_name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/tv_login_phone_verifi_code"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:paddingLeft="10dp"
+                android:hint="@string/withdraw_user_name_hint"
+                android:background="@color/view"
+                android:textColor="@color/find_msg"
+                android:textColorHint="@color/find_title"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:paddingLeft="10dp"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="59dp">
+
+            <TextView
+                android:id="@+id/tv_withdrawals_phone"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:text="@string/withdraw_phone"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="10dp"
+                />
+            <EditText
+                android:layout_toRightOf="@+id/tv_withdrawals_phone"
+                android:id="@+id/ed_withdrawals_phone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/tv_login_phone_verifi_code"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:inputType="number"
+                android:maxEms="11"
+                android:maxLength="11"
+                android:hint="@string/ssdk_sms_input_phone_hint"
+                android:paddingLeft="10dp"
+                android:background="@color/view"
+                android:textColor="@color/find_msg"
+                android:textColorHint="@color/find_title"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_withdrawals_apply"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:background="@drawable/btn_orange_twenty_one"
+            android:text="@string/withdraw_apply"
+            android:textColor="@color/white"
+            android:textSize="15sp"/>
+
+
+        <TextView
+            android:layout_marginTop="15dp"
+            android:textSize="14sp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/whitdraw_guize"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

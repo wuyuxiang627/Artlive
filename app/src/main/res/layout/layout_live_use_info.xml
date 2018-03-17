@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.connxun.elinetv.base.ui.CustomRoundView
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/px_18"
+            android:layout_width="@dimen/px_110"
+            android:layout_height="@dimen/px_110"
+            android:id="@+id/iv_user_photo_live" />
+
+        <TextView
+            android:id="@+id/iv_live_info_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_user_photo_live"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="4dp"
+            android:text="你知道吗" />
+
+
+        <ImageView
+            android:id="@+id/iv_live_info_grade"
+            android:layout_width="40dp"
+            android:layout_height="19dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/iv_live_info_user_name"
+            android:background="@drawable/yanyuan" />
+
+        <TextView
+            android:id="@+id/tv_live_info_live_numver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/iv_live_info_grade"
+            android:layout_centerHorizontal="true"
+            android:textSize="12sp"
+            android:text="粉丝：100   直播间号：123456" />
+
+        <TextView
+            android:id="@+id/tv_Live_singe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_live_info_live_numver"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/px_20"
+            android:textSize="12sp"
+            android:text="个人签名个人签名个人签名个人签名" />
+
+        <ImageButton
+            android:id="@+id/ib_finish"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="10dp"
+            android:layout_alignTop="@+id/iv_user_photo_live"
+            android:background="@drawable/icon_finish_black" />
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/iv_user_photo_live"
+            android:text="举报" />
+
+
+        <LinearLayout
+            android:layout_below="@+id/tv_Live_singe"
+            android:layout_width="match_parent"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="11dp"
+            android:layout_height="@dimen/px_36">
+            <Button
+                android:id="@+id/btn_user_info_label_one"
+                android:background="@drawable/btn_orange_twenty_one"
+                android:layout_width="55dp"
+                android:layout_marginRight="5dp"
+                android:visibility="gone"
+                android:textSize="11sp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_height="match_parent" />
+            <Button
+                android:id="@+id/btn_user_info_label_two"
+                android:background="@drawable/btn_orange_twenty_one"
+                android:layout_width="55dp"
+                android:layout_marginRight="5dp"
+                android:visibility="gone"
+                android:text="添加标签"
+                android:textSize="11sp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_height="match_parent" />
+            <Button
+                android:id="@+id/btn_user_info_label_three"
+                android:background="@drawable/btn_orange_twenty_one"
+                android:layout_width="55dp"
+                android:layout_marginRight="5dp"
+                android:visibility="gone"
+                android:text="添加标签"
+                android:textSize="11sp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_height="match_parent" />
+            <Button
+                android:id="@+id/btn_user_info_label_add"
+                android:background="@drawable/btn_orange_shape_no_solid_two"
+                android:layout_width="55dp"
+                android:text="添加标签"
+                android:textSize="11sp"
+                android:textColor="@color/theme_color"
+                android:gravity="center"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_above="@+id/linearLayout"
+            android:layout_alignParentStart="true"
+            android:background="@color/view" />
+
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:id="@+id/linearLayout">
+
+            <Button
+                android:id="@+id/btn_live_user_info_conment"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="关注"
+                android:background="@null"
+                android:textSize="11sp"
+                android:textColor="@color/find_title"
+                android:layout_weight="1"/>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/view"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                />
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="打卡"
+                android:background="@null"
+                android:textSize="11sp"
+                android:visibility="gone"
+                android:textColor="@color/find_title"
+                android:layout_weight="1"/>
+            <Button
+                android:id="@+id/btn_live_info_im"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="私聊"
+                android:background="@null"
+                android:textColor="@color/find_title"
+                android:textSize="11sp"
+                android:layout_weight="1"/>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/view"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                />
+            <Button
+                android:id="@+id/btn_live_info_works"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="作品"
+                android:background="@null"
+                android:textColor="@color/find_title"
+                android:textSize="11sp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    >
+
+    <!--Fragment容器 用于展示聊天列表与聊天输入框-->
+
+
+    <com.connxun.elinetv.view.mediaPreview.media.NEVideoView
+        android:id="@+id/video_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/iocn_login_logo"
+        android:layout_gravity="center" />
+    <ImageView
+        android:id="@+id/iv_media_back"
+        android:layout_width="match_parent"
+        android:scaleType="fitXY"
+        android:layout_height="match_parent"
+        />
+
+    <LinearLayout
+        android:id="@+id/llgiftcontent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_liaotianshi"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="40dp"
+        android:animateLayoutChanges="true"
+        android:gravity="top"
+        android:orientation="vertical" />
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:id="@+id/ll_liaotianshi"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="#80000000"
+        tools:ignore="Orientation">
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/iv_meidapreview_gift"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/icon_media_gift"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
+        android:layout_marginRight="14dp"
+        android:layout_marginBottom="19dp"/>
+
+    <include layout="@layout/layout_mediapreview" />
+
+
+
+</RelativeLayout>

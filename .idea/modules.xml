@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Artlive.iml" filepath="$PROJECT_DIR$/Artlive.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Fulive/Fulive.iml" filepath="$PROJECT_DIR$/Fulive/Fulive.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NosAndroidLib/NosAndroidLib.iml" filepath="$PROJECT_DIR$/NosAndroidLib/NosAndroidLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/uikitt/uikitt.iml" filepath="$PROJECT_DIR$/uikitt/uikitt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vcloudnosupload/vcloudnosupload.iml" filepath="$PROJECT_DIR$/vcloudnosupload/vcloudnosupload.iml" />
+    </modules>
+  </component>
+</project>

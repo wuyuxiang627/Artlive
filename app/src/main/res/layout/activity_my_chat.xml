@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:id="@+id/rl_my_chat_title"
+        android:layout_width="match_parent"
+        android:layout_height="47dp">
+        <RelativeLayout
+            android:id="@+id/rl_my_chat_finish"
+            android:layout_width="40dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="9dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/icon_left_finish"
+                android:layout_marginLeft="10dp"
+                />
+
+
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/tv_setting_title"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/my_chat_title"
+            android:textColor="@color/find_title"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:textSize="18sp"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/view"
+            android:id="@+id/view" />
+    </RelativeLayout>
+
+    <fragment
+        android:layout_below="@+id/rl_my_chat_title"
+        android:id="@+id/recent_contacts_fragment"
+        android:name="com.netease.nim.uikit.business.recent.RecentContactsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </fragment>
+
+
+</RelativeLayout>

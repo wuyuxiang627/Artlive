@@ -1,0 +1,152 @@
+package com.connxun.elinetv.view.LiveBroadcast;
+
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+
+import com.connxun.elinetv.R;
+import com.connxun.elinetv.adapter.Live.Challenge.ChallengeAdapter;
+import com.connxun.elinetv.base.ui.BaseFragment;
+import com.connxun.elinetv.base.ui.GridRecyclerView;
+import com.connxun.elinetv.entity.ChallengeTypeEntity;
+import com.connxun.elinetv.util.RecyclerViewAnimation;
+import com.connxun.elinetv.view.LiveBroadcast.Challenge.CardsFragment;
+
+import java.util.ArrayList;
+
+/**
+ * Created by Administrator on 2018\3\10 0010.
+ */
+
+/**
+ *挑战
+ */
+public class ChallengeFragment extends BaseFragment {
+    View view;
+    ArrayList<ChallengeTypeEntity> challengeTypeList;
+
+    RecyclerView glChallengeType;
+
+    ViewGroup vpSpecific; //提类型
+
+    CardsFragment cardsFragment;
+
+    ChallengeAdapter challengeAdapter;
+    FrameLayout frameCards;
+
+
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        view  = inflater.inflate(R.layout.layout_challenge_type,null);
+
+        initData();
+
+        intentView();
+
+        loadFragment();
+
+        setType();
+
+        return view;
+    }
+
+    private void setType() {
+        GridLayoutManager xLinearLayoutManager = new GridLayoutManager(getActivity(),2);
+        glChallengeType.setLayoutManager(xLinearLayoutManager);
+        challengeAdapter = new ChallengeAdapter(getActivity(),challengeTypeList);
+        glChallengeType.setAdapter(challengeAdapter);
+        RecyclerViewAnimation.runLayoutAnimation(glChallengeType);
+//        challengeAdapter.setOnItemClickListener(new ChallengeAdapter.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(View view, int position) {
+//                frameCards.setVisibility(View.VISIBLE);
+//                glChallengeType.setVisibility(View.GONE);
+//
+//            }
+//        });
+
+    }
+    /**
+     * 加载布局
+     */
+    private void loadFragment() {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        cardsFragment = new CardsFragment();
+        transaction.replace(R.id.layout_challenge_type_two_layout, cardsFragment);
+        transaction.commit();
+    }
+
+
+
+
+
+
+
+
+
+
+    private void intentView() {
+        glChallengeType = view.findViewById(R.id.layout_challenge_type_recy);
+//        vpSpecific = view.findViewById(R.id.layout_challenge_type_specific);
+        frameCards = view.findViewById(R.id.layout_challenge_type_two_layout);
+    }
+
+
+    public void initData(){
+        challengeTypeList = new ArrayList<>();
+        ChallengeTypeEntity sing = new ChallengeTypeEntity();
+        sing.setId(1);
+        sing.setName("唱歌");
+        sing.setText("展示天籁之音，做认证主播");
+        challengeTypeList.add(sing);
+
+        ChallengeTypeEntity rap = new ChallengeTypeEntity();
+        rap.setId(2);
+        rap.setName("Rap");
+        rap.setText("用嘻哈诉说你的故事");
+        challengeTypeList.add(rap);
+
+        ChallengeTypeEntity dance = new ChallengeTypeEntity();
+        dance.setId(3);
+        dance.setName("跳舞");
+        dance.setText("跳一跳，十年少");
+        challengeTypeList.add(dance);
+
+        ChallengeTypeEntity musics = new ChallengeTypeEntity();
+        musics.setId(4);
+        musics.setName("乐器");
+        musics.setText("多才多艺的你还在等什么");
+        challengeTypeList.add(musics);
+
+        ChallengeTypeEntity perform = new ChallengeTypeEntity();
+        perform.setId(5);
+        perform.setName("表演");
+        perform.setText("演绎你的人生");
+        challengeTypeList.add(perform);
+
+        ChallengeTypeEntity eloquence = new ChallengeTypeEntity();
+        eloquence.setId(6);
+        eloquence.setName("口才");
+        eloquence.setText("说话也是一门艺术");
+        challengeTypeList.add(eloquence);
+
+
+
+
+
+    }
+
+
+
+
+}

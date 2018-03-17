@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/view">
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:id="@+id/rl_setting_title"
+        android:layout_width="match_parent"
+        android:layout_height="47dp">
+        <RelativeLayout
+            android:id="@+id/rl_account_seccurity_finish"
+            android:layout_width="40dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="9dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/icon_left_finish"
+                android:layout_marginLeft="10dp"
+                />
+
+
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/tv_setting_title"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/setting_account_seccurity"
+            android:textColor="@color/find_title"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:textSize="18sp"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/view"
+            android:id="@+id/view" />
+    </RelativeLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_below="@+id/rl_setting_title"
+        android:layout_height="match_parent">
+        
+    
+    <LinearLayout
+        android:background="@color/view"
+        android:layout_below="@+id/rl_setting_title"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/rl_setting_lllegal_query"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_setting_lllegal_query"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setting_lllegal_query"
+                android:textColor="@color/find_msg"
+                android:layout_toRightOf="@+id/iv_find_news_img"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="12dp"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tv_setting_lllegal_query"
+                android:layout_alignStart="@+id/tv_setting_lllegal_query"
+                android:layout_below="@+id/tv_setting_lllegal_query"
+                android:text="@string/setting_lllegal_query_text"
+                android:textColor="@color/find_msg"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:layout_width="7dp"
+                android:layout_height="12dp"
+                android:background="@drawable/icon_right_arrow"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginRight="5dp"
+                android:layout_toRightOf="@+id/iv_find_news_img"
+                android:layout_alignParentBottom="true"
+                android:background="@color/view"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl_setting_forget_pwd"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_setting_forget_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setting_forget_pwd"
+                android:textColor="@color/find_msg"
+                android:layout_toRightOf="@+id/iv_find_news_img"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="12dp"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tv_setting_forget_pwd"
+                android:layout_alignStart="@+id/tv_setting_forget_pwd"
+                android:layout_below="@+id/tv_setting_forget_pwd"
+                android:text="@string/setting_forget_pwd_text"
+                android:textColor="@color/find_msg"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:layout_width="7dp"
+                android:layout_height="12dp"
+                android:background="@drawable/icon_right_arrow"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginRight="5dp"
+                android:layout_toRightOf="@+id/iv_find_news_img"
+                android:layout_alignParentBottom="true"
+                android:background="@color/view"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_setting_account_lifted"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_setting_account_lifted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setting_account_lifted"
+                android:textColor="@color/text_color_confirm"
+                android:layout_toRightOf="@+id/iv_find_news_img"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="12dp"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tv_setting_account_lifted"
+                android:layout_alignStart="@+id/tv_setting_account_lifted"
+                android:layout_below="@+id/tv_setting_account_lifted"
+                android:text="@string/setting_account_lifted_text"
+                android:textColor="@color/text_color_confirm"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:layout_width="7dp"
+                android:layout_height="12dp"
+                android:background="@drawable/icon_right_arrow"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginRight="5dp"
+                android:layout_toRightOf="@+id/iv_find_news_img"
+                android:layout_alignParentBottom="true"
+                android:background="@color/view"
+                />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
+
+</RelativeLayout>

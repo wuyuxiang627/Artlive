@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:background="@color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.connxun.elinetv.base.ui.NoScrollViewPager
+        android:id="@+id/vp_home_viewapger"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/view" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/rg_home_group"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/view"
+        android:id="@+id/view" />
+    <RadioGroup
+        android:id="@+id/rg_home_group"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        >
+        <RadioButton
+            android:id="@+id/rb_home_live_broadcast"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:text="直播"
+            android:drawableTop="@drawable/selector_home_live"
+            android:textColor="@color/radiobutton_home_page_color"
+            android:button="@null"
+            android:gravity="center"
+            android:textSize="13dp"
+            android:checked="true"
+            android:paddingTop="6dp"
+            />
+        <RadioButton
+            android:id="@+id/rb_home_video"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.1"
+            android:text="视频"
+            android:textColor="@color/radiobutton_home_page_color"
+            android:drawableTop="@drawable/selector_home_video"
+            android:button="@null"
+            android:gravity="center"
+            android:textSize="13dp"
+            android:paddingTop="6dp"
+            />
+        <RadioButton
+            android:id="@+id/rb_home_visbi"
+            android:layout_width="0dp"
+            android:visibility="invisible"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="小视频"
+            android:textColor="@color/radiobutton_home_page_color"
+            android:button="@null"
+            android:gravity="center"
+            android:paddingTop="6dp"
+            />
+        <RadioButton
+            android:id="@+id/rb_home_find"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:text="发现"
+            android:textColor="@color/radiobutton_home_page_color"
+            android:button="@null"
+            android:gravity="center"
+            android:drawableTop="@drawable/selector_home_find"
+            android:paddingTop="6dp"
+            />
+        <RadioButton
+            android:id="@+id/rb_home_mind"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:text="我的"
+            android:textColor="@color/radiobutton_home_page_color"
+            android:gravity="center"
+            android:button="@null"
+            android:paddingTop="6dp"
+            android:drawableTop="@drawable/selector_home_mind"
+
+            />
+    </RadioGroup>
+
+    <ImageButton
+        android:id="@+id/ib_home_start_live"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@+id/rg_home_group"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/icon_home_open_live" />
+
+</RelativeLayout>

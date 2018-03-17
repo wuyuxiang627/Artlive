@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.netease.vcloud.video.render.NeteaseView
+        android:id="@+id/video_editing"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         />
+
+    <include
+        android:id="@+id/il_video_edit_features"
+        layout="@layout/layout_video_editing_features" />
+    <include
+        android:id="@+id/il_video_edit_cover"
+        layout="@layout/layout_video_editing_cover"
+        android:visibility="gone"/>
+
+
+</RelativeLayout>

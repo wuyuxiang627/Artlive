@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="87dp">
+
+    <ImageView
+        android:id="@+id/iv_item_search_photo"
+        android:layout_width="59dp"
+        android:layout_height="59dp"
+        android:background="@drawable/iocn_login_logo"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/iv_item_search_recommend_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="百变女神文静"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:layout_alignTop="@+id/iv_item_search_photo"
+        android:layout_toRightOf="@+id/iv_item_search_photo"
+        android:layout_marginLeft="10dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="文静"
+        android:textSize="13sp"
+        android:textColor="@color/black"
+        android:layout_below="@+id/iv_item_search_recommend_name"
+        android:layout_alignLeft="@+id/iv_item_search_recommend_name"
+        android:layout_marginTop="12dp"
+        />
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="19dp"
+        android:background="@drawable/icon_phonetic"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/iv_item_search_recommend_name"
+        android:layout_marginRight="12dp"/>
+    <TextView
+        android:id="@+id/tv_item_search_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2.8万"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="11dp"
+        android:layout_marginBottom="11dp"
+        />
+
+    <ImageView
+        android:layout_width="11dp"
+        android:layout_height="13dp"
+        android:layout_marginRight="5dp"
+        android:layout_alignTop="@+id/tv_item_search_number"
+        android:layout_toLeftOf="@+id/tv_item_search_number"
+        android:background="@drawable/icon_searach_user"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/view"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/iv_item_search_recommend_name"/>
+
+</RelativeLayout>

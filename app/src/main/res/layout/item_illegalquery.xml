@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_setting_account_seccurity"
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="375dp"
+        android:layout_height="40dp">
+
+        <TextView
+            android:id="@+id/tv_cause"
+            android:layout_marginTop="14dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="艺线通行证：123456789"
+            android:textColor="#ff333333"
+            android:textSize="14dp"
+            android:layout_marginLeft="12dp"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#ffe8e8e8" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="375dp"
+        android:layout_height="40dp">
+
+        <TextView
+
+            android:layout_marginTop="14dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当前状态：正常"
+            android:textColor="#ff333333"
+            android:textSize="12dp"
+            android:layout_marginLeft="12dp"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#ffe8e8e8" />
+    </RelativeLayout>
+
+    <RelativeLayout
+
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="375dp"
+        android:layout_height="40dp">
+
+        <TextView
+            android:id="@+id/rl_illegalquery_createdate"
+            android:layout_marginTop="14dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="违规时间：2018-01-01 01:01"
+            android:layout_marginLeft="12dp"
+            android:textColor="#ff333333"
+            android:textSize="10dp"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#ffe8e8e8" />
+    </RelativeLayout>
+
+    <RelativeLayout
+
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="375dp"
+        android:layout_height="40dp">
+
+        <TextView
+            android:id="@+id/rl_illegalquery_cause"
+            android:layout_marginTop="14dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="违规原因：《艺线管理法则》第一条"
+            android:textColor="#ff333333"
+            android:textSize="12dp"
+            android:layout_marginLeft="12dp"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#ffe8e8e8" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="375dp"
+        android:layout_height="149dp">
+
+        <TextView
+            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="违规内容:"
+            android:textColor="#ff333333"
+            android:textSize="12dp"
+            android:layout_marginLeft="12dp"
+            />
+
+        <RelativeLayout
+            android:layout_marginTop="28dp"
+            android:layout_marginLeft="163dp"
+            android:id="@+id/rl_illegal_query"
+            android:background="?attr/selectableItemBackground"
+            android:layout_width="70dp"
+            android:layout_height="108dp">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="108dp"
+                android:src="@mipmap/ic_launcher"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="28dp"
+            android:layout_marginLeft="12dp"
+            android:background="?attr/selectableItemBackground"
+            android:layout_width="70dp"
+            android:layout_height="108dp">
+
+            <ImageView
+
+                android:layout_width="70dp"
+                android:layout_height="108dp"
+                android:src="@mipmap/ic_launcher"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="28dp"
+            android:layout_marginLeft="86dp"
+            android:background="?attr/selectableItemBackground"
+            android:layout_width="70dp"
+            android:layout_height="108dp">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="108dp"
+                android:src="@mipmap/ic_launcher"
+                />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

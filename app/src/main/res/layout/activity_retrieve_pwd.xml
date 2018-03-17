@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_retrieve_pwd_title"
+        android:layout_width="match_parent"
+        android:layout_height="47dp">
+        <RelativeLayout
+            android:id="@+id/rl_retrieve_pwd_finish"
+            android:layout_width="40dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="9dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/icon_left_finish"
+                android:layout_marginLeft="10dp"
+                />
+
+        </RelativeLayout>
+       <TextView
+           android:layout_centerVertical="true"
+           android:layout_centerHorizontal="true"
+           android:textColor="@color/find_title"
+           android:textSize="18sp"
+           android:text="@string/retrieve_pwd_title"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#ffe8e8e8"
+            />
+
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:text="@string/retrieve_pwd_user_account_number"
+        android:textSize="12sp"
+        android:layout_marginLeft="10dp"
+        />
+
+
+    <EditText
+        android:id="@+id/et_retrieve_pwd_phone"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:hint="@string/retrieve_pwd_user_account_number_hint"
+        android:textColorHint="@color/find_msg"
+
+        android:textSize="14sp"
+        android:inputType="number"
+        android:maxLength="11"
+        android:maxEms="11"
+        android:background="#F0F0F0"
+        android:paddingLeft="10dp"
+        android:textColor="@color/find_msg"
+        />
+    <Button
+        android:id="@+id/btn_retrieve_pwd_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:background="@drawable/btn_gray_twenty_one"
+        android:text="@string/retrieve_pwd_user_btn_next"
+        android:textSize="15sp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginRight="42dp"
+        android:layout_marginTop="33dp"
+        android:textColor="@color/text_color_confirm"/>
+
+
+</LinearLayout>

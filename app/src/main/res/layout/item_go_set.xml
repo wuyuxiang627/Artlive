@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    <LinearLayout
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_height="168dp"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="提示"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#232429"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/tv_out_text"
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请打开系统设置开启相机和录音权限"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#4d4d4d"
+            android:textSize="16sp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+<LinearLayout
+    android:layout_marginBottom="10dp"
+    android:layout_alignParentBottom="true"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/out_close"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:background="#e1e1e1"
+        android:text="取消"
+        android:textColor="#4d4d4d"
+        android:textSize="17sp"/>
+
+    <Button
+        android:id="@+id/go_set"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
+        android:background="@color/check_true"
+        android:text="设置"
+
+        android:textColor="#ffffff"
+        android:textSize="17sp" />
+</LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>

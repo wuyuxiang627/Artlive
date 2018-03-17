@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_about_us_title"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="47dp">
+        <RelativeLayout
+            android:id="@+id/rl_about_us_finish"
+            android:layout_width="40dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="9dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/icon_left_finish"
+                android:layout_marginLeft="10dp"
+                />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_about_us_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="11dp"
+            android:text="@string/setting_about_us"
+            android:textColor="@color/find_title"
+            android:textSize="18sp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#ffe8e8e8"
+            />
+
+    </RelativeLayout>
+
+
+    <ImageView
+        android:layout_width="@dimen/px_160"
+        android:layout_height="@dimen/px_160"
+        android:layout_below="@+id/rl_about_us_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/px_110"
+        android:background="@drawable/icon_connxun"
+        android:id="@+id/imageView3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/px_60"
+        android:text="版本号：V 1.0.0" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/px_60"
+        android:text="使用条款隐私政策使用条款隐私政策使用条款隐私政策"
+        android:id="@+id/textView4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/px_20"
+        android:text="使用条款和隐私政策" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>

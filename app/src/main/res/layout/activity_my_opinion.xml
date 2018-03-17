@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f5f5f5"
+    >
+    <RelativeLayout
+        android:id="@+id/rl_privilege_center_title"
+        android:layout_width="match_parent"
+        android:background="#ffffff"
+        android:layout_height="47dp">
+
+        <RelativeLayout
+            android:id="@+id/rl_opinion_finish"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
+
+            <ImageView
+                android:layout_width="9dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/icon_left_finish" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_login_set_pwd_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="11dp"
+            android:text="意见反馈"
+            android:textColor="@color/find_title"
+            android:textSize="18sp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#ffe8e8e8"
+            />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="反馈标题"
+        android:textColor="@color/actionsheet_gray"
+        android:textSize="15sp"
+        android:background="#f5f5f5"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:paddingLeft="12dp"
+        android:paddingTop="3dp"
+        android:background="#ffffff"
+        >
+        <EditText
+            android:id="@+id/opinion_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/actionsheet_gray"
+            android:textColorHint="@color/text_color_30"
+            android:textSize="15sp"
+            android:hint="请填写10个字以上的描述"
+            android:background="#ffffff"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0/100"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:paddingRight="10dp"
+            android:paddingBottom="6dp"
+            />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="图片（选填，提供举报截图）"
+        android:textColor="@color/actionsheet_gray"
+        android:textSize="15sp"
+        android:background="#f5f5f5"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        />
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:id="@+id/picList"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:background="#ffffff"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="联系电话"
+        android:textColor="@color/actionsheet_gray"
+        android:textSize="15sp"
+        android:background="#f5f5f5"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        />
+
+    <EditText
+        android:id="@+id/opinion_phone"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:textColor="@color/actionsheet_gray"
+        android:textColorHint="@color/text_color_30"
+        android:textSize="15sp"
+        android:hint="必填，便于我们与您联系"
+        android:background="#ffffff"
+        android:paddingLeft="10dp"
+        />
+    <Button
+        android:id="@+id/submit_opinion"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:background="@drawable/btn_orange_twenty_one"
+        android:layout_gravity="center_horizontal"
+        android:text="反馈"
+        android:textColor="#ffffff"
+        android:textSize="15sp"
+        android:layout_marginTop="36dp"
+        />
+</LinearLayout>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/rl_live_back"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_width="342dp"
+        android:background="@drawable/back_black"
+        android:layout_height="160dp">
+
+        <!--<ImageView-->
+        <!--android:id="@+id/iv_live_cover"-->
+        <!--android:background="@drawable/icon_live_cover"-->
+        <!--android:layout_margin="7dp"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:scaleType="fitXY"-->
+        <!--android:layout_height="100dp" />-->
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/iv_live_cover"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="7dp"
+            fresco:roundingBorderWidth="1dp"
+            fresco:placeholderImage="@drawable/icon_live_cover"
+            fresco:actualImageScaleType="fitCenter"
+            fresco:failureImage="@drawable/icon_live_cover"
+            fresco:failureImageScaleType="centerInside"
+            fresco:roundedCornerRadius="10dp"
+            fresco:roundTopLeft="true"
+            fresco:roundTopRight="true"
+            fresco:roundBottomLeft="false"
+            fresco:roundBottomRight="false"
+            />
+
+        <EditText
+            android:id="@+id/et_live_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@+id/iv_live_cover"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="7dp"
+            android:layout_toRightOf="@+id/iv_live_cover"
+            android:background="@null"
+            android:gravity="top"
+            android:padding="5dp"
+            android:hint="输入标题..."
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:background="@color/view"
+            android:layout_below="@id/iv_live_cover"/>
+
+        <ImageButton
+            android:id="@+id/ib_live_wechat_friend"
+            android:layout_width="21dp"
+            android:layout_height="18dp"
+            android:background="@drawable/icon_wechat"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="11dp"
+            />
+        <ImageButton
+            android:id="@+id/ib_live_webo"
+            android:layout_width="22dp"
+            android:layout_height="18dp"
+            android:background="@drawable/icon_weibo"
+            android:layout_toLeftOf="@+id/ib_live_wechat_friend"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="11dp"
+            />
+        <ImageButton
+            android:id="@+id/ib_live_wechat"
+            android:layout_width="21dp"
+            android:layout_height="18dp"
+            android:background="@drawable/icon_wechat_friend"
+            android:layout_toLeftOf="@+id/ib_live_webo"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="11dp"
+            />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="21dp"
+        android:layout_marginRight="13dp"
+        android:layout_above="@+id/rl_live_back"
+        android:layout_alignEnd="@+id/rl_live_back"
+        android:layout_alignRight="@+id/rl_live_back"
+        android:background="@drawable/icon_live_beauty"
+        android:id="@+id/iv_live_start_beauty" />
+
+    <TextView
+        android:id="@+id/tv_live_start_beauty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/iv_live_start_beauty"
+        android:layout_alignStart="@+id/iv_live_start_beauty"
+        android:layout_alignTop="@+id/iv_live_start_beauty"
+        android:layout_marginTop="20dp"
+        android:text="美颜"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+
+
+    <Button
+        android:id="@+id/btn_live_start_live"
+        android:text="开始直播"
+        android:textSize="15sp"
+        android:textColor="@color/find_title"
+        android:layout_width="279dp"
+        android:layout_height="36dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/back_white"
+        android:layout_below="@+id/rl_live_back"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginLeft="45dp"
+        />
+
+    <LinearLayout
+        android:layout_below="@+id/btn_live_start_live"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开播默认同意遵守：《艺线直播管理条例》| "
+            android:textSize="10sp"
+            android:textColor="@color/white"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="联系客服"
+            android:textSize="10sp"
+            android:textColor="@color/white"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

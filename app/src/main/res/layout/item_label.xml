@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="75dp"
+    android:layout_marginRight="10dp"
+    android:layout_height="24dp">
+
+    <TextView
+        android:id="@+id/btn_label_text"
+        android:background="@drawable/btn_orange_twenty_one"
+        android:layout_width="70dp"
+        android:textColor="@color/white"
+        android:textSize="11sp"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_height="20dp">
+    </TextView>
+
+        <ImageView
+            android:id="@+id/iv_label_finish"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginRight="3dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/icon_lable_finish" />
+
+</RelativeLayout>

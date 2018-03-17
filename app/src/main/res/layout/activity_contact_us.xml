@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/il_title"
+        layout="@layout/layout_title"/>
+
+    <LinearLayout
+        android:background="@color/view"
+        android:layout_below="@+id/il_title"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_195"
+            >
+            <View
+                android:id="@+id/view"
+                android:layout_width="@dimen/px_6"
+                android:layout_height="@dimen/px_30"
+                android:layout_marginTop="@dimen/px_20"
+                android:layout_marginLeft="@dimen/px_20"
+                android:background="@color/theme_color"
+                />
+
+
+
+            <TextView
+                android:id="@+id/tv_setting_lllegal_query"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="艺线客服"
+                android:textColor="@color/find_msg"
+                android:layout_toRightOf="@+id/view"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="@dimen/px_20"
+                android:textSize="14sp"
+                />
+
+            <TextView
+
+                android:id="@+id/tv_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/view"
+                android:layout_alignStart="@+id/view"
+                android:layout_below="@+id/tv_setting_lllegal_query"
+                android:text="电话：123456"
+                android:textColor="@color/find_msg"
+                android:layout_marginTop="@dimen/px_22"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/view"
+                android:layout_alignStart="@+id/view"
+                android:layout_below="@+id/tv_phone"
+                android:text="邮箱：123546@456.com"
+                android:textColor="@color/find_msg"
+                android:layout_marginTop="@dimen/px_11"
+                android:textSize="12sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/view"
+                android:layout_alignStart="@+id/view"
+                android:layout_below="@+id/tv_email"
+                android:text="客服频道ID：4569"
+                android:textColor="@color/find_msg"
+                android:layout_marginTop="@dimen/px_11"
+                android:textSize="12sp" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginRight="5dp"
+                android:layout_toRightOf="@+id/iv_find_news_img"
+                android:layout_alignParentBottom="true"
+                android:background="@color/view"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            >
+            <View
+                android:id="@+id/view_vip"
+                android:layout_width="@dimen/px_6"
+                android:layout_height="@dimen/px_30"
+                android:layout_marginTop="@dimen/px_20"
+                android:layout_marginLeft="@dimen/px_20"
+                android:background="@color/theme_color"
+                />
+
+
+
+            <TextView
+                android:id="@+id/tv_setting_lllegal_query_vip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VIP大客户联系"
+                android:textColor="@color/find_msg"
+                android:layout_toRightOf="@+id/view_vip"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="@dimen/px_20"
+                android:textSize="14sp"
+                />
+
+            <TextView
+
+                android:id="@+id/tv_phone_vip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/view_vip"
+                android:layout_alignStart="@+id/view_vip"
+                android:layout_below="@+id/tv_setting_lllegal_query_vip"
+                android:text="邮箱：123546@456.com"
+                android:textColor="@color/find_msg"
+                android:layout_marginTop="@dimen/px_15"
+                android:textSize="12sp" />
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginRight="5dp"
+                android:layout_toRightOf="@+id/iv_find_news_img"
+                android:layout_alignParentBottom="true"
+                android:background="@color/view"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            >
+            <View
+                android:id="@+id/view_vip_hezuo"
+                android:layout_width="@dimen/px_6"
+                android:layout_height="@dimen/px_30"
+                android:layout_marginTop="@dimen/px_20"
+                android:layout_marginLeft="@dimen/px_20"
+                android:background="@color/theme_color"
+                />
+
+
+
+            <TextView
+                android:id="@+id/tv_setting_lllegal_query_vip_hezuo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="金牌艺人线下演艺合作"
+                android:textColor="@color/find_msg"
+                android:layout_toRightOf="@+id/view_vip_hezuo"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="@dimen/px_20"
+                android:textSize="14sp"
+                />
+
+            <TextView
+
+                android:id="@+id/tv_phone_vip_hezuo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/view_vip_hezuo"
+                android:layout_alignStart="@+id/view_vip_hezuo"
+                android:layout_below="@+id/tv_setting_lllegal_query_vip_hezuo"
+                android:text="邮箱：123546@456.com"
+                android:textColor="@color/find_msg"
+                android:layout_marginTop="@dimen/px_15"
+                android:textSize="12sp" />
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginRight="5dp"
+                android:layout_toRightOf="@+id/iv_find_news_img"
+                android:layout_alignParentBottom="true"
+                android:background="@color/view"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+
+
+
+</RelativeLayout>

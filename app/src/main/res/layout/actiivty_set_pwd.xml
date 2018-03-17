@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_login_set_pwd_title"
+        android:layout_width="match_parent"
+        android:layout_height="47dp">
+        <RelativeLayout
+            android:id="@+id/rl_phone_login_finish"
+            android:layout_width="40dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="9dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/icon_left_finish"
+                android:layout_marginLeft="10dp"
+                />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_login_set_pwd_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="11dp"
+            android:text="@string/set_Pwd_title"
+            android:textColor="@color/find_title"
+            android:textSize="18sp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#ffe8e8e8"
+            />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_login_set_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="32dp">
+
+        <EditText
+            android:id="@+id/et_login_set_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_toLeftOf="@+id/tv_login_phone_verifi_code"
+            android:layout_toStartOf="@+id/tv_login_phone_verifi_code"
+            android:hint="@string/set_pwd_text"
+            android:password="true"
+            android:maxEms="20"
+            android:maxLength="20"
+            android:paddingLeft="10dp"
+            android:background="@null"
+            android:textColor="@color/find_msg"
+            android:textColorHint="@color/find_msg"
+            android:textSize="14sp" />
+
+
+       <ImageView
+           android:layout_width="17dp"
+           android:layout_height="16dp"
+           android:layout_alignParentRight="true"
+           android:layout_centerVertical="true"
+           android:layout_marginRight="11dp"
+           android:background="@drawable/icon_set_pwd_look"/>
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_login_set_pwd_two"
+        android:layout_width="match_parent"
+        android:layout_height="33dp">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ffe8e8e8"
+            />
+        <EditText
+            android:id="@+id/et_login_set_pwd_two"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_toLeftOf="@+id/tv_login_phone_verifi_code"
+            android:layout_toStartOf="@+id/tv_login_phone_verifi_code"
+            android:hint="@string/set_pwd_text_next"
+            android:password="true"
+            android:maxEms="20"
+            android:maxLength="20"
+            android:paddingLeft="10dp"
+            android:background="@null"
+            android:textColor="@color/find_msg"
+            android:textColorHint="@color/find_msg"
+            android:textSize="14sp" />
+
+
+        <ImageView
+            android:layout_width="17dp"
+            android:layout_height="16dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="11dp"
+            android:background="@drawable/icon_set_pwd_look"/>
+
+
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ffe8e8e8"
+        />
+    
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/icon_yuandian"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/set_pwd_text_one"
+            android:textSize="10sp"
+            android:layout_marginLeft="3dp"
+            android:textColor="@color/text_color_confirm"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/icon_yuandian"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/set_pwd_text_two"
+            android:textSize="10sp"
+            android:layout_marginLeft="3dp"
+            android:textColor="@color/text_color_confirm"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/icon_yuandian"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/set_pwd_text_three"
+            android:textSize="10sp"
+            android:layout_marginLeft="3dp"
+            android:textColor="@color/text_color_confirm"
+            />
+
+    </LinearLayout>
+    
+    <Button
+        android:id="@+id/btn_login_set_pwd_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:background="@drawable/btn_gray_twenty_one"
+        android:text="@string/confirm"
+        android:textSize="15sp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginRight="42dp"
+        android:layout_marginTop="33dp"
+        android:textColor="@color/text_color_confirm"/>
+    
+
+
+
+
+</LinearLayout>

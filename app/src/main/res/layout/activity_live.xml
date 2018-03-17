@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+    <com.netease.vcloud.video.render.NeteaseView
+        android:id="@+id/live_videoview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"/>
+    <com.netease.vcloud.video.render.NeteaseView
+        android:id="@+id/live_videovie_heng"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"/>
+
+    <Button
+        android:id="@+id/btn_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="测试心跳"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        />
+
+
+    <ImageView
+        android:visibility="invisible"
+        android:id="@+id/live_start_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/restart"
+        android:layout_margin="20dp"
+        android:layout_alignParentBottom="true"
+        />
+
+    <ImageView
+        android:visibility="invisible"
+        android:id="@+id/live_camera_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/live_capture_btn"
+        android:layout_alignEnd="@+id/live_capture_btn"
+        android:layout_alignRight="@+id/live_capture_btn"
+        android:layout_marginEnd="53dp"
+        android:layout_marginRight="53dp"
+        android:src="@drawable/camera" />
+
+    <ImageView
+        android:visibility="invisible"
+        android:id="@+id/live_capture_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/capture"/>
+
+    <ImageView
+        android:visibility="invisible"
+        android:id="@+id/live_flash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/live_capture_btn"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="11dp"
+        android:layout_toLeftOf="@+id/live_camera_btn"
+        android:layout_toStartOf="@+id/live_camera_btn"
+        android:src="@drawable/flashstart" />
+    <!--<SeekBar-->
+        <!--android:id="@+id/live_filter_seekbar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:thumb="@drawable/circle"-->
+        <!--android:max="100"-->
+        <!--android:visibility="gone"-->
+        <!--android:layout_margin="5dp"-->
+        <!--/>-->
+
+    <include
+        android:id="@+id/il_start"
+        layout="@layout/layout_live_preview"/>
+
+    <include
+        android:id="@+id/il_beauty"
+        android:visibility="gone"
+        layout="@layout/layout_beauty"/>
+    <LinearLayout
+        android:id="@+id/llgiftcontent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_liaotianshi"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="40dp"
+        android:animateLayoutChanges="true"
+        android:gravity="top"
+        android:orientation="vertical" />
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:id="@+id/ll_liaotianshi"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:visibility="gone"
+        android:background="#80000000">
+
+    </LinearLayout>
+
+
+    <include
+        android:id="@+id/il_setting"
+        android:visibility="gone"
+        layout="@layout/layout_mediapreview" />
+
+    <FrameLayout
+        android:id="@+id/layou"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/layout_live_music"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+
+
+
+
+</RelativeLayout>

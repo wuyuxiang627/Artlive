@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.netease.vcloud.video.render.NeteaseView
+        android:id="@+id/live_videoview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"/>
+    <com.netease.vcloud.video.render.NeteaseView
+        android:id="@+id/live_videovie_heng"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"/>
+
+
+
+    <!--自由播-->
+    <FrameLayout
+        android:id="@+id/layout_fragment_live"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/px_63"
+        android:layout_width="match_parent"
+        android:layout_height="20dp">
+        <ImageView
+            android:id="@+id/iv_live_address"
+            android:layout_width="18dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/icon_live_address"
+            />
+        <TextView
+            android:id="@+id/tv_live_address"
+            android:layout_toRightOf="@+id/iv_live_address"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:text="北京市"
+            android:textColor="@color/check_false"
+            android:layout_marginLeft="5dp"
+            />
+
+        <ImageView
+            android:id="@+id/iv_live_finish"
+            android:layout_width="19dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="9dp"
+            android:background="@drawable/icon_finish_test"
+            />
+
+        <ImageView
+            android:id="@+id/iv_live_camera_conversion"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="15dp"
+            android:layout_toLeftOf="@+id/iv_live_finish"
+            android:background="@drawable/icon_live_camera_conversion" />
+
+        <ImageView
+            android:id="@+id/iv_live_window"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_alignTop="@+id/iv_live_finish"
+            android:layout_marginEnd="14dp"
+            android:layout_marginRight="14dp"
+            android:layout_toLeftOf="@+id/iv_live_camera_conversion"
+            android:layout_toStartOf="@+id/iv_live_camera_conversion"
+            android:background="@drawable/icon_live_window" />
+    </RelativeLayout>
+
+
+
+    <!--挑战-->
+    <FrameLayout
+        android:id="@+id/layout_fragment_challenge"
+        android:layout_width="match_parent"
+        android:visibility="invisible"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/px_18"
+        >
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/view3" />
+
+        <RelativeLayout
+            android:id="@+id/rl_push_flow_live"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="15dp"
+            android:layout_toStartOf="@+id/view3">
+
+            <TextView
+                android:id="@+id/tv_push_flow_live"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/check_true"
+                android:text="自由播" />
+            <View
+                android:id="@+id/view_push_flow_live"
+                android:layout_width="30dp"
+                android:layout_height="5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="@color/check_true"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_push_flow_challenge"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/view3">
+
+            <TextView
+                android:id="@+id/tv_push_flow_challenge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="挑战" />
+            <View
+                android:id="@+id/view_push_flow_challenge"
+                android:layout_width="30dp"
+                android:layout_height="5dp"
+                android:visibility="invisible"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="@color/check_true"/>
+
+        </RelativeLayout>
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>

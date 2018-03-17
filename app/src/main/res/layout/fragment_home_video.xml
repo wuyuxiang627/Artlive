@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/rl_video_title"
+        android:layout_width="match_parent"
+        android:layout_height="47dp">
+
+        <ImageView
+            android:id="@+id/iv_video_title_search"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:background="@drawable/icon_search"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            />
+
+        <ImageView
+            android:id="@+id/iv_video_shoot"
+            android:layout_width="24dp"
+            android:layout_height="22dp"
+            android:background="@drawable/icon_short"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            />
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tl_video_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="1dp"
+
+
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_below="@+id/view2"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/check_true"
+            app:tabMode="fixed"
+            app:tabTextAppearance="@style/TabLayoutTextStyle" />
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_video_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_video_title" />
+
+</RelativeLayout>

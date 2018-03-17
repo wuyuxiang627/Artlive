@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_setting_title"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:id="@+id/rl_illegal_query"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="9dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/icon_left_finish" />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_setting_title"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/setting_illegal_query"
+            android:textColor="@color/find_title"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/view" />
+    </RelativeLayout>
+
+
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:id="@+id/rlv_illegalquery"
+        android:layout_width="match_parent"
+        android:layout_height="314dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffe8e8e8">
+
+        <Button
+            android:id="@+id/btn_illegalquery_complaint"
+            android:layout_width="209dp"
+            android:layout_height="26dp"
+            android:layout_marginBottom="100dp"
+            android:layout_marginLeft="81dp"
+            android:layout_marginTop="54dp"
+            android:background="@drawable/btn_complaint_black"
+            android:text="我要申诉"
+            android:textColor="#ffff" />
+
+    </RelativeLayout>
+
+</LinearLayout>

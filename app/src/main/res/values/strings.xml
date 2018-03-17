@@ -1,0 +1,152 @@
+<resources>
+    <string name="app_name">艺线</string>
+    <string name="security_center_text">艺线安全中心-修改密码</string>
+    <string name="underline">-</string>
+
+    <string name="confirm">确定</string>
+
+    <string name="notifyTitle">提示</string>
+    <string name="notifyMsg">当前应用缺少必要权限。\n\n请点击\"设置\"-\"权限\"-打开所需权限。</string>
+    <string name="setting">设置</string>
+    <string name="cancel">取消</string>
+
+
+    <!--登录-->
+    <string name="login">登录</string>
+    <string name="login_phone">艺线账号/手机号码</string>
+    <string name="login_pwd">密码</string>
+    <string name="login_no_login">无法登录?</string>
+    <string name="login_feedback">意见反馈</string>
+    <string name="login_three">其他登录方式</string>
+    <string name="login_register">立即注册</string>
+    <string name="phone_login_title">手机号登录</string>
+    <string name="set_Pwd_title">设置密码</string>
+    <string name="my_follow_title">我的关注</string>
+    <string name="my_fances_title">我的粉丝</string>
+    <string name="my_information_title">我的资料</string>
+    <string name="my_video_title">我的视频</string>
+    <string name="my_editing_title">编辑资料</string>
+    <string name="phone_login_phone">请输入您的手机号</string>
+    <string name="phone_login_verifi_code">请输入手机验证码</string>
+    <string name="phone_login_get_verifi_code">获取验证码</string>
+    <string name="phone_login_text">温馨提示：未注册过艺线直播账号的手机号，我们将自动帮您 注册账号，且代表您已同意</string>
+    <string name="set_pwd_text">请设置您的登录密码</string>
+    <string name="set_pwd_text_next">请再次输入密码</string>
+    <string name="set_pwd_text_one">密码为8-20个字符（纯数字组合不得少于9位）</string>
+    <string name="set_pwd_text_two">可有英文字母、数字、符号组成</string>
+    <string name="set_pwd_text_three">英文字母区分大小写</string>
+
+    <!--找回密码-->
+    <string name="retrieve_pwd_title">艺线安全中心-找回密码</string>
+    <string name="retrieve_pwd_user_account_number_hint">账号/邮箱/手机号/艺线号</string>
+    <string name="retrieve_pwd_user_account_number">请输入忘记密码的账号</string>
+    <string name="retrieve_pwd_user_btn_next">下一步</string>
+    <string name="retrieve_pwd">找回密码</string>
+
+
+    <!--直播-->
+    <string name="live_title_null">请填写直播间名称</string>
+
+    <!--我的聊天-->
+    <string name="my_chat_title">我的聊天</string>
+
+
+    <!--设置-->
+    <string name="setting_title">设置</string>
+    <string name="setting_account_seccurity">账号与安全</string>
+    <string name="setting_illegal_query">违规查询</string>
+    <string name="setting_illegal_complaint">申诉</string>
+    <string name="setting_complaint_submit">申诉提交</string>
+    <string name="setting_sweep">扫一扫</string>
+    <string name="setting_clear_cache">清除缓存</string>
+    <string name="setting_about_us">关于艺线</string>
+    <string name="setting_contact">联系我们</string>
+    <string name="setting_privacy">隐私</string>
+    <string name="setting_rate_me">为我评分</string>
+    <string name="setting_message_setting">消息设置</string>
+    <string name="setting_black_list">黑名单</string>
+    <string name="setting_start_channel_setting">开播频道设置</string>
+    <string name="setting_even_wheat_permi_setting">连麦权限设置</string>
+    <string name="setting_sound">自动声音调节</string>
+    <string name="setting_user_out">退出并更换账号</string>
+    <string name="setting_lllegal_query">违规查询</string>
+    <string name="setting_lllegal_query_text">被处罚，限制，在这查询！</string>
+    <string name="setting_forget_pwd">忘记密码</string>
+    <string name="setting_forget_pwd_text">忘记密码，从这找回！</string>
+    <string name="setting_account_lifted">账号解禁</string>
+    <string name="setting_account_lifted_text">请登录艺线官方网站进行申诉</string>
+
+    <!--搜索-->
+    <string name="search_edit_text">艺线直播</string>
+    <string name="search_popular">热门搜索</string>
+    <string name="search_we_us">大家都在看</string>
+
+    <!--美颜-->
+    <string name="beauty_whitening">美白</string>
+    <string name="beauty_face_lift">瘦脸</string>
+
+    <!--直播间-->
+    <string name="media_preview_number">直播间号:</string>
+
+    <!--短视频-->
+    <string name="video_short_features_expression">表情</string>
+    <string name="video_short_features_beauty">美颜</string>
+    <string name="video_short_features_music">配乐</string>
+    <string name="video_short_features_very_slow">极慢</string>
+    <string name="video_short_features_slow">慢</string>
+    <string name="video_short_features_standard">标准</string>
+    <string name="video_short_features_fast">快</string>
+    <string name="video_short_features_very_fast">极快</string>
+    <string name="video_short_features_start">开始</string>
+    <string name="video_short_features_stop">暂停</string>
+    <string name="video_short_features_soundtrack_title">歌曲名</string>
+    <string name="video_short_features_soundtrack_author">演唱者:</string>
+    <string name="video_short_features_soundtrack_ok">确认使用</string>
+    <string name="video_editing_features_tuning">调音</string>
+    <string name="video_editing_features_sticker">贴纸</string>
+    <string name="video_editing_features_special_effects">特效</string>
+    <string name="video_editing_features_change_cover">更换封面</string>
+    <string name="video_editing_features_hint_title">标题</string>
+    <string name="video_editing_features_save_local">保存到本地</string>
+    <string name="video_editing_features_save_draft">存草稿</string>
+    <string name="video_editing_features_release">发布</string>
+    <string name="video_editing_parameter">请设置视频封面或填写视频标题</string>
+    <string name="video_editing_parameter_cover">请设置视频封面</string>
+
+
+    <string name="net_work_error">上传失败</string>
+
+
+    <!--我的-->
+    <!--我的钱包-->
+    <string name="my_mpurse">我的钱包</string>
+    <string name="available_gold">可用金币 : </string>
+    <string name="my_mpurse_gold">金币</string>
+    <string name="my_mpurse_buy">购买</string>
+    <string name="my_mpurse_Bills">账单</string>
+    <string name="withdraw">提现</string>
+    <string name="withdraw_record">提现记录</string>
+    <string name="withdraw_gold">可提艺币 : </string>
+    <string name="withdraw_money">提现金额 : </string>
+    <string name="withdraw_ali_number">支付宝账号 : </string>
+    <string name="withdraw_ali_number_hint">请输入支付宝账号</string>
+    <string name="withdraw_user_name">收款人姓名 : </string>
+    <string name="withdraw_user_name_hint">请输入收款人姓名</string>
+    <string name="withdraw_phone">手机号 : </string>
+    <string name="withdraw_phone_hint">请输入手机号</string>
+    <string name="withdraw_ed_ali_number">请输入支付宝账号</string>
+    <string name="withdraw_ed_user_name">请输入收款人姓名</string>
+    <string name="withdraw_ed_phone">请输入手机号</string>
+    <string name="withdraw_apply">申请提现</string>
+    <string name="whitdraw_guize">1.每次提现扣除10%的提现手续费 \n\n2.账户满100元方可提现 \n\n3.工作日当天提现24小时之内到账，法定节假日顺延 \n\n4.如有问题请联系官方客服</string>
+
+
+    <!--相关-->
+    <string name="permission_ok">授权成功</string>
+    <string name="permission_error">未全部授权，部分功能可能无法正常运行！</string>
+    <string name="give_up_video">是否放弃录制的视频</string>
+    <string name="give_up_ok">是</string>
+    <string name="give_up_no">否</string>
+
+
+</resources>

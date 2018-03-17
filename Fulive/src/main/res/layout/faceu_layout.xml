@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/face_u_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_faceu_finiish"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/effect_beauty_select"></RelativeLayout>
+
+    <!--start of effect beauty select-->
+    <FrameLayout
+        android:id="@+id/effect_beauty_select"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:layout_height="wrap_content">
+        <!--effect select-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/effect_recycle_view"
+            android:layout_width="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:layout_height="wrap_content" />
+
+    </FrameLayout> <!--end of effect select-->
+</RelativeLayout>

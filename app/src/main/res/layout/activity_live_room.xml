@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_live_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--&lt;!&ndash;Fragment容器 用于展示聊天列表与聊天输入框&ndash;&gt;-->
+
+
+    <!--Fragment容器 用于展示视频采集或播放Fragment-->
+    <FrameLayout
+        android:id="@+id/layout_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+
+    <!--Fragment容器 用于展示顶部房间信息,与控制按钮-->
+    <FrameLayout
+        android:id="@+id/layout_room_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        >
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/layout_chat_room"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_alignParentBottom="true"
+        >
+        <fragment
+            android:name="com.connxun.elinetv.IM.fragment.ChatRoomMessageFragment"
+            android:id="@+id/chat_room_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </fragment>
+    </FrameLayout>
+
+    <android.support.v4.view.ViewPager
+        android:visibility="gone"
+        android:id="@+id/vp_video_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <ImageView
+        android:id="@+id/iv_gift"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/icon_media_gift"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="14dp"
+        android:layout_marginBottom="19dp"/>
+
+
+    <RelativeLayout
+        android:id="@+id/ll_liwu"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/liwu_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/ll_dot"
+            android:background="#80000000" />
+
+        <LinearLayout
+            android:id="@+id/ll_dot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="invisible"
+            android:layout_above="@+id/relativeLayout2"
+            android:orientation="horizontal" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/relativeLayout2">
+
+            <Button
+                android:id="@+id/btn_gift_send"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="2dp"
+                android:text="赠送"
+                android:background="@drawable/btn_orange_twenty_one"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginRight="1dp"
+                android:layout_toStartOf="@+id/textView2"
+                android:text="数量: " />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/btn_orange_shape_no_solid"
+                android:gravity="center_vertical"
+                android:layout_marginRight="5dp"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_toStartOf="@+id/btn_gift_send"
+                android:text=" 1 "
+                android:textSize="10sp"
+                android:id="@+id/textView2" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="账户余额: "
+                android:gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:textSize="11sp"
+                android:id="@+id/textView3" />
+
+            <TextView
+                android:id="@+id/tv_gift_user_money"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/textView3"
+                android:gravity="center_vertical"
+                android:text=" 0 金币"
+                android:textColor="@color/theme_color"
+                android:textSize="11sp" />
+
+
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+
+    <com.connxun.elinetv.base.ui.BubbleView
+        android:id="@+id/bv_bubbleView"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true" />
+
+
+</RelativeLayout>

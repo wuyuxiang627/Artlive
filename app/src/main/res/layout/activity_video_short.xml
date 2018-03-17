@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.netease.vcloud.video.render.NeteaseView
+        android:id="@+id/camerasurfaceview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        />
+    <!-- faceu 布局 -->
+    <include
+        android:id="@+id/faceu_layout"
+        layout="@layout/faceu_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        />
+    <include
+        android:id="@+id/il_layout_video_short_features"
+        layout="@layout/layout_video_short_features"/>
+
+    <include
+        android:id="@+id/il_beauty"
+        android:visibility="gone"
+        layout="@layout/layout_beauty"/>
+
+
+
+</RelativeLayout>

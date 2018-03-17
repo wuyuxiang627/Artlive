@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--颜色透明度-->
+    <!--
+    透明度	对应十六进制
+    100%	ff
+    90%	e6
+    85%	d9
+    80%	cc
+    70%	b3
+    60%	99
+    50%	80
+    40%	66
+    30%	4d
+    20%	33
+    15%	26
+    10%	1a
+    5%	0d
+    0%	00-->
+
+
+    <color name="beauty_selected_tip_color">#ff6157</color>
+    <color name="color_9d9d9d">#9d9d9d</color>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="actionsheet_blue">#2298EF</color>
+    <color name="actionsheet_gray">#808080</color>
+    
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="title_color">#f7f7f7</color>
+
+    <color name="actionbar_sel_color">#1c1c1c</color>
+    <color name="title_grey">#CED9E7</color>
+
+    <color name="green">#008000</color>
+
+    <color name="group_small_text_color">#ABAABF</color>
+
+    <color name="menu_item_click_color">#346fc3</color>
+    
+    <!---->
+    <color name="theme_color">#ff7602</color> //主题颜色
+    
+    <!--首页字体颜色-->
+    <color name="check_true">#ff7602</color>
+    <color name="check_false">#a2a2a3</color>
+    <color name="find_title">#333333</color>
+    <color name="find_msg">#666666</color>
+
+    <!--首页分割线颜色-->
+    <color name="view">#E8E8E8</color>
+
+    <!--背景分割-->
+    <color name="back_division">#f2f2f2</color>
+    <color name="text_color_70">#b3000000</color>
+    <color name="text_color_30">#4d000000</color>
+    <color name="back_transparent">#00000000</color>
+
+    <color name="text_no_login">#57A5F0</color>
+    <color name="text_three_login">#ACACAC</color>
+    <color name="text_color_confirm">#999999</color>
+    <color name="view_height">#a6a6a6</color>
+
+    <color name="color_4B4B4B">#4B4B4B</color>
+    <color name="beauty_525254">#525254</color>
+
+
+    
+    
+    
+    
+
+</resources>

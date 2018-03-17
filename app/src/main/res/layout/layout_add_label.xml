@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/px_18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="主播印象"
+        android:textSize="14sp"
+        android:id="@+id/iv_user_photo_live" />
+
+    <ImageButton
+        android:id="@+id/ib_label_finish"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:layout_alignTop="@+id/iv_user_photo_live"
+        android:background="@drawable/icon_finish_black" />
+
+    <TextView
+        android:id="@+id/tv_btn_label_send"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_alignTop="@+id/iv_user_photo_live"
+        android:text="完成" />
+
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/ib_label_finish"
+        android:layout_below="@+id/iv_user_photo_live"
+        android:layout_marginTop="16dp"
+        android:text="选择对TA的印象" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rlv_label_list"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignStart="@+id/tv_title"
+        android:layout_below="@+id/tv_title"/>
+
+    <Button
+        android:id="@+id/btn_user_info_label_change"
+        android:layout_width="55dp"
+        android:layout_height="20dp"
+        android:layout_alignStart="@+id/rlv_label_list"
+        android:layout_below="@+id/rlv_label_list"
+        android:background="@drawable/btn_orange_shape_no_solid_two"
+        android:gravity="center"
+        android:text="换一批"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/theme_color"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/tv_title_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_alignStart="@+id/rlv_label_list"
+        android:layout_below="@+id/btn_user_info_label_change"
+        android:text="选择对TA的印象" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rlv_label_list_my"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignStart="@+id/tv_title"
+        android:layout_below="@+id/tv_title_title"/>
+
+
+
+
+
+</RelativeLayout>

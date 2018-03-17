@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:fresco="http://schemas.android.com/tools"
+    android:paddingLeft="10dp">
+
+    <RelativeLayout
+        android:id="@+id/rlparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_radius_top_black"
+        >
+
+        <LinearLayout
+            android:id="@+id/ll_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingBottom="5dp"
+            android:paddingLeft="50dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp">
+
+            <TextView
+                android:id="@+id/tv_gift_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Johnny"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_gift_send_gift_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Android工程师"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!--<com.facebook.drawee.view.SimpleDraweeView-->
+            <!--android:id="@+id/crvheadimage"-->
+            <!--android:layout_width="45dp"-->
+            <!--android:layout_height="45dp"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--fresco:placeholderImage="@drawable/iocn_login_logo"-->
+            <!--fresco:actualImageScaleType="fitCenter"-->
+            <!--fresco:failureImage="@drawable/iocn_login_logo"-->
+            <!--fresco:failureImageScaleType="centerInside"-->
+            <!--fresco:roundedCornerRadius="10dp"-->
+            <!--fresco:roundTopLeft="true"-->
+            <!--fresco:roundTopRight="true"-->
+            <!--fresco:roundBottomLeft="false"-->
+            <!--fresco:roundBottomRight="false"-->
+            <!--fresco:roundAsCircle="true"-->
+             <!--/>-->
+
+        <!--<com.facebook.drawee.view.SimpleDraweeView-->
+            <!--android:id="@+id/crvheadimage"-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--fresco:placeholderImage="@drawable/iocn_login_logo"-->
+            <!--fresco:actualImageScaleType="fitCenter"-->
+            <!--fresco:failureImage="@drawable/iocn_login_logo"-->
+            <!--fresco:failureImageScaleType="centerInside"-->
+            <!--fresco:roundedCornerRadius="10dp"-->
+            <!--fresco:roundTopLeft="true"-->
+            <!--fresco:roundTopRight="true"-->
+            <!--fresco:roundBottomLeft="false"-->
+            <!--fresco:roundBottomRight="false"-->
+            <!--fresco:roundAsCircle="true"-->
+            <!--/>-->
+
+        <com.connxun.elinetv.base.ui.CustomRoundView
+            android:id="@+id/crvheadimage"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+
+            android:src="@drawable/iocn_login_logo" />
+
+
+    </RelativeLayout>
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/ivgift"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_toRightOf="@+id/rlparent"
+        android:src="@drawable/icon_testtest"
+        fresco:placeholderImage="@drawable/icon_testtest"
+        fresco:actualImageScaleType="fitCenter"
+        fresco:failureImage="@drawable/icon_testtest"
+        fresco:failureImageScaleType="centerInside"/>
+
+    <com.connxun.elinetv.base.ui.MagicTextView
+        android:id="@+id/giftNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/ivgift"
+        android:includeFontPadding="false"
+        android:text="x1"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:strokeColor="@android:color/white"
+        app:strokeJoinStyle="miter"
+        app:strokeWidth="3" />
+
+</RelativeLayout>

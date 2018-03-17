@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/rl_editor__return"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="?attr/selectableItemBackground">
+
+        <RelativeLayout
+            android:id="@+id/rl_my_editor_return"
+            android:layout_width="40dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_editor_return"
+                android:layout_width="10dp"
+                android:layout_height="17dp"
+                android:layout_marginBottom="616dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/icon_left_finish" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="152dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/my_editing_title"
+            android:textColor="@color/find_title"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#ffe8e8e8" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_editor_setting"
+        android:layout_width="match_parent"
+        android:background="?attr/selectableItemBackground"
+        android:layout_height="60dp">
+
+        <!--<com.facebook.drawee.view.SimpleDraweeView-->
+            <!--android:id="@+id/iv_item_edit_cover"-->
+            <!--android:layout_width="40dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_marginLeft="11dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--fresco:placeholderImage="@drawable/icon_test_user_photo"-->
+            <!--fresco:actualImageScaleType="fitCenter"-->
+            <!--fresco:failureImage="@drawable/icon_test_user_photo"-->
+            <!--fresco:failureImageScaleType="centerInside"-->
+            <!--fresco:roundedCornerRadius="10dp"-->
+            <!--fresco:roundTopLeft="true"-->
+            <!--fresco:roundTopRight="true"-->
+            <!--fresco:roundBottomLeft="false"-->
+            <!--fresco:roundBottomRight="false"-->
+            <!--fresco:roundAsCircle="true"/>-->
+
+
+        <com.connxun.elinetv.base.ui.CustomRoundView
+            android:id="@+id/iv_item_edit_cover"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/iocn_login_logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="20dp"
+            android:text="修改头像" />
+
+        <ImageView
+            android:layout_width="7dp"
+            android:layout_height="12dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="13dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/icon_right_arrow" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:background="@color/view" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_editor_setting_name"
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="9dp"
+            android:text="昵称"
+            android:textColor="#ff000000"
+            android:textSize="12dp" />
+
+        <EditText
+            android:id="@+id/tv_editing_nick_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="70dp"
+            android:background="@null"
+            android:textCursorDrawable="@null"
+            android:hint="填写您的昵称"
+            android:textColor="#ff000000"
+            android:textColorHint="@color/check_false"
+            android:textSize="14dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:background="@color/view" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_editor_sex"
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="15dp"
+            android:text="性别"
+            android:textColor="#ff000000"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/tv_editing_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="15dp"
+            android:text="女"
+            android:textColor="#ff000000"
+            android:textSize="14dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:background="@color/view" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_editor_birthday"
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="15dp"
+            android:text="生日"
+            android:textColor="#ff000000"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/tv_editing_birthday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="15dp"
+            android:text="2000年01月01日"
+            android:textColor="#ff000000"
+            android:textSize="14dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:background="@color/view" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_editor_hometown"
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="15dp"
+            android:text="位置"
+            android:textColor="#ff000000"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/tv_editing_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="15dp"
+            android:text="添加你的家乡"
+            android:background="@null"
+            android:textColor="#ff000000"
+            android:textSize="14dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:background="@color/view" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_editor_personal"
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="15dp"
+            android:text="个人说明"
+            android:textColor="#ff000000"
+            android:textSize="12dp" />
+
+        <EditText
+            android:id="@+id/tv_personal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:textCursorDrawable="@null"
+            android:maxLength="16"
+            android:layout_marginLeft="70dp"
+            android:hint="编辑你的个人说明吧"
+            android:textColor="#ff000000"
+            android:textColorHint="@color/check_false"
+            android:textSize="14dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:background="@color/view" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_editor_liveid"
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="15dp"
+            android:text="直播间号"
+            android:textColor="#ff000000"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/tv_live_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="15dp"
+            android:text="123456"
+            android:textColor="#ff000000"
+            android:textSize="14dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:background="@color/view" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_editor_yixianid"
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="15dp"
+            android:text="艺线ID号"
+            android:textColor="#ff000000"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/tv_editing_userNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="15dp"
+            android:text="567894"
+            android:textColor="#ff000000"
+            android:textSize="14dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:background="@color/view" />
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>
+
+
+

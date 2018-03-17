@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    >
+
+    <!--<com.facebook.drawee.view.SimpleDraweeView-->
+        <!--android:id="@+id/iv_item_personnel_user_photo"-->
+        <!--android:layout_width="34dp"-->
+        <!--android:layout_height="34dp"-->
+        <!--android:layout_marginLeft="5dp"-->
+        <!--fresco:placeholderImage="@drawable/icon_test_user_photo"-->
+        <!--fresco:actualImageScaleType="fitCenter"-->
+        <!--fresco:failureImage="@drawable/icon_test_user_photo"-->
+        <!--fresco:failureImageScaleType="centerInside"-->
+        <!--fresco:roundedCornerRadius="10dp"-->
+        <!--fresco:roundTopLeft="true"-->
+        <!--fresco:roundTopRight="true"-->
+        <!--fresco:roundBottomLeft="false"-->
+        <!--fresco:roundBottomRight="false"-->
+        <!--fresco:roundAsCircle="true" />-->
+
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/iv_item_personnel_user_photo"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        fresco:placeholderImage="@drawable/iocn_login_logo"
+        fresco:actualImageScaleType="fitCenter"
+        fresco:failureImage="@drawable/iocn_login_logo"
+        fresco:failureImageScaleType="centerInside"
+        fresco:roundedCornerRadius="10dp"
+        fresco:roundTopLeft="true"
+        fresco:roundTopRight="true"
+        fresco:roundBottomLeft="false"
+        fresco:roundBottomRight="false"
+        fresco:roundAsCircle="true"
+        />
+
+
+</RelativeLayout>

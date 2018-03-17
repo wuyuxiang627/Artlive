@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/tv_find_title"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:text="更多"
+        android:textColor="@color/find_title"
+        android:gravity="center"
+        android:textSize="18sp"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/tv_find_title"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/view"
+        android:id="@+id/view" />
+    <LinearLayout
+        android:layout_below="@+id/tv_find_title"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="177dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            >
+            <ImageView
+                android:id="@+id/iv_find_news_img"
+                android:layout_width="23dp"
+                android:layout_height="22dp"
+                android:background="@drawable/icon_find_news"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                />
+            <TextView
+                android:id="@+id/tv_findv_news_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="艺线新闻"
+                android:textColor="@color/find_title"
+                android:layout_toRightOf="@+id/iv_find_news_img"
+                android:layout_marginLeft="6.5dp"
+                android:layout_marginTop="12dp"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tv_findv_news_title"
+                android:layout_alignStart="@+id/tv_findv_news_title"
+                android:layout_below="@+id/tv_findv_news_title"
+                android:text="年度头条"
+                android:textColor="@color/find_msg"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/icon_right_arrow"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginRight="5dp"
+                android:layout_toRightOf="@+id/iv_find_news_img"
+                android:layout_alignParentBottom="true"
+                android:background="@color/view"
+                />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            >
+            <ImageView
+                android:id="@+id/iv_find_music_img"
+                android:layout_width="22dp"
+                android:layout_height="25.5dp"
+                android:background="@drawable/icon_find_music"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                />
+            <TextView
+                android:id="@+id/tv_findv_music_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="神曲"
+                android:textColor="@color/find_title"
+                android:layout_toRightOf="@+id/iv_find_music_img"
+                android:layout_marginLeft="6.5dp"
+                android:layout_marginTop="12dp"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tv_findv_music_title"
+                android:layout_alignStart="@+id/tv_findv_music_title"
+                android:layout_below="@+id/tv_findv_music_title"
+                android:text="发现更多才艺主播"
+                android:textColor="@color/find_msg"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/icon_right_arrow"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginRight="5dp"
+                android:layout_toRightOf="@+id/iv_find_music_img"
+                android:layout_alignParentBottom="true"
+                android:background="@color/view"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_find_game_img"
+                android:layout_width="25dp"
+                android:layout_height="25.5dp"
+                android:background="@drawable/icon_find_game"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                />
+            <TextView
+                android:id="@+id/tv_findv_game_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="艺线手游"
+                android:textColor="@color/find_title"
+                android:layout_toRightOf="@+id/iv_find_game_img"
+                android:layout_marginLeft="6.5dp"
+                android:layout_marginTop="12dp"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tv_findv_game_title"
+                android:layout_alignStart="@+id/tv_findv_game_title"
+                android:layout_below="@+id/tv_findv_game_title"
+                android:text="组队吃鸡，大吉大利"
+                android:textColor="@color/find_msg"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/icon_right_arrow"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginRight="5dp"
+                android:layout_toRightOf="@+id/iv_find_game_img"
+                android:layout_alignParentBottom="true"
+                android:background="@color/view"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>
