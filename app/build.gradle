@@ -90,7 +90,6 @@ android {
     }
     //////    更改打包的错误
     dexOptions {
-        incremental true
         javaMaxHeapSize "4g"
     }
 
@@ -166,6 +165,10 @@ dependencies {
 
     //加入下面这两行代码--butterknife
     compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    //BRVAH
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+
 
 
 }
