@@ -330,6 +330,8 @@
             android:screenOrientation="portrait" />
         <!-- 我的视频 -->
         <activity
+
+
             android:name=".view.user.MyVideo.MyVideoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait" />

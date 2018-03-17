@@ -9,6 +9,7 @@ import java.util.List;
  */
 
 public interface IPresenter {
+    //test
 
     void userNumberList(List<ChatRoomMember> result);
 
