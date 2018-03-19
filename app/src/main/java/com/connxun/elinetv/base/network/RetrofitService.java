@@ -17,6 +17,7 @@ import com.connxun.elinetv.entity.ObjectEntity;
 import com.connxun.elinetv.entity.OpenLive;
 import com.connxun.elinetv.entity.RegisterEntity;
 import com.connxun.elinetv.entity.Video.Talk;
+import com.connxun.elinetv.entity.live.ChallengeTypeThree;
 import com.connxun.elinetv.entity.live.EndLiveEntitiy;
 import com.connxun.elinetv.entity.order.UserVC;
 import com.connxun.elinetv.entity.UserVideoEntity;
@@ -737,6 +738,14 @@ public interface RetrofitService {
     Observable<Entity<ChallengeTypeEntity>> getChallengeList(@Field("page")String page,
                                                              @Field("length")String length,
                                                              @Field("time") String time);
+    /**
+     * 挑战三级菜单
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("challengeResource/list")
+    Observable<Entity<ChallengeTypeThree>> getChallengeResourceList(@Field("menuNo")String menuNo,
+                                                                    @Field("time") String time);
 
 
 

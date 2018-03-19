@@ -16,6 +16,7 @@ import com.connxun.elinetv.entity.ObjectEntity;
 import com.connxun.elinetv.entity.OpenLive;
 import com.connxun.elinetv.entity.RegisterEntity;
 import com.connxun.elinetv.entity.Video.Talk;
+import com.connxun.elinetv.entity.live.ChallengeTypeThree;
 import com.connxun.elinetv.entity.live.EndLiveEntitiy;
 import com.connxun.elinetv.entity.order.UserVC;
 import com.connxun.elinetv.entity.UserVideoEntity;
@@ -320,6 +321,11 @@ public class DataManager {
     //挑战一二级菜单列表
     public Observable<Entity<ChallengeTypeEntity>> getChallengeList(String page, String length){
         return mRetrofitService.getChallengeList(page, length, BaseApplication.getTimeDate()+"" );
+    }
+
+    //挑战三级菜单
+    public Observable<Entity<ChallengeTypeThree>> getChallengeResourceList(String menuNo){
+        return mRetrofitService.getChallengeResourceList(menuNo, BaseApplication.getTimeDate()+"" );
     }
 
 

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_challenge_three_type_text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="唱歌"
+        android:textSize="17sp"
+        android:layout_marginTop="@dimen/px_215"
+        android:layout_marginLeft="@dimen/px_20"
+        android:textColor="@color/white"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/tv_challenge_three_type_text_title"
+        android:id="@+id/layout_challenge_three_type_text_recy"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/px_20"
+        android:layout_marginLeft="@dimen/px_20"
+        android:layout_marginTop="@dimen/px_40"
+        android:layout_marginBottom="@dimen/px_150"/>
+
+
+</RelativeLayout>

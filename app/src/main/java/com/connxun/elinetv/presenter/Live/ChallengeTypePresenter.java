@@ -17,6 +17,7 @@ import com.connxun.elinetv.entity.Entity;
 import com.connxun.elinetv.entity.JsonEntity;
 import com.connxun.elinetv.entity.OpenLive;
 import com.connxun.elinetv.entity.WatchLive;
+import com.connxun.elinetv.entity.live.ChallengeTypeThree;
 import com.connxun.elinetv.presenter.Presenter;
 import com.connxun.elinetv.util.ToastUtils;
 import com.connxun.elinetv.view.View;
@@ -38,6 +39,7 @@ public class ChallengeTypePresenter implements Presenter {
     private Context mContext;
     private ITestView testView;
     private Entity<ChallengeTypeEntity> ChallengeType;
+    private Entity<ChallengeTypeThree> challengeTypeThree;
     private String TAG = "ChallengeTypePresenter";
 
 
@@ -105,6 +107,47 @@ public class ChallengeTypePresenter implements Presenter {
                     @Override
                     public void onNext(Entity<ChallengeTypeEntity> jsonentitiy) {
                         ChallengeType = jsonentitiy;
+                    }
+
+                })
+        );
+
+    }
+
+    //三级菜单
+    public void getChallengeResourceList(String menuNO)  {
+
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("menuNo", menuNO);
+        hashMap.put("time", BaseApplication.getTimeDate() + "");
+
+        BaseApplication.setSign(hashMap);
+
+        mCompositeSubscription.add(manager.getChallengeResourceList(menuNO)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new BaseSubscriber<Entity<ChallengeTypeThree>>(BaseActivity.context) {
+                    @Override
+                    public void onCompleted() {
+                        super.onCompleted();
+                        if (challengeTypeThree != null) LogUtil.Log(TAG, LogUtil.LOG_E, "getChallengeList 成功请求回来的参数： " + challengeTypeThree.toString());
+                        if(challengeTypeThree.getCode().equals("200")){
+                            testView.onSuccess(challengeTypeThree.getData().getList());
+//
+                            return;
+                        }
+                        testView.onError(challengeTypeThree.getMsg());
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        LogUtil.Log(TAG, LogUtil.LOG_E, "getChallengeList 失败了请求回来的参数： " + e.toString());
+                        ToastUtils.showLong(e.toString());
+                    }
+
+                    @Override
+                    public void onNext(Entity<ChallengeTypeThree> jsonentitiy) {
+                        challengeTypeThree = jsonentitiy;
                     }
 
                 })

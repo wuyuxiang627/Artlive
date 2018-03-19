@@ -46,17 +46,19 @@ public class ChallengeFragment extends BaseFragment {
     RecyclerView glChallengeType;
 
     CardsFragment cardsFragment;
+    static CardsThreeFragment cardsThreeFragment;
+    static AccompanimentFragment accompanimentFragment;
 
     ChallengeBAdapter challengeAdapter;
-    FrameLayout frameCards;
+    static FrameLayout frameCards;
+    static FrameLayout frameCardsThree;
+    static FrameLayout frameCardsThreeMusic;
 
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view  = inflater.inflate(R.layout.layout_challenge_type,null);
-
-//        initData();
 
         intentView();
 
@@ -86,14 +88,7 @@ public class ChallengeFragment extends BaseFragment {
                 frameCards.startAnimation(AnimationUtil.startAnimation(1.0f,0.0f,0.0f,0.0f));
                 glChallengeType.startAnimation(AnimationUtil.startAnimation(0.0f,-1.0f,0.0f,0.0f));
                 challengeTypeThreeList = (ArrayList<ChallengeTypeThreeEntity>) challengeTypeList.get(position).getTwo();
-//                challengeTypeThreeList = new ArrayList<>();
                 String typeName = challengeTypeList.get(position).getName();
-//                for(ChallengeTypeThreeEntity entity: challengeTypeThreeList){
-//                    int index = (int) (Math.random() * back.length);
-//                    colorBack = back[index];
-//                    entity.setSort(colorBack);
-//                }
-//                ToastUtils.showLong(challengeTypeThreeList.size());
                 cardsFragment.setChallengeType(challengeTypeThreeList,typeName);
             }
 
@@ -112,80 +107,20 @@ public class ChallengeFragment extends BaseFragment {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         cardsFragment = new CardsFragment();
+        cardsThreeFragment = new CardsThreeFragment();
+        accompanimentFragment = new AccompanimentFragment();
         transaction.replace(R.id.layout_challenge_type_two_layout, cardsFragment);
+        transaction.replace(R.id.layout_challenge_type_three_layout, cardsThreeFragment);
+        transaction.replace(R.id.layout_challenge_type_three_music_layout, accompanimentFragment);
         transaction.commit();
     }
 
-
-
     private void intentView() {
         glChallengeType = view.findViewById(R.id.layout_challenge_type_recy);
-//        vpSpecific = view.findViewById(R.id.layout_challenge_type_specific);
         frameCards = view.findViewById(R.id.layout_challenge_type_two_layout);
+        frameCardsThree = view.findViewById(R.id.layout_challenge_type_three_layout);
+        frameCardsThreeMusic = view.findViewById(R.id.layout_challenge_type_three_music_layout);
     }
-
-
-//    public void initData(){
-//        challengeTypeList = new ArrayList<>();
-//        ChallengeTypeEntity sing = new ChallengeTypeEntity();
-//        sing.setId(1);
-//        sing.setName("唱歌");
-//        sing.setText("展示天籁之音，做认证主播");
-//        challengeTypeList.add(sing);
-//
-//        ChallengeTypeEntity rap = new ChallengeTypeEntity();
-//        rap.setId(2);
-//        rap.setName("Rap");
-//        rap.setText("用嘻哈诉说你的故事");
-//        challengeTypeList.add(rap);
-//
-//        ChallengeTypeEntity dance = new ChallengeTypeEntity();
-//        dance.setId(3);
-//        dance.setName("跳舞");
-//        dance.setText("跳一跳，十年少");
-//        challengeTypeList.add(dance);
-//
-//        ChallengeTypeEntity musics = new ChallengeTypeEntity();
-//        musics.setId(4);
-//        musics.setName("乐器");
-//        musics.setText("多才多艺的你还在等什么");
-//        challengeTypeList.add(musics);
-//
-//        ChallengeTypeEntity perform = new ChallengeTypeEntity();
-//        perform.setId(5);
-//        perform.setName("表演");
-//        perform.setText("演绎你的人生");
-//        challengeTypeList.add(perform);
-//
-//        ChallengeTypeEntity eloquence = new ChallengeTypeEntity();
-//        eloquence.setId(6);
-//        eloquence.setName("口才");
-//        eloquence.setText("说话也是一门艺术");
-//        challengeTypeList.add(eloquence);
-//
-//
-//
-//
-//
-//    }
-//
-////
-//    @Override
-//    public void onHiddenChanged(boolean hidden) {
-//        super.onHiddenChanged(hidden);
-//        if (hidden) {
-////            System.out.println("不可见");
-//
-//        } else {
-////            System.out.println("当前可见");
-////            ToastUtils.showLong("可见");
-////            challengeTypePresenter.onCreate();
-////            challengeTypePresenter.getChallengeList("20","1");
-////            challengeTypePresenter.attachView(ChallengeListView);
-//
-//        }
-//
-//    }
 
 
     @Override
@@ -235,8 +170,43 @@ public class ChallengeFragment extends BaseFragment {
     };
 
 
+    //二级菜单点击事件
+    public static void setLayoutViTwo(){
+        frameCardsThree.setVisibility(View.VISIBLE);
+        frameCards.setVisibility(View.GONE);
+    }
+
+    //点击自由播
+    public void setvisibility(){
+        glChallengeType.setVisibility(View.VISIBLE);
+        frameCardsThreeMusic.setVisibility(View.GONE);
+        frameCardsThree.setVisibility(View.GONE);
+        frameCards.setVisibility(View.GONE);
+    }
+
+    //三级页面点击返回键
+    public static  void setTwoVIsibility(){
+        frameCardsThreeMusic.setVisibility(View.GONE);
+        frameCardsThree.setVisibility(View.GONE);
+        frameCards.setVisibility(View.VISIBLE);
+    }
 
 
+    //设置三级页面数据
+    public static void setFragmentThree(ChallengeTypeThreeEntity typeThreeEntity,String typeName){
+        if(typeThreeEntity.getContent().equals("音频")){
+            frameCardsThreeMusic.setVisibility(View.VISIBLE);
+            frameCardsThree.setVisibility(View.GONE);
+            frameCards.setVisibility(View.GONE);
+            accompanimentFragment.setType(typeThreeEntity,typeName);
 
+        }else{
+            //文本
+            frameCardsThreeMusic.setVisibility(View.GONE);
+            frameCardsThree.setVisibility(View.VISIBLE);
+            frameCards.setVisibility(View.GONE);
+            cardsThreeFragment.setType(typeThreeEntity,typeName);
+        }
 
+    }
 }

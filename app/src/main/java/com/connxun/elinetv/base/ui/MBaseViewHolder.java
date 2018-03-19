@@ -21,12 +21,16 @@ import android.widget.Checkable;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.connxun.elinetv.app.BaseApplication;
+import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -619,6 +623,19 @@ public class MBaseViewHolder extends BaseViewHolder {
         view.setBackgroundResource(imageId);
         return this;
     }
+    public BaseViewHolder setBackgroundRadioButtonResource(@IdRes int viewId, int imgId){
+        RadioButton view = getView(viewId);
+        view.setBackgroundResource(imgId);
+        return this;
+    }
+    //加载网络图片
+    public BaseViewHolder setPicassoImg(@IdRes int viewId, String imgPath){
+
+        ImageView view = getView(viewId);
+        Picasso.with(BaseApplication.baseContext).load(imgPath).into(view);
+        return this;
+    }
+
 //    public BaseViewHolder setText(@IdRes int viewId, CharSequence value) {
 //        TextView view = getView(viewId);
 //        view.setText(value);

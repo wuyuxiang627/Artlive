@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.connxun.elinetv.R;
 import com.connxun.elinetv.adapter.Live.Challenge.CardsAdapter;
 import com.connxun.elinetv.adapter.Live.Challenge.CardsBAdapter;
@@ -36,6 +37,7 @@ public class CardsFragment extends BaseFragment {
     RecyclerView layoutChallengeTypeRecy;
     Unbinder unbinder;
     List<ChallengeTypeThreeEntity> challengeTypeThreeLists = new ArrayList<>();
+    private CardsBAdapter cardsAdapter;
 
 
     @Nullable
@@ -54,31 +56,29 @@ public class CardsFragment extends BaseFragment {
 
 
 
-    public void setChallengeType(List<ChallengeTypeThreeEntity> challengeTypeThreeList,String typeName) {
+    public void setChallengeType(List<ChallengeTypeThreeEntity> challengeTypeThreeList, final String typeName) {
         tvChallengeTypeTitle.setText(typeName);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         layoutChallengeTypeRecy.setLayoutManager(linearLayoutManager);
-//        this.challengeTypeThreeLists = challengeTypeThreeList;
-//        ChallengeTypeThreeEntity one = new ChallengeTypeThreeEntity();
-//        one.setName("翻唱");
-//        challengeTypeThreeLists.add(one);
-//        ChallengeTypeThreeEntity one1 = new ChallengeTypeThreeEntity();
-//        one1.setName("清唱");
-//        challengeTypeThreeLists.add(one1);
-//        ChallengeTypeThreeEntity one2 = new ChallengeTypeThreeEntity();
-//        one2.setName("原创");
-//        challengeTypeThreeLists.add(one2);
-
+        challengeTypeThreeLists  = challengeTypeThreeList;
         for(ChallengeTypeThreeEntity entity : challengeTypeThreeList){
             int index = (int) (Math.random() * back.length);
             colorBack = back[index];
             entity.setColor(colorBack);
         }
-
-
-
-        CardsBAdapter cardsAdapter = new CardsBAdapter(R.layout.item_challenge_type_cards, challengeTypeThreeList);
+        cardsAdapter = new CardsBAdapter(R.layout.item_challenge_type_cards, challengeTypeThreeList);
         layoutChallengeTypeRecy.setAdapter(cardsAdapter);
+
+        cardsAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+//                ChallengeFragment.setLayoutViTwo();
+                ChallengeFragment.setFragmentThree(challengeTypeThreeLists.get(position),typeName);
+            }
+        });
+
+
+
     }
 
 

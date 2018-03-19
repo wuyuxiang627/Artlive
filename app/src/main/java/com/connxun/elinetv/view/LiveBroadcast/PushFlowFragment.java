@@ -171,6 +171,7 @@ public class PushFlowFragment extends BaseFragment implements CapturePreviewCont
                 layoutLive.setVisibility(View.GONE);
 
                 if(type != 2){
+                    challengeFragment.setvisibility();
                     layoutChallenge.startAnimation(AnimationUtil.startAnimation(1.0f,0.0f,0.0f,0.0f));
                     layoutLive.startAnimation(AnimationUtil.startAnimation(0.0f,-1.0f,0.0f,0.0f));
                     type = 2;

@@ -4,12 +4,14 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.StrictMode;
+import android.support.annotation.NonNull;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.util.Log;
 
+import com.connxun.elinetv.R;
 import com.connxun.elinetv.base.util.LogUtil;
 import com.connxun.elinetv.util.PicassoImageLoader;
 import com.connxun.elinetv.util.im.NimSDKOptionConfig;
@@ -29,6 +31,14 @@ import com.netease.nimlib.sdk.auth.AuthService;
 import com.netease.nimlib.sdk.auth.LoginInfo;
 import com.netease.nimlib.sdk.util.NIMUtil;
 import com.orhanobut.logger.Logger;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.DefaultRefreshFooterCreator;
+import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreator;
+import com.scwang.smartrefresh.layout.api.RefreshFooter;
+import com.scwang.smartrefresh.layout.api.RefreshHeader;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
+import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 
 import org.xutils.x;
 
@@ -68,6 +78,45 @@ public class BaseApplication extends MultiDexApplication {
     public static boolean isDialogShow = true; //是否显示dialog
     private String MY_TAG = "CONN_XUNN";
     private static String mToken = "12399123";
+
+    //static 代码段可以防止内存泄露
+    static {
+        //设置全局的Header构建器
+        SmartRefreshLayout.setDefaultRefreshHeaderCreator(new DefaultRefreshHeaderCreator() {
+            @NonNull
+            @Override
+            public RefreshHeader createRefreshHeader(@NonNull Context context, @NonNull RefreshLayout layout) {
+                layout.setPrimaryColorsId(R.color.text_no_login, android.R.color.white);//全局设置主题颜色
+                return new ClassicsHeader(context);//.setTimeFormat(new DynamicTimeFormat("更新于 %s"));//指定为经典Header，默认是 贝塞尔雷达Header
+
+            }
+        });
+
+        SmartRefreshLayout.setDefaultRefreshFooterCreator(new DefaultRefreshFooterCreator() {
+            @NonNull
+            @Override
+            public RefreshFooter createRefreshFooter(@NonNull Context context, @NonNull RefreshLayout layout) {
+                //指定为经典Footer，默认是 BallPulseFooter
+                return new ClassicsFooter(context).setDrawableSize(20);
+            }
+        });
+//        SmartRefreshLayout.setDefaultRefreshHeaderCreater(new DefaultRefreshHeaderCreater() {
+//            @Override
+//            public RefreshHeader createRefreshHeader(Context context, RefreshLayout layout) {
+//                layout.setPrimaryColorsId(R.color.colorPrimary, android.R.color.white);//全局设置主题颜色
+//                return new ClassicsHeader(context);//.setTimeFormat(new DynamicTimeFormat("更新于 %s"));//指定为经典Header，默认是 贝塞尔雷达Header
+//            }
+//        });
+//        //设置全局的Footer构建器
+//        SmartRefreshLayout.setDefaultRefreshFooterCreater(new DefaultRefreshFooterCreater() {
+//            @Override
+//            public RefreshFooter createRefreshFooter(Context context, RefreshLayout layout) {
+//                //指定为经典Footer，默认是 BallPulseFooter
+//                return new ClassicsFooter(context).setDrawableSize(20);
+//            }
+//        });
+    }
+
 
 
     @Override
