@@ -23,6 +23,7 @@ import com.connxun.elinetv.R;
 import com.connxun.elinetv.base.ui.BaseFragment;
 import com.connxun.elinetv.util.AnimationUtil;
 import com.connxun.elinetv.util.ToastUtils;
+import com.connxun.elinetv.view.LiveBroadcast.Challenge.ChallengeFragment;
 import com.connxun.elinetv.view.MediaPreview.fragment.FreeLiveFragment;
 import com.netease.vcloud.video.render.NeteaseView;
 
@@ -185,47 +186,6 @@ public class PushFlowFragment extends BaseFragment implements CapturePreviewCont
 
 
     }
-
-    //右进左
-    public TranslateAnimation startAnimation(int fromXValue,int toXValue,int fromYValue,int toyValue){
-        TranslateAnimation mShowAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 1.0f,
-                Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
-                0.0f, Animation.RELATIVE_TO_SELF, 0.0f);
-        mShowAction.setDuration(500);
-        return mShowAction;
-    }
-
-    //左进右
-    public TranslateAnimation startAnimation(){
-        TranslateAnimation mShowAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, -1.0f,
-                Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
-                0.0f, Animation.RELATIVE_TO_SELF, 0.0f);
-        mShowAction.setDuration(500);
-        return mShowAction;
-    }
-
-
-    public TranslateAnimation hindAnimation(int fromXValue){
-        TranslateAnimation mHiddenAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF,
-                0.0f, Animation.RELATIVE_TO_SELF, -1.0f,
-                Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
-                0.0f);
-        mHiddenAction.setDuration(500);
-        return  mHiddenAction;
-    }
-
-
-    public TranslateAnimation hindAnimation(){
-        TranslateAnimation mHiddenAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF,
-                0.0f, Animation.RELATIVE_TO_SELF, 1.0f,
-                Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
-                0.0f);
-        mHiddenAction.setDuration(500);
-        return  mHiddenAction;
-    }
-
-
-
 
     /**
      *  获取Ui对应的controller

@@ -6,6 +6,7 @@ package com.connxun.elinetv.base.network;
 
 import com.connxun.elinetv.entity.AD;
 import com.connxun.elinetv.entity.AttentionEntity;
+import com.connxun.elinetv.entity.ChallengeTypeEntity;
 import com.connxun.elinetv.entity.Entity;
 import com.connxun.elinetv.entity.EntityObject;
 import com.connxun.elinetv.entity.GetVideoInfo;
@@ -721,6 +722,28 @@ public interface RetrofitService {
     @FormUrlEncoded
     @POST("ad/getList")
     Observable<AD> getAdList(@Field("page")String page);
+
+
+    /**
+     * 挑战
+     */
+
+    /**
+     * 挑战一二级菜单列表
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("menu/challengeList")
+    Observable<Entity<ChallengeTypeEntity>> getChallengeList(@Field("page")String page,
+                                                             @Field("length")String length,
+                                                             @Field("time") String time);
+
+
+
+
+
+
+
 
 
 

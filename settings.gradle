@@ -1,1 +1,1 @@
-include ':app', ':Fulive', ':vcloudnosupload', ':NosAndroidLib', ':uikitt'
+include ':app', ':Fulive', ':vcloudnosupload', ':NosAndroidLib', ':uikitt', ':library'

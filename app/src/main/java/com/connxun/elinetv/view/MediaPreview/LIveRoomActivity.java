@@ -53,6 +53,7 @@ import com.connxun.elinetv.presenter.Live.LivePresenter;
 import com.connxun.elinetv.util.ToastUtils;
 import com.connxun.elinetv.view.LiveBroadcast.CaptureFragment;
 import com.connxun.elinetv.view.LiveBroadcast.PublishParam;
+import com.connxun.elinetv.view.LiveBroadcast.PushFlowFragment;
 import com.connxun.elinetv.view.MediaPreview.MediaPreviewFragment;
 import com.connxun.elinetv.view.MediaPreview.fragment.OneFragment;
 import com.connxun.elinetv.view.MediaPreview.fragment.UserLiveFragment;
@@ -448,9 +449,9 @@ public class LIveRoomActivity extends BaseActivity implements View.OnClickListen
     }else{
         iv_gift.setVisibility(View.GONE);
         ll_liwu.setVisibility(View.INVISIBLE);
-        captureFragment = new CaptureFragment();
+//        captureFragment = new CaptureFragment();
 
-//            PushFlowFragment captureFragment = new PushFlowFragment();
+            PushFlowFragment captureFragment = new PushFlowFragment();
         transaction.replace(R.id.layout_main_content, captureFragment);
         chatLayout.setVisibility(View.INVISIBLE);
     }
@@ -588,7 +589,7 @@ public class LIveRoomActivity extends BaseActivity implements View.OnClickListen
         if(isAudience){
             MediaPreviewFragment.setUSerPhotoNumber(result);
         }else {
-            CaptureFragment.setUSerPhotoNumber(result);
+//            CaptureFragment.setUSerPhotoNumber(result);
         }
 
     }

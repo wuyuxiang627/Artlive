@@ -6,6 +6,7 @@ import android.content.Context;
 import com.connxun.elinetv.app.BaseApplication;
 import com.connxun.elinetv.entity.AD;
 import com.connxun.elinetv.entity.AttentionEntity;
+import com.connxun.elinetv.entity.ChallengeTypeEntity;
 import com.connxun.elinetv.entity.Entity;
 import com.connxun.elinetv.entity.EntityObject;
 import com.connxun.elinetv.entity.GetVideoInfo;
@@ -311,6 +312,14 @@ public class DataManager {
     //取消点赞
     public Observable<JsonEntity> getNolove(String videoNo){
         return mRetrofitService.getNolove( videoNo, BaseApplication.getTimeDate()+"" );
+    }
+
+    /**
+     * 挑战
+     */
+    //挑战一二级菜单列表
+    public Observable<Entity<ChallengeTypeEntity>> getChallengeList(String page, String length){
+        return mRetrofitService.getChallengeList(page, length, BaseApplication.getTimeDate()+"" );
     }
 
 

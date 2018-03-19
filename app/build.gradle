@@ -104,6 +104,7 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation project(path: ':library')
     //底部滚筒选择
     implementation('cn.qqtheme.framework:WheelPicker:latest.release') {
         exclude group: 'com.android.support'
@@ -160,7 +161,7 @@ dependencies {
 
     //时间选择器
     compile 'com.contrarywind:Android-PickerView:3.2.7'
-    compile 'com.alibaba:fastjson:1.1.55.android'
+//    compile 'com.alibaba:fastjson:1.1.55.android'
 
 
     //加入下面这两行代码--butterknife

@@ -49,45 +49,45 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeAdapter.View
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.itemView.setTag(position);
         ChallengeTypeEntity typeEntity = arrayList.get(position);
-        switch (typeEntity.getId())
-        {
-            case 1:
-                holder.rlType.setCardBackgroundColor(Color.parseColor("#F8ABFF"));
-                holder.ivCover.setBackgroundResource(R.drawable.icon_challenge_type_singe);
-                holder.tvTalkText.setText(typeEntity.getText());
-                holder.tvUserName.setText(typeEntity.getName());
-                break;
-            case 2:
-                holder.rlType.setCardBackgroundColor(Color.parseColor("#6DCEFF"));
-                holder.ivCover.setBackgroundResource(R.drawable.icon_challenge_type_rap);
-                holder.tvTalkText.setText(typeEntity.getText());
-                holder.tvUserName.setText(typeEntity.getName());
-                break;
-            case 3:
-                holder.rlType.setCardBackgroundColor(Color.parseColor("#FDAA6F"));
-                holder.ivCover.setBackgroundResource(R.drawable.icon_challenge_type_dance);
-                holder.tvTalkText.setText(typeEntity.getText());
-                holder.tvUserName.setText(typeEntity.getName());
-                break;
-            case 4:
-                holder.rlType.setCardBackgroundColor(Color.parseColor("#63E52A"));
-                holder.ivCover.setBackgroundResource(R.drawable.icon_challenge_type_music);
-                holder.tvTalkText.setText(typeEntity.getText());
-                holder.tvUserName.setText(typeEntity.getName());
-                break;
-            case 5:
-                holder.rlType.setCardBackgroundColor(Color.parseColor("#A78FFF"));
-                holder.ivCover.setBackgroundResource(R.drawable.icon_challenge_type_perform);
-                holder.tvTalkText.setText(typeEntity.getText());
-                holder.tvUserName.setText(typeEntity.getName());
-                break;
-            case 6:
-                holder.rlType.setCardBackgroundColor(Color.parseColor("#7FE2FF"));
-                holder.ivCover.setBackgroundResource(R.drawable.icon_challenge_type_eloquence);
-                holder.tvTalkText.setText(typeEntity.getText());
-                holder.tvUserName.setText(typeEntity.getName());
-                break;
-        }
+//        switch (typeEntity.getId())
+//        {
+//            case 1:
+//                holder.rlType.setCardBackgroundColor(Color.parseColor("#F8ABFF"));
+//                holder.ivCover.setBackgroundResource(R.drawable.icon_challenge_type_singe);
+//                holder.tvTalkText.setText(typeEntity.getText());
+//                holder.tvUserName.setText(typeEntity.getName());
+//                break;
+//            case 2:
+//                holder.rlType.setCardBackgroundColor(Color.parseColor("#6DCEFF"));
+//                holder.ivCover.setBackgroundResource(R.drawable.icon_challenge_type_rap);
+//                holder.tvTalkText.setText(typeEntity.getText());
+//                holder.tvUserName.setText(typeEntity.getName());
+//                break;
+//            case 3:
+//                holder.rlType.setCardBackgroundColor(Color.parseColor("#FDAA6F"));
+//                holder.ivCover.setBackgroundResource(R.drawable.icon_challenge_type_dance);
+//                holder.tvTalkText.setText(typeEntity.getText());
+//                holder.tvUserName.setText(typeEntity.getName());
+//                break;
+//            case 4:
+//                holder.rlType.setCardBackgroundColor(Color.parseColor("#63E52A"));
+//                holder.ivCover.setBackgroundResource(R.drawable.icon_challenge_type_music);
+//                holder.tvTalkText.setText(typeEntity.getText());
+//                holder.tvUserName.setText(typeEntity.getName());
+//                break;
+//            case 5:
+//                holder.rlType.setCardBackgroundColor(Color.parseColor("#A78FFF"));
+//                holder.ivCover.setBackgroundResource(R.drawable.icon_challenge_type_perform);
+//                holder.tvTalkText.setText(typeEntity.getText());
+//                holder.tvUserName.setText(typeEntity.getName());
+//                break;
+//            case 6:
+//                holder.rlType.setCardBackgroundColor(Color.parseColor("#7FE2FF"));
+//                holder.ivCover.setBackgroundResource(R.drawable.icon_challenge_type_eloquence);
+//                holder.tvTalkText.setText(typeEntity.getText());
+//                holder.tvUserName.setText(typeEntity.getName());
+//                break;
+//        }
 
 
 

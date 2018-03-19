@@ -48,10 +48,10 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.itemView.setTag(position);
-        ChallengeTypeEntity typeEntity = arrayList.get(position);
-//                holder.rlType.setBackgroundColor(Color.parseColor("#F8ABFF"));
-                holder.ivCover.setCardBackgroundColor((Color.parseColor(typeEntity.getText())));
-                holder.tvUserName.setText(typeEntity.getName());
+//        ChallengeTypeEntity typeEntity = arrayList.get(position);
+////                holder.rlType.setBackgroundColor(Color.parseColor("#F8ABFF"));
+//                holder.ivCover.setCardBackgroundColor((Color.parseColor(typeEntity.getText())));
+//                holder.tvUserName.setText(typeEntity.getName());
 
     }
 
