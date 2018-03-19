@@ -636,21 +636,18 @@ public class LIveRoomActivity extends BaseActivity implements View.OnClickListen
                 // 收到礼物消息
 //                String jsonType =  msg.getAttachment().toString();
 //
+                try{
+                    map = msg.getRemoteExtension();
+                    Gson gson = new Gson();
+                    IMGift imGift = gson.fromJson(gson.toJson(map),IMGift.class);
+                    if(isAudience){
+                        mediaPreviewFragment.showGift(imGift);
+                    }else {
+                        captureFragment.showGift(imGift);
+                    }
+                }catch (Exception e){
 
-                 map = msg.getRemoteExtension();
-                Gson gson = new Gson();
-
-
-
-                IMGift imGift = gson.fromJson(gson.toJson(map),IMGift.class);
-
-                if(isAudience){
-                    mediaPreviewFragment.showGift(imGift);
-                }else {
-                    captureFragment.showGift(imGift);
                 }
-
-
             }
 
             @Override

@@ -6,140 +6,175 @@ package com.connxun.elinetv.entity;
 
 public class IMGift {
 
-    private int giftNo;
-    private String giftName;
-    private String giftPic;
-    private SendUser sendUser;
-    private ReceiveUser receiveUser;
+    private int msgType;
+    private long ts;
+    private Data data;
 
-
-    public int getGiftNo() {
-        return giftNo;
+    public int getMsgType() {
+        return msgType;
     }
 
-    public void setGiftNo(int giftNo) {
-        this.giftNo = giftNo;
+    public void setMsgType(int msgType) {
+        this.msgType = msgType;
     }
 
-    public String getGiftName() {
-        return giftName;
+    public long getTs() {
+        return ts;
     }
 
-    public void setGiftName(String giftName) {
-        this.giftName = giftName;
+    public void setTs(long ts) {
+        this.ts = ts;
     }
 
-    public String getGiftPic() {
-        return giftPic;
+    public Data getData() {
+        return data;
     }
 
-    public void setGiftPic(String giftPic) {
-        this.giftPic = giftPic;
+    public void setData(Data data) {
+        this.data = data;
     }
 
-    public SendUser getSendUser() {
-        return sendUser;
-    }
+    public class  Data{
 
-    public void setSendUser(SendUser sendUser) {
-        this.sendUser = sendUser;
-    }
 
-    public ReceiveUser getReceiveUser() {
-        return receiveUser;
-    }
+        private int giftNo;
+        private String giftName;
+        private String giftPic;
+        private SendUser sendUser;
+        private ReceiveUser receiveUser;
 
-    public void setReceiveUser(ReceiveUser receiveUser) {
-        this.receiveUser = receiveUser;
-    }
 
-    public class SendUser {
-        private String userNo;
-        private String nickName;
-        private String avatar;
-
-        public String getUserNo() {
-            return userNo;
+        public int getGiftNo() {
+            return giftNo;
         }
 
-        public void setUserNo(String userNo) {
-            this.userNo = userNo;
+        public void setGiftNo(int giftNo) {
+            this.giftNo = giftNo;
         }
 
-        public String getNickName() {
-            return nickName;
+        public String getGiftName() {
+            return giftName;
         }
 
-        public void setNickName(String nickName) {
-            this.nickName = nickName;
+        public void setGiftName(String giftName) {
+            this.giftName = giftName;
         }
 
-        public String getAvatar() {
-            return avatar;
+        public String getGiftPic() {
+            return giftPic;
         }
 
-        public void setAvatar(String avatar) {
-            this.avatar = avatar;
+        public void setGiftPic(String giftPic) {
+            this.giftPic = giftPic;
+        }
+
+        public SendUser getSendUser() {
+            return sendUser;
+        }
+
+        public void setSendUser(SendUser sendUser) {
+            this.sendUser = sendUser;
+        }
+
+        public ReceiveUser getReceiveUser() {
+            return receiveUser;
+        }
+
+        public void setReceiveUser(ReceiveUser receiveUser) {
+            this.receiveUser = receiveUser;
+        }
+
+        public class SendUser {
+            private String userNo;
+            private String nickName;
+            private String avatar;
+
+            public String getUserNo() {
+                return userNo;
+            }
+
+            public void setUserNo(String userNo) {
+                this.userNo = userNo;
+            }
+
+            public String getNickName() {
+                return nickName;
+            }
+
+            public void setNickName(String nickName) {
+                this.nickName = nickName;
+            }
+
+            public String getAvatar() {
+                return avatar;
+            }
+
+            public void setAvatar(String avatar) {
+                this.avatar = avatar;
+            }
+
+            @Override
+            public String toString() {
+                return "SendUser{" +
+                        "userNo='" + userNo + '\'' +
+                        ", nickName='" + nickName + '\'' +
+                        ", avatar='" + avatar + '\'' +
+                        '}';
+            }
+
+        }
+
+        private class ReceiveUser {
+            private String userNo;
+            private String nickName;
+            private String avatar;
+
+            public String getUserNo() {
+                return userNo;
+            }
+
+            public void setUserNo(String userNo) {
+                this.userNo = userNo;
+            }
+
+            public String getNickName() {
+                return nickName;
+            }
+
+            public void setNickName(String nickName) {
+                this.nickName = nickName;
+            }
+
+            public String getAvatar() {
+                return avatar;
+            }
+
+            public void setAvatar(String avatar) {
+                this.avatar = avatar;
+            }
+
+            @Override
+            public String toString() {
+                return "ReceiveUser{" +
+                        "userNo='" + userNo + '\'' +
+                        ", nickName='" + nickName + '\'' +
+                        ", avatar='" + avatar + '\'' +
+                        '}';
+            }
         }
 
         @Override
         public String toString() {
-            return "SendUser{" +
-                    "userNo='" + userNo + '\'' +
-                    ", nickName='" + nickName + '\'' +
-                    ", avatar='" + avatar + '\'' +
-                    '}';
-        }
-
-    }
-
-    private class ReceiveUser {
-        private String userNo;
-        private String nickName;
-        private String avatar;
-
-        public String getUserNo() {
-            return userNo;
-        }
-
-        public void setUserNo(String userNo) {
-            this.userNo = userNo;
-        }
-
-        public String getNickName() {
-            return nickName;
-        }
-
-        public void setNickName(String nickName) {
-            this.nickName = nickName;
-        }
-
-        public String getAvatar() {
-            return avatar;
-        }
-
-        public void setAvatar(String avatar) {
-            this.avatar = avatar;
-        }
-
-        @Override
-        public String toString() {
-            return "ReceiveUser{" +
-                    "userNo='" + userNo + '\'' +
-                    ", nickName='" + nickName + '\'' +
-                    ", avatar='" + avatar + '\'' +
+            return "IMGift{" +
+                    "giftNo=" + giftNo +
+                    ", giftName='" + giftName + '\'' +
+                    ", giftPic='" + giftPic + '\'' +
+                    ", sendUser=" + sendUser +
+                    ", receiveUser=" + receiveUser +
                     '}';
         }
     }
 
-    @Override
-    public String toString() {
-        return "IMGift{" +
-                "giftNo=" + giftNo +
-                ", giftName='" + giftName + '\'' +
-                ", giftPic='" + giftPic + '\'' +
-                ", sendUser=" + sendUser +
-                ", receiveUser=" + receiveUser +
-                '}';
-    }
+
+
 }

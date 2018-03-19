@@ -9,7 +9,7 @@
     <!--Fragment容器 用于展示聊天列表与聊天输入框-->
 
 
-    <com.connxun.elinetv.view.mediaPreview.media.NEVideoView
+    <com.connxun.elinetv.view.MediaPreview.media.NEVideoView
         android:id="@+id/video_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

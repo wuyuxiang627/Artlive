@@ -951,7 +951,7 @@ public class CaptureFragment extends BaseFragment implements INotifyListener,lsM
      * 显示礼物的方法
      */
     public void showGift(IMGift imGift) {
-        String tag = imGift.getGiftNo()+"";
+        String tag = imGift.getData().getGiftNo()+"";
         View giftView = llgiftcontent.findViewWithTag(tag);
         if (giftView == null) {/*该用户不在礼物显示列表*/
 
@@ -980,10 +980,10 @@ public class CaptureFragment extends BaseFragment implements INotifyListener,lsM
             giftNum.setText("x1");/*设置礼物数量*/
             crvheadimage.setTag(System.currentTimeMillis());/*设置时间标记*/
             giftNum.setTag(1);/*给数量控件设置标记*/
-            String coverPath = imGift.getSendUser().getAvatar();
-            String giftPath = imGift.getGiftPic();
-            String username = imGift.getSendUser().getNickName();
-            String giftName = imGift.getGiftName();
+            String coverPath = imGift.getData().getSendUser().getAvatar();
+            String giftPath = imGift.getData().getGiftPic();
+            String username = imGift.getData().getSendUser().getNickName();
+            String giftName = imGift.getData().getGiftName();
 
             tvGiftName.setText("送了"+giftName+"给主播 ");
             tvUserName.setText(username);

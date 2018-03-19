@@ -54,6 +54,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  * Created by connxun-16 on 2017/12/19.
  */
@@ -134,6 +136,25 @@ public class BaseApplication extends MultiDexApplication {
         //context对象
         Context context = getApplicationContext();
         baseContext = context;
+
+        //极光推送
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
+
+//        XGPushManager.registerPush(context, new XGIOperateCallback() {
+//            @Override
+//            public void onSuccess(Object o, int i) {
+//                Log.d("TPush", "注册成功，设备token为：" + o);
+//
+//            }
+//
+//            @Override
+//            public void onFail(Object o, int i, String s) {
+//                Log.d("TPush", "注册失败，错误码：" + i + ",错误信息：" + s);
+//            }
+//        });
+//        mAppContext = context;
+//        XGPushManager.registerPush(context);
 
         //IM登录
         IMLogion();
