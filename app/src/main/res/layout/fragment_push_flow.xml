@@ -15,8 +15,6 @@
         android:layout_height="match_parent"
         android:layout_centerInParent="true"/>
 
-
-
     <!--自由播-->
     <FrameLayout
         android:id="@+id/layout_fragment_live"
@@ -27,6 +25,7 @@
     </FrameLayout>
 
     <RelativeLayout
+        android:id="@+id/rl_push_flow_top"
         android:layout_marginTop="@dimen/px_63"
         android:layout_width="match_parent"
         android:layout_height="20dp">
@@ -91,6 +90,7 @@
 
 
     <RelativeLayout
+        android:id="@+id/rl_push_flow_type_bottom"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_alignParentBottom="true"
@@ -156,6 +156,16 @@
 
 
     </RelativeLayout>
+
+    <include android:visibility="gone" layout="@layout/layout_challenge_top"/>
+    <include
+        android:visibility="gone"
+        layout="@layout/layout_challenge_bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="4dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
 
 
 

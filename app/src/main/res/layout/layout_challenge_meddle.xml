@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <!--挑战中间-->
+
+    <Button
+        android:id="@+id/btn_challenge_meddle_start"
+        android:layout_width="@dimen/px_100"
+        android:layout_height="@dimen/px_100"
+        android:background="@drawable/icon_challenge_meddle_start"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/px_20"
+        android:layout_gravity="center"
+        android:text="@string/challenge_meddel_start"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        />
+
+    <RelativeLayout
+        android:background="@drawable/icon_challenge_meddle_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_61">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:text="唱歌 -- 告白气球"/>
+
+    </RelativeLayout>
+
+    <include android:visibility="gone"  layout="@layout/layout_challenge_meddle_ranking"/>
+
+    <include android:visibility="gone" layout="@layout/layout_challenge_meddle_grading_results"/>
+
+
+
+
+
+</LinearLayout>

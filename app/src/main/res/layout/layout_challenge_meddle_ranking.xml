@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!--富豪榜-->
+
+    <ImageView
+        android:id="@+id/iv_layout_challenge_meddle_ranking_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/icon_challenge_meddle_ranking"/>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rlv_challenge_meddle_ranking_list_left"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@+id/iv_layout_challenge_meddle_ranking_img"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rlv_challenge_meddle_ranking_list_reight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/iv_layout_challenge_meddle_ranking_img" />
+
+
+</RelativeLayout>

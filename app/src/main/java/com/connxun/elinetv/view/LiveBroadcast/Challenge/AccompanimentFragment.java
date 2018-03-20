@@ -115,15 +115,23 @@ public class AccompanimentFragment extends BaseFragment {
         cardsThreeMusicAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                if(positions != -1 && positions == position){
-                    boolean blTYpe= musicBinder.playOrPause();
-                    challengeTypeThreeList.get(position).setBlType(blTYpe);
-                }else {
-                    musicBinder.playMusic(challengeTypeThreeList.get(position).getUrl());
-                }
-                positions = position;
-//                cardsThreeMusicAdapter.setSelectedPosition(position);
-                cardsThreeMusicAdapter.notifyDataSetChanged();
+//                if(positions != -1 && positions == position){
+//                    boolean blTYpe= musicBinder.playOrPause();
+//                    challengeTypeThreeList.get(position).setBlType(blTYpe);
+//                }else {
+//                    musicBinder.playMusic(challengeTypeThreeList.get(position).getUrl());
+//                }
+//                positions = position;
+////                cardsThreeMusicAdapter.setSelectedPosition(position);
+//                cardsThreeMusicAdapter.notifyDataSetChanged();
+
+
+
+
+
+
+
+
             }
         });
     }

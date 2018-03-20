@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/jy_beijing"
+    android:layout_height="wrap_content">
+
+    <!--救援票-->
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/px_19"
+        android:layout_marginLeft="@dimen/px_32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:text="倒计时 "/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0FD2A2"
+            android:textSize="13sp"
+            android:text=" 0 "
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:text=" 秒"/>
+
+
+    </LinearLayout>
+
+    <ImageButton
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/icon_finish"
+        android:background="@null"
+        android:layout_alignParentRight="true"
+        />
+
+    <TextView
+        android:id="@+id/tv_challenge_jiuyuan_img"
+        android:layout_marginTop="@dimen/px_38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="救援票
+ 1 艺币"
+        android:drawableRight="@dimen/px_10"
+        android:textColor="@color/white"
+        android:drawableLeft="@drawable/icon_challenge__jiuyuanpiao"
+        />
+
+    <TextView
+        android:id="@+id/tv_challenge_jiuyuan_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:layout_marginTop="@dimen/px_6"
+        android:layout_below="@+id/tv_challenge_jiuyuan_img"
+        android:layout_centerHorizontal="true"
+        android:text="送她救援票，超过20张TA就能过关啦！"/>
+
+
+    <Button
+        android:layout_marginTop="@dimen/px_14"
+        android:layout_below="@+id/tv_challenge_jiuyuan_text"
+        android:background="#FF3D99"
+        android:layout_marginLeft="@dimen/px_130"
+        android:layout_marginRight="@dimen/px_130"
+        android:layout_width="match_parent"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:layout_height="@dimen/px_42"
+        android:text="送一张"
+        />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>

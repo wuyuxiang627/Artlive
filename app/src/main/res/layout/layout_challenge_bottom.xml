@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="wrap_content">
+<!--底部-->
+
+    <ImageButton
+
+        android:id="@+id/ib_challenge_bottom_gengduo"
+        android:layout_width="@dimen/px_70"
+        android:layout_height="@dimen/px_70"
+        android:layout_marginLeft="@dimen/px_27"
+        android:background="@drawable/icon_challenge_bottom_gengduo"/>
+    <ImageButton
+        android:id="@+id/ib_challenge_bottom_xiaoxi"
+        android:layout_width="@dimen/px_70"
+        android:layout_height="@dimen/px_70"
+        android:layout_marginLeft="@dimen/px_14"
+        android:background="@drawable/icon_challenge_bottom_xinxi"/>
+    <ImageButton
+        android:id="@+id/ib_challenge_bottom_fenxiang"
+        android:layout_width="@dimen/px_70"
+        android:layout_height="@dimen/px_70"
+        android:layout_marginLeft="@dimen/px_14"
+        android:background="@drawable/icon_challenge_bottom_fenxiang"/>
+    <ImageButton
+        android:id="@+id/ib_challenge_bottom_fanzhuan"
+        android:layout_width="@dimen/px_70"
+        android:layout_height="@dimen/px_70"
+        android:layout_marginLeft="@dimen/px_14"
+        android:background="@drawable/icon_challenge_bottom_fanzhuan"/>
+
+</LinearLayout>

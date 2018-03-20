@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="@dimen/px_20"
+    android:layout_height="wrap_content">
+
+    <!--顶部-->
+
+    <RelativeLayout
+        android:id="@+id/rl_challenge_top"
+        android:background="@drawable/back_chanllge_top_back"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/px_160">
+
+        <RelativeLayout
+            android:background="@drawable/back_chanllge_top"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/px_120">
+            <RelativeLayout
+                android:id="@+id/rl_challenge_top_user"
+                android:layout_width="wrap_content"
+                android:background="@drawable/back_chanllge_top_user"
+                android:layout_height="42dp">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/iv_challenge_top_user_photo"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="10dp"
+                    fresco:placeholderImage="@drawable/iocn_login_logo"
+                    fresco:actualImageScaleType="fitCenter"
+                    fresco:failureImage="@drawable/iocn_login_logo"
+                    fresco:failureImageScaleType="centerInside"
+                    fresco:roundedCornerRadius="10dp"
+                    fresco:roundTopLeft="true"
+                    fresco:roundTopRight="true"
+                    fresco:roundBottomLeft="false"
+                    fresco:roundBottomRight="false"
+                    fresco:roundAsCircle="true"
+                    />
+
+
+                <RelativeLayout
+                    android:id="@+id/rl_title"
+                    android:layout_toRightOf="@+id/iv_challenge_top_user_photo"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/tv_challenge_top_user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="小奶瓶"
+                        android:textSize="12sp"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginTop="2dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_challenge_top_watch_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0人在线"
+                        android:textSize="10sp"
+                        android:textColor="@color/white"
+
+                        android:layout_alignLeft="@+id/tv_challenge_top_user_name"
+                        android:layout_below="@+id/tv_challenge_top_user_name"/>
+
+                </RelativeLayout>
+
+                <ImageButton
+                    android:id="@+id/ib_challenge_top_watch_comment"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:background="@drawable/icon_challenge_user_like"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:layout_toRightOf="@+id/rl_title"
+                    android:layout_marginLeft="8dp"/>
+
+            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/find_title"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="6dp"
+                android:text="直播间号：123456"/>
+
+        </RelativeLayout>
+
+        <RadioButton
+            android:text="选拔赛"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:drawableLeft="@drawable/icon_challenge_top_qizi"
+            android:drawablePadding="5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:button="@null"
+            android:layout_height="20dp" />
+
+    </RelativeLayout>
+    <ImageButton
+        android:id="@+id/iv_challenge_top_finish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/icon_finish"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rlv_challenge_top_staff"
+        android:layout_toLeftOf="@+id/iv_challenge_top_finish"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginRight="3dp"
+        android:layout_toRightOf="@+id/rl_challenge_top"
+        android:layout_marginLeft="10dp"
+        android:layout_height="34dp"/>
+    
+    <RelativeLayout
+        android:layout_marginRight="@dimen/px_20"
+        android:layout_marginTop="@dimen/px_20"
+        android:background="@drawable/back_black_50"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:paddingLeft="10dp"
+        android:layout_below="@+id/rlv_challenge_top_staff"
+        android:layout_height="@dimen/px_40">
+
+        <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:scaleType="centerInside"-->
+            <!--android:background="@drawable/icon_challenge_contribution"/>-->
+
+
+        <RadioButton
+            android:id="@+id/rb_challenge_contribution"
+            android:button="@null"
+            android:drawableLeft="@drawable/icon_challenge_contribution"
+            android:layout_width="wrap_content"
+            android:text="贡献榜"
+            android:drawablePadding="@dimen/px_10"
+            android:textSize="10sp"
+            android:layout_marginTop="@dimen/px_5"
+            android:layout_marginBottom="@dimen/px_5"
+            android:scaleType="center"
+            android:textColor="@color/white"
+            android:layout_marginRight="@dimen/px_19"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_toRightOf="@+id/rb_challenge_contribution"
+            android:text="231231231"
+            android:textSize="10sp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_marginRight="@dimen/px_10"
+            android:textColor="@color/theme_color"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

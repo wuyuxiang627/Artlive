@@ -13,7 +13,9 @@
         android:orientation="vertical"
         android:visibility="invisible">
 
-        <include layout="@layout/nim_message_activity_text_layout"/>
+        <include
+            layout="@layout/nim_message_activity_text_layout"/>
+
 
         <!--<com.netease.nim.uikit.business.session.emoji.EmoticonPickerView-->
             <!--android:id="@+id/emoticon_picker_view"-->
@@ -57,7 +59,7 @@
             <LinearLayout
                 android:id="@+id/timer_tip_container"
                 android:layout_width="188dp"
-                android:layout_height="40dp"
+                android:layout_height="10dp"
                 android:layout_gravity="bottom"
                 android:gravity="center">
 
