@@ -137,9 +137,9 @@
         <!--<item name="android:windowAnimationStyle">@style/activityAnimation</item>-->
         <!--<item name="android:windowTranslucentStatus">true</item>-->
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/view</item>
-        <item name="colorPrimaryDark">@color/view</item>
-        <item name="colorAccent">@color/view</item>
+        <item name="colorPrimary">@color/view_top</item>
+        <item name="colorPrimaryDark">@color/view_top</item>
+        <item name="colorAccent">@color/view_top</item>
         <!-- 声明为透明状态栏 -->
         <!--<item name="android:windowIsTranslucent">true</item>-->
     </style>

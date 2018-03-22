@@ -24,7 +24,15 @@ public class Live implements Serializable{
     private long ctime;
     private String position;
     private String cid;
+    private String liveId;
 
+    public String getLiveId() {
+        return liveId;
+    }
+
+    public void setLiveId(String liveId) {
+        this.liveId = liveId;
+    }
 
     public String getHlsPullUrl() {
         return hlsPullUrl;

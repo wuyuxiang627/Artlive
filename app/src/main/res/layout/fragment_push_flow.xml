@@ -157,26 +157,20 @@
 
     </RelativeLayout>
 
-    <include android:visibility="gone" layout="@layout/layout_challenge_top"/>
-    <include
+
+    <FrameLayout
         android:visibility="gone"
-        layout="@layout/layout_challenge_bottom"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="4dp"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"/>
+        android:id="@+id/layout_fragment_live_challenge_top_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
 
-
-
-
-
-
-
-
-
+    <!--挑战过程中-->
+    <FrameLayout
+        android:id="@+id/layout_fragment_challenge_start"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
 </RelativeLayout>

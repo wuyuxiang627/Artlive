@@ -52,10 +52,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginLeft="5dp"
         android:gravity="center"
-        android:text="救援票
- 1 艺币"
-        android:drawableRight="@dimen/px_10"
+        android:text="@string/challenge_meddle_grade_jiuyuan"
         android:textColor="@color/white"
         android:drawableLeft="@drawable/icon_challenge__jiuyuanpiao"
         />

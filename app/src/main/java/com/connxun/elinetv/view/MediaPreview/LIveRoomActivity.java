@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,6 +16,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -308,17 +310,17 @@ public class LIveRoomActivity extends BaseActivity implements View.OnClickListen
             @Override
             public void onClick(View v) {
                 ll_liwu.setVisibility(View.GONE);
-                mCurTime = System.currentTimeMillis();
-                if (mCurTime - mLastTime < DELAY) {
-                    mClickCount++;
-                } else {
-                    mClickCount = 1;
-                }
-                currLikeCount++;
-//                likeCount.setText(String.valueOf(currLikeCount));
-                delay();
-                mLastTime = mCurTime;
-                bvView.startAnimation(bvView.getWidth(), bvView.getHeight());
+//                mCurTime = System.currentTimeMillis();
+//                if (mCurTime - mLastTime < DELAY) {
+//                    mClickCount++;
+//                } else {
+//                    mClickCount = 1;
+//                }
+//                currLikeCount++;
+////                likeCount.setText(String.valueOf(currLikeCount));
+//                delay();
+//                mLastTime = mCurTime;
+//                bvView.startAnimation(bvView.getWidth(), bvView.getHeight());
             }
         });
 
@@ -822,5 +824,29 @@ public class LIveRoomActivity extends BaseActivity implements View.OnClickListen
 
         }
     };
+
+    public void setLiaotianshiFragmentWH(float width,float height){
+        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) chatLayout.getLayoutParams();
+//        params.width = dip2px(getActivity(), width);
+        params.height = dip2px(this, height);
+        chatLayout.setLayoutParams(params);
+
+    }
+
+    /**
+     * dp转为px
+     * @param context  上下文
+     * @param dipValue dp值
+     * @return
+     */
+    private int dip2px(Context context, float dipValue)
+    {
+        Resources r = context.getResources();
+        return (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, dipValue, r.getDisplayMetrics());
+    }
+
+
+
 
 }

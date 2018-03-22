@@ -12,6 +12,7 @@ import com.connxun.elinetv.observer.NotifyObject;
 import com.connxun.elinetv.util.ToastUtils;
 import com.connxun.elinetv.util.URLFactory;
 import com.connxun.elinetv.view.LiveBroadcast.CaptureFragment;
+import com.connxun.elinetv.view.MediaPreview.fragment.FreeLiveFragment;
 import com.connxun.elinetv.view.My.MyEditingActivity;
 import com.connxun.elinetv.view.VideoShort.VideoEditingActivity;
 import com.connxun.elinetv.view.user.MyOpinion.MyOpinionActivity;
@@ -107,7 +108,8 @@ public class ImageRetrofitHelper {
 
                 switch (RESULT_CODE) {
                     case RESULT_CODE_LIVE_COVER:
-                        NotifyListenerManager.getInstance().notifyListener(new NotifyObject(1, Url), CaptureFragment.class);//传参数通知
+                        NotifyListenerManager.getInstance().notifyListener(new NotifyObject(1, Url), FreeLiveFragment.class);//传参数通知
+//                        NotifyListenerManager.getInstance().notifyListener(new NotifyObject(1, Url), CaptureFragment.class);//传参数通知
                         break;
                     case RESULT_CODE_SHORT_VIDEO_COVER:
                         NotifyListenerManager.getInstance().notifyListener(new NotifyObject(RESULT_CODE_SHORT_VIDEO_COVER), VideoEditingActivity.class);//传参数通知

@@ -1,5 +1,6 @@
 package com.connxun.elinetv.view.LiveBroadcast.Challenge;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
@@ -25,6 +26,7 @@ import com.connxun.elinetv.util.AnimationUtil;
 import com.connxun.elinetv.util.RecyclerViewAnimation;
 import com.connxun.elinetv.util.ToastUtils;
 import com.connxun.elinetv.view.LiveBroadcast.Challenge.CardsFragment;
+import com.connxun.elinetv.view.LiveBroadcast.PushFlowFragment;
 import com.connxun.elinetv.view.user.ITestView;
 
 import java.util.ArrayList;
@@ -37,7 +39,9 @@ import java.util.List;
 /**
  *挑战
  */
+@SuppressLint("ValidFragment")
 public class ChallengeFragment extends BaseFragment {
+    private final PushFlowFragment pushFlowFragment;
     ChallengeTypePresenter challengeTypePresenter = new ChallengeTypePresenter(getActivity());
     View view;
     ArrayList<ChallengeTypeEntity> challengeTypeList = new ArrayList<>(); //二级菜单
@@ -53,6 +57,12 @@ public class ChallengeFragment extends BaseFragment {
     static FrameLayout frameCards;
     static FrameLayout frameCardsThree;
     static FrameLayout frameCardsThreeMusic;
+
+
+    @SuppressLint("ValidFragment")
+    public ChallengeFragment(BaseFragment baseFragment){
+        pushFlowFragment = (PushFlowFragment) baseFragment;
+    }
 
 
     @Nullable
@@ -108,7 +118,7 @@ public class ChallengeFragment extends BaseFragment {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         cardsFragment = new CardsFragment();
         cardsThreeFragment = new CardsThreeFragment();
-        accompanimentFragment = new AccompanimentFragment();
+        accompanimentFragment = new AccompanimentFragment(this);
         transaction.replace(R.id.layout_challenge_type_two_layout, cardsFragment);
         transaction.replace(R.id.layout_challenge_type_three_layout, cardsThreeFragment);
         transaction.replace(R.id.layout_challenge_type_three_music_layout, accompanimentFragment);
@@ -209,4 +219,17 @@ public class ChallengeFragment extends BaseFragment {
         }
 
     }
+
+
+    /**
+     * 进入挑战界面
+     */
+    public void setGoOutChallenge(){
+        pushFlowFragment.contrellerLiveStartStop();
+    }
+
+
+
+
+
 }

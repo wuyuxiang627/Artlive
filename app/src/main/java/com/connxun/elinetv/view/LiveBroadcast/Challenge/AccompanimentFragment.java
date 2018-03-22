@@ -4,6 +4,7 @@ package com.connxun.elinetv.view.LiveBroadcast.Challenge;
  * Created by Administrator on 2018\3\19 0019.
  */
 
+import android.annotation.SuppressLint;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Intent;
@@ -23,14 +24,17 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.connxun.elinetv.R;
 import com.connxun.elinetv.adapter.Live.Challenge.CardsThreeMusicAdapter;
 import com.connxun.elinetv.adapter.Live.Challenge.CardsThreeTextAdapter;
+import com.connxun.elinetv.app.BaseApplication;
 import com.connxun.elinetv.base.ui.BaseFragment;
 import com.connxun.elinetv.entity.Video.ChallengeTypeThreeEntity;
 import com.connxun.elinetv.entity.live.ChallengeTypeThree;
 import com.connxun.elinetv.presenter.Live.ChallengeTypePresenter;
+import com.connxun.elinetv.presenter.Live.LivePresenter;
 import com.connxun.elinetv.service.PlayMusicService;
 import com.connxun.elinetv.view.user.ITestView;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 import butterknife.BindView;
@@ -41,8 +45,10 @@ import butterknife.Unbinder;
 /**
  * 伴奏的音乐
  */
+@SuppressLint("ValidFragment")
 public class AccompanimentFragment extends BaseFragment {
     ChallengeTypePresenter challengeTypePresenter = new ChallengeTypePresenter(getActivity());
+    private LivePresenter presenter = new LivePresenter(getActivity());
     View view;
     @BindView(R.id.rl_finish)
     RelativeLayout rlFinish;
@@ -67,6 +73,16 @@ public class AccompanimentFragment extends BaseFragment {
     private int positions = -1; //点击 的音乐
     private PlayMusicService.MusicBinder musicBinder; //音乐播放的binnder
     private ServiceConnection conn;
+
+    private ChallengeFragment challengeFragment;
+
+
+    @SuppressLint("ValidFragment")
+    public AccompanimentFragment(BaseFragment baseFragment){
+        challengeFragment = (ChallengeFragment) baseFragment;
+
+    }
+
 
 
     @Nullable
@@ -115,26 +131,40 @@ public class AccompanimentFragment extends BaseFragment {
         cardsThreeMusicAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-//                if(positions != -1 && positions == position){
-//                    boolean blTYpe= musicBinder.playOrPause();
-//                    challengeTypeThreeList.get(position).setBlType(blTYpe);
-//                }else {
-//                    musicBinder.playMusic(challengeTypeThreeList.get(position).getUrl());
+                BaseApplication.blLiveTypeLiveOrChallenge = false;
+                //进入直播
+                challengeFragment.setGoOutChallenge();
+//                presenter.onCreate();
+//                try {
+//                    presenter.getLiveStartLive("123","21312",getActivity().getIntent().getStringExtra("liveNo"));
+//                } catch (UnsupportedEncodingException e) {
+//                    e.printStackTrace();
 //                }
-//                positions = position;
-////                cardsThreeMusicAdapter.setSelectedPosition(position);
-//                cardsThreeMusicAdapter.notifyDataSetChanged();
-
-
-
-
-
-
-
+//                presenter.attachView(mStartLive);
 
             }
         });
     }
+
+    /**
+     * 开始直播
+     */
+    public ITestView mStartLive = new ITestView() {
+        @Override
+        public void onSuccess(Object object) {
+//            controller.liveStartStop();
+            //进入直播
+            challengeFragment.setGoOutChallenge();
+        }
+
+        @Override
+        public void onError(Object object) {
+
+        }
+    };
+
+
+
 
     public void setType(ChallengeTypeThreeEntity threeEntity, String typeName) {
         challengeTypeThreeEntity = threeEntity;

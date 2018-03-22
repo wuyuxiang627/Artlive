@@ -134,7 +134,12 @@ public class LivePresenter implements Presenter {
                             public void onCompleted() {
                                 super.onCompleted();
                                 if (jsonEntity != null) LogUtil.Log(TAG, LogUtil.LOG_E, "getLiveStartLive成功请求回来的参数： " + jsonEntity.toString());
-                                testView.onSuccess(jsonEntity);
+                                if(jsonEntity.getCode().equals("200")){
+                                    testView.onSuccess(jsonEntity);
+                                }else {
+                                    ToastUtils.showLong(jsonEntity.getMsg());
+                                }
+
                             }
 
                             @Override
@@ -142,6 +147,7 @@ public class LivePresenter implements Presenter {
                                 super.onError(e);
                                 if (jsonEntity != null)
                                     LogUtil.Log(TAG, LogUtil.LOG_E, "getLiveStartLive失败了请求回来的参数： " + jsonEntity.toString());
+                                ToastUtils.showLong(e.toString());
                             }
 
                             @Override

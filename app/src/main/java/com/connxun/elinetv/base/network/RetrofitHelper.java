@@ -46,6 +46,7 @@ public class RetrofitHelper {
 
     OkHttpClient client = new OkHttpClient();
 
+
     GsonConverterFactory factory = GsonConverterFactory.create(new GsonBuilder().create());
 
     private static RetrofitHelper instance = null;

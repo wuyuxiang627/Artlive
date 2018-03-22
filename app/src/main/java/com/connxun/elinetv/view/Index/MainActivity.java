@@ -30,7 +30,7 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(MainActivity.this, HomePageActivity.class));
                 finish();
             }
-        }, 500);
+        }, 1000);
     }
 
 

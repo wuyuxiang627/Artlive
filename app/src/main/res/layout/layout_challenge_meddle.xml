@@ -36,12 +36,20 @@
 
     </RelativeLayout>
 
-    <include android:visibility="gone"  layout="@layout/layout_challenge_meddle_ranking"/>
+    <include
+        android:visibility="gone"
+        layout="@layout/layout_challenge_meddle_ranking"/>
 
-    <include android:visibility="gone" layout="@layout/layout_challenge_meddle_grading_results"/>
+    <include
+        android:visibility="gone"
+        layout="@layout/layout_challenge_meddle_grading_results"/>
 
-
-
+    <include
+        android:visibility="gone"
+        layout="@layout/layout_challenge_rescue_results" />
+    <include
+        android:visibility="gone"
+        layout="@layout/layout_challenge_rescue_results_send" />
 
 
 </LinearLayout>

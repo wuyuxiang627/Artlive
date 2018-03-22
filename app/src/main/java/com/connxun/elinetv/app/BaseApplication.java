@@ -70,6 +70,8 @@ public class BaseApplication extends MultiDexApplication {
     public static String MD5sign; //加密串
 
     public static boolean blDialog = true; //是否显示加载框;
+    public static boolean blLiveTypeLiveOrChallenge = true; // true; 默认: 直播 false : 挑战
+    public static boolean blLIveStart = false; //判断是否开始
 
 
     public static Long timeStamp; //时间
@@ -131,8 +133,6 @@ public class BaseApplication extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         x.Ext.init(this);
-
-
         //context对象
         Context context = getApplicationContext();
         baseContext = context;
@@ -140,21 +140,6 @@ public class BaseApplication extends MultiDexApplication {
         //极光推送
         JPushInterface.setDebugMode(true);
         JPushInterface.init(this);
-
-//        XGPushManager.registerPush(context, new XGIOperateCallback() {
-//            @Override
-//            public void onSuccess(Object o, int i) {
-//                Log.d("TPush", "注册成功，设备token为：" + o);
-//
-//            }
-//
-//            @Override
-//            public void onFail(Object o, int i, String s) {
-//                Log.d("TPush", "注册失败，错误码：" + i + ",错误信息：" + s);
-//            }
-//        });
-//        mAppContext = context;
-//        XGPushManager.registerPush(context);
 
         //IM登录
         IMLogion();
