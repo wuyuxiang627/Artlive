@@ -42,6 +42,7 @@ import com.connxun.elinetv.entity.LiveModel;
 import com.connxun.elinetv.util.LiveGiftUtil;
 import com.connxun.elinetv.util.ToastUtils;
 import com.connxun.elinetv.view.MediaPreview.LIveRoomActivity;
+import com.connxun.elinetv.view.MediaPreview.WatchFragment;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.netease.nimlib.sdk.chatroom.model.ChatRoomMember;
 import com.squareup.picasso.Picasso;
@@ -62,6 +63,7 @@ import butterknife.Unbinder;
 
 @SuppressLint("ValidFragment")
 public class LiveRoomUserFragment extends BaseFragment {
+
 
     View view;
 
@@ -154,6 +156,7 @@ public class LiveRoomUserFragment extends BaseFragment {
 
     Unbinder unbinder;
     PushFlowFragment pushFlowFragment;
+    WatchFragment watchFragment;
 
     LiveModel PullLiveModel;
     Live PushLiveModel;
@@ -287,13 +290,18 @@ public class LiveRoomUserFragment extends BaseFragment {
         }
 
     };
+    private boolean isAudience;
 
 
     @SuppressLint("ValidFragment")
     public LiveRoomUserFragment(PushFlowFragment pushFlowFragment) {
         this.pushFlowFragment = pushFlowFragment;
-
     }
+
+    public LiveRoomUserFragment(){
+//        this.watchFragment = watchFragment;
+    }
+
 
     @Override
     public void onAttach(Context context) {
@@ -310,19 +318,87 @@ public class LiveRoomUserFragment extends BaseFragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
+    {
         view = inflater.inflate(R.layout.fragment_live_room_user, null);
         unbinder = ButterKnife.bind(this, view);
+        isAudience = getActivity().getIntent().getBooleanExtra("is_audience", true);
         PullLiveModel = (LiveModel) getActivity().getIntent().getSerializableExtra("mLiveModel"); //观看直播中的数据实体类
         PushLiveModel = (Live) getActivity().getIntent().getSerializableExtra("liveMOdel"); //自己直播中的数据实体类
+        setPushUserDate();
 //        setPushUserDate();
         return view;
     }
-
     //主播方资料
     public void setPushUserDate() {
         liveGiftUtil.clearTiming(llgiftcontent,getActivity());
         //直播
+
+        if(isAudience){
+            //观众
+
+            setUserDateWatch();
+
+        }else{
+            //主播
+            setUserDateCapture();
+        }
+
+        //设置聊天室高度
+        if (BaseApplication.blLiveTypeLiveOrChallenge) {
+            rlLiveUserInfo.setVisibility(View.VISIBLE);
+            rlChallengeTopLayout.setVisibility(View.GONE);
+            setLiaotianshiView(220, 220);
+            liveActivity.setLiaotianshiFragmentWH(220, 220);
+        } else {
+            rlLiveUserInfo.setVisibility(View.GONE);
+            rlChallengeTopLayout.setVisibility(View.VISIBLE);
+            setLiaotianshiView(160, 160);
+            liveActivity.setLiaotianshiFragmentWH(160, 160);
+        }
+
+//        设置在线人数
+        setChatRoom();
+
+
+    }
+
+    //观众
+    public void setUserDateWatch(){
+        if (PullLiveModel != null) {
+            tvChallengeTopUserName.setText(PullLiveModel.getNickName());
+            tvMediaPreviewUserName.setText(PullLiveModel.getNickName());
+            tvMediaPreviewNumberNumber.setText(PullLiveModel.getLiveId());
+            tvChallengeTopLiveNumber.setText("直播间号: " +PullLiveModel.getLiveId());
+
+            String userAcatar = PullLiveModel.getAvatar();
+            if(userAcatar != null){
+                Uri uri = Uri.parse(userAcatar);
+                ivMediaPreviewUserPhoto.setImageURI(uri);
+                ivChallengeTopUserPhoto.setImageURI(uri);
+//            Picasso.with(getActivity())
+//                    .load(userAcatar)
+//                    .placeholder(R.drawable.iocn_login_logo)
+//                    .error(R.drawable.iocn_login_logo)
+//                    .into(ivBack);
+            }else {
+                ivChallengeTopUserPhoto.setBackgroundResource(R.drawable.iocn_login_logo);
+                ivMediaPreviewUserPhoto.setBackgroundResource(R.drawable.iocn_login_logo);
+            }
+
+            //不开放的按钮
+            //底部
+            ibChallengeBottomFanzhuan.setVisibility(View.GONE);
+
+            //中间-挑战
+            btnChallengeMeddleStart.setVisibility(View.GONE);
+
+
+        }
+    }
+
+    //主播
+    public void setUserDateCapture(){
         if (PushLiveModel != null) {
             tvChallengeTopUserName.setText(BaseApplication.getUserSp().getString("nickName", "0"));
             tvMediaPreviewUserName.setText(BaseApplication.getUserSp().getString("nickName", "0"));
@@ -339,25 +415,9 @@ public class LiveRoomUserFragment extends BaseFragment {
             ibLiveMediaPreviewFollow.setVisibility(View.INVISIBLE);
             //显示布局
             ToastUtils.showLong("LiveOrChallenge: " + BaseApplication.blLiveTypeLiveOrChallenge);
-            if (BaseApplication.blLiveTypeLiveOrChallenge) {
-                rlLiveUserInfo.setVisibility(View.VISIBLE);
-                rlChallengeTopLayout.setVisibility(View.GONE);
-                setLiaotianshiView(220, 220);
-                liveActivity.setLiaotianshiFragmentWH(220, 220);
-            } else {
-                rlLiveUserInfo.setVisibility(View.GONE);
-                rlChallengeTopLayout.setVisibility(View.VISIBLE);
-                setLiaotianshiView(160, 160);
-                liveActivity.setLiaotianshiFragmentWH(160, 160);
-
-            }
-            //设置在线人数
-            setChatRoom();
-
         }
-        //挑战
-
     }
+
 
     //开始挑战-倒计时
     public void challengeStart() {
@@ -400,17 +460,29 @@ public class LiveRoomUserFragment extends BaseFragment {
         unbinder.unbind();
     }
 
-    @OnClick({R.id.ib_challenge_bottom_gengduo,
+    @OnClick({R.id.iv_media_preview_user_photo,
+            R.id.ib_challenge_bottom_gengduo,
             R.id.ib_challenge_bottom_xiaoxi,
             R.id.ib_challenge_bottom_fenxiang,
             R.id.ib_challenge_bottom_fanzhuan,
             R.id.btn_challenge_meddle_start})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.iv_media_preview_user_photo: //头像
+            case R.id.iv_challenge_top_user_photo:
+                if(PushLiveModel != null){
+                    liveActivity.setView(PushLiveModel.getUserNo());
+                }
+                if(PullLiveModel != null){
+                    liveActivity.setView(PullLiveModel.getUserNo());
+                }
+
+                break;
+
             case R.id.ib_challenge_bottom_gengduo:
                 break;
             case R.id.ib_challenge_bottom_xiaoxi:
-                pushFlowFragment.showInputPanel();
+                liveActivity.showInputPanel();
                 break;
             case R.id.ib_challenge_bottom_fenxiang:
                 break;
@@ -489,7 +561,6 @@ public class LiveRoomUserFragment extends BaseFragment {
         rlvChallengeTopStaff.setAdapter(cheetahStaffAdapter);
     }
 
-
     public void setUSerPhotoNumber(List<ChatRoomMember> results) {
         result.clear();
         result.addAll(results);
@@ -508,6 +579,9 @@ public class LiveRoomUserFragment extends BaseFragment {
     }
 
     public void setIMGift(IMGift imGift){
-        liveGiftUtil.showGift(imGift,llgiftcontent,getActivity());
+        if(llgiftcontent != null){
+            liveGiftUtil.showGift(imGift,llgiftcontent,getActivity());
+        }
+//
     }
 }

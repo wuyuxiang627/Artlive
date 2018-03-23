@@ -224,13 +224,13 @@ public class MediaPreviewFragment extends BaseFragment implements View.OnClickLi
         if(userAcatar != null){
             Uri uri = Uri.parse(userAcatar);
             ivUserPhoto.setImageURI(uri);
-            Picasso.with(getActivity())
-                    .load(userAcatar)
-                    .placeholder(R.drawable.iocn_login_logo)
-                    .error(R.drawable.iocn_login_logo)
-                    .into(ivBack);
+//            Picasso.with(getActivity())
+//                    .load(userAcatar)
+//                    .placeholder(R.drawable.iocn_login_logo)
+//                    .error(R.drawable.iocn_login_logo)
+//                    .into(ivBack);
         }else {
-            ivBack.setBackgroundResource(R.drawable.iocn_login_logo);
+//            ivBack.setBackgroundResource(R.drawable.iocn_login_logo);
             ivUserPhoto.setBackgroundResource(R.drawable.iocn_login_logo);
         }
     }
@@ -321,8 +321,6 @@ public class MediaPreviewFragment extends BaseFragment implements View.OnClickLi
                 if(BaseApplication.getUserNo() != null){
 //                    ChatRoomMsgViewHolderText.blVisible = false;
 //                    NimUIKit.startP2PSession(getActivity(), mLiveModel.getUserNo());
-
-
 
                     if(stats == 1){
                         //已关注
@@ -763,7 +761,7 @@ public class MediaPreviewFragment extends BaseFragment implements View.OnClickLi
         {
             case 1:
                 //开始播放了
-                ivBack.setVisibility(View.GONE);
+//                ivBack.setVisibility(View.GONE);
                 break;
         }
 

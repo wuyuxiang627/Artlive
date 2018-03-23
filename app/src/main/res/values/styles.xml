@@ -144,14 +144,14 @@
         <!--<item name="android:windowIsTranslucent">true</item>-->
     </style>
 
-    <!--<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">-->
-        <!--&lt;!&ndash; Customize your theme here. &ndash;&gt;-->
-        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
-        <!--<item name="colorPrimaryDark">@color/colorPrimary</item>-->
+    <style name="AppTheme_test" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#00000000</item>
+        <item name="colorPrimaryDark">#00000000</item>
         <!--<item name="colorAccent">@color/app_color</item>-->
-        <!--&lt;!&ndash; 声明为透明状态栏 &ndash;&gt;-->
-        <!--<item name="android:windowIsTranslucent">true</item>-->
-    <!--</style>-->
+        <!-- 声明为透明状态栏 -->
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
 
 
 

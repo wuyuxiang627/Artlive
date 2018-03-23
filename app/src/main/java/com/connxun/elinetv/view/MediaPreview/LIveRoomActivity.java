@@ -108,7 +108,7 @@ public class LIveRoomActivity extends BaseActivity implements View.OnClickListen
 
     String roomId; //聊天室id
     private ActionSheetDialog mDialog; //弹出框
-    private boolean isAudience; //类别区分 :主播-观众
+    public boolean isAudience; //类别区分 :主播-观众
 
     private ViewPager viewPager;
     private LinearLayout idotLayout;//知识圆点
@@ -164,6 +164,7 @@ public class LIveRoomActivity extends BaseActivity implements View.OnClickListen
         }
     };
     private UserLiveFragment userLiveFragment;
+    private WatchFragment watchFragment;
 
     private void delay() {
         if (timeTask != null)
@@ -203,6 +204,7 @@ public class LIveRoomActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         super.onCreate(savedInstanceState);
         handleIntent(getIntent());
         mContext = this;
@@ -447,8 +449,9 @@ public class LIveRoomActivity extends BaseActivity implements View.OnClickListen
         if(isAudience){
 //            ll_liwu.setVisibility(View.VISIBLE);
         iv_gift.setVisibility(View.VISIBLE);
-        mediaPreviewFragment = new MediaPreviewFragment();
-        transaction.replace(R.id.layout_main_content, mediaPreviewFragment);
+//        mediaPreviewFragment = new MediaPreviewFragment();
+         watchFragment = new WatchFragment();
+        transaction.replace(R.id.layout_main_content, watchFragment);
     }else{
         iv_gift.setVisibility(View.GONE);
         ll_liwu.setVisibility(View.INVISIBLE);
@@ -591,7 +594,7 @@ public class LIveRoomActivity extends BaseActivity implements View.OnClickListen
     @Override
     public void refreshRoomMember(List<ChatRoomMember> result) {
         if(isAudience){
-            MediaPreviewFragment.setUSerPhotoNumber(result);
+            watchFragment.setUSerPhotoNumber(result);
         }else {
             captureFragments.setUSerPhotoNumber(result);
         }
@@ -645,7 +648,7 @@ public class LIveRoomActivity extends BaseActivity implements View.OnClickListen
                     Gson gson = new Gson();
                     IMGift imGift = gson.fromJson(gson.toJson(map),IMGift.class);
                     if(isAudience){
-                        mediaPreviewFragment.showGift(imGift);
+                        watchFragment.showGift(imGift);
                     }else {
                         captureFragments.showGift(imGift);
                     }

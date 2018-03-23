@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/layout_live_root"
     android:layout_width="match_parent"
+    android:background="@color/cards_color_fense"
     android:layout_height="match_parent">
     <!--&lt;!&ndash;Fragment容器 用于展示聊天列表与聊天输入框&ndash;&gt;-->
 
@@ -10,6 +11,7 @@
     <!--Fragment容器 用于展示视频采集或播放Fragment-->
     <FrameLayout
         android:id="@+id/layout_main_content"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </FrameLayout>

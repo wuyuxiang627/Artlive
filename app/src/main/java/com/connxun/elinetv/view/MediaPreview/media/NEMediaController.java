@@ -104,7 +104,7 @@ public class NEMediaController extends FrameLayout {
     private boolean mPaused = false;
     private boolean mIsFullScreen = false;
     
-    private int mVideoScalingMode = VIDEO_SCALING_MODE_FIT;
+    private int mVideoScalingMode = VIDEO_SCALING_MODE_FULL ;
     public static final int VIDEO_SCALING_MODE_NONE = 0;
     public static final int VIDEO_SCALING_MODE_FIT  = 1;
     public static final int VIDEO_SCALING_MODE_FILL = 2;
@@ -203,7 +203,7 @@ public class NEMediaController extends FrameLayout {
 				default:
 					mVideoScalingMode = VIDEO_SCALING_MODE_NONE;
 				};
-	            mPlayer.setVideoScalingMode(mVideoScalingMode);
+	            mPlayer.setVideoScalingMode(3);
         	}
           
         	mSetPlayerScaleButton.requestFocus();
@@ -534,7 +534,7 @@ public class NEMediaController extends FrameLayout {
 			}
 
             try {
-            	mPlayer.setVideoScalingMode(mVideoScalingMode);
+            	mPlayer.setVideoScalingMode(3);
             } catch (NumberFormatException e) {
 
             }

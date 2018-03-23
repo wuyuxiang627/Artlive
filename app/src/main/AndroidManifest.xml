@@ -126,7 +126,7 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/JunTheme"
+        android:theme="@style/AppTheme_test"
         tools:replace="android:name">
         <activity
             android:name=".view.Index.MainActivity"
