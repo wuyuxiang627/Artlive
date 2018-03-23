@@ -439,6 +439,7 @@ public class LIveRoomActivity extends BaseActivity implements View.OnClickListen
     /**A
      * 根据是否为观众,加载不同的Fragment
      */
+    PushFlowFragment captureFragments;
     private void loadFragment(boolean isAudience) {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -453,8 +454,8 @@ public class LIveRoomActivity extends BaseActivity implements View.OnClickListen
         ll_liwu.setVisibility(View.INVISIBLE);
 //        captureFragment = new CaptureFragment();
 
-            PushFlowFragment captureFragment = new PushFlowFragment();
-        transaction.replace(R.id.layout_main_content, captureFragment);
+            captureFragments = new PushFlowFragment();
+        transaction.replace(R.id.layout_main_content, captureFragments);
         chatLayout.setVisibility(View.INVISIBLE);
     }
     userLiveFragment = new UserLiveFragment();
@@ -591,7 +592,7 @@ public class LIveRoomActivity extends BaseActivity implements View.OnClickListen
         if(isAudience){
             MediaPreviewFragment.setUSerPhotoNumber(result);
         }else {
-//            CaptureFragment.setUSerPhotoNumber(result);
+            captureFragments.setUSerPhotoNumber(result);
         }
 
     }

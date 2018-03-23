@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +29,10 @@ import com.connxun.elinetv.view.LiveBroadcast.Iinterface.LiveOperatingState;
 import com.connxun.elinetv.view.MediaPreview.LIveRoomActivity;
 import com.connxun.elinetv.view.MediaPreview.fragment.FreeLiveFragment;
 import com.netease.nim.uikit.common.ui.dialog.DialogMaker;
+import com.netease.nimlib.sdk.chatroom.model.ChatRoomMember;
 import com.netease.vcloud.video.render.NeteaseView;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -201,12 +205,22 @@ public class PushFlowFragment extends BaseFragment implements CapturePreviewCont
     @Override
     public void onStartLivingFinished() {
 
-        layoutFragmentLiveChallengeTopBottom.setVisibility(View.VISIBLE);
+
         liveRoomUserFragment.setPushUserDate();
         rlPushFlowTypeBottom.setVisibility(View.GONE);
         rlPushFlowTop.setVisibility(View.GONE);
         layoutFragmentLive.setVisibility(View.GONE);
         layoutFragmentChallenge.setVisibility(View.GONE);
+        layoutFragmentLiveChallengeTopBottom.setVisibility(View.VISIBLE);
+        if(BaseApplication.blLiveTypeLiveOrChallenge){
+            layoutFragmentLive.startAnimation(AnimationUtil.startAnimation(0.0f, -1.0f, 0.0f, 0.0f));
+        }else {
+            layoutFragmentChallenge.startAnimation(AnimationUtil.startAnimation(0.0f, -1.0f, 0.0f, 0.0f));
+        }
+        layoutFragmentLiveChallengeTopBottom.startAnimation(AnimationUtil.startAnimation(1.0f, 0.0f, 0.0f, 0.0f));
+
+
+
         if (liveActivity != null) {
             liveActivity.onStartLivingFinished();
         }
@@ -350,4 +364,10 @@ public class PushFlowFragment extends BaseFragment implements CapturePreviewCont
         liveActivity.showInputPanel();
 
     }
+
+    public void setUSerPhotoNumber(List<ChatRoomMember> results){
+        liveRoomUserFragment.setUSerPhotoNumber(results);
+    }
+
+
 }

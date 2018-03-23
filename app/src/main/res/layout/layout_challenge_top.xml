@@ -13,6 +13,7 @@
         android:layout_height="wrap_content">
 
         <RelativeLayout
+            android:layout_marginLeft="@dimen/px_20"
             android:id="@+id/rl_challenge_top"
             android:background="@drawable/back_chanllge_top_back"
             android:layout_width="wrap_content"
@@ -61,7 +62,6 @@
                             android:id="@+id/tv_challenge_top_user_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="小奶瓶"
                             android:textSize="12sp"
                             android:textColor="@color/white"
                             android:layout_marginLeft="3dp"
@@ -96,11 +96,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="12sp"
-                    android:textColor="@color/find_title"
+                    android:textColor="#ff333333"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginBottom="6dp"
-                    android:text="直播间号：123456"/>
+                    android:text="直播间号："/>
 
             </RelativeLayout>
 
@@ -169,7 +169,6 @@
                 android:layout_height="wrap_content" />
             <TextView
                 android:layout_toRightOf="@+id/rb_challenge_contribution"
-                android:text="231231231"
                 android:textSize="10sp"
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
@@ -180,7 +179,57 @@
 
 
         </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_challenge_top_time"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/px_15"
+            android:visibility="gone"
+            android:layout_marginLeft="@dimen/px_20"
+            android:layout_below="@+id/rl_challenge_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_challenge_top_challenge_timer_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="挑战中" />
+
+            <ImageView
+                android:id="@+id/iv_challenge_top_challenge_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px_5"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/icon_challenge_top_timer"
+                />
+            <TextView
+                android:id="@+id/tv_challenge_top_challenge_timer"
+                android:layout_marginTop="@dimen/px_5"
+                android:textSize="12sp"
+                android:text="30:00"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btn_challenge_top_start"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:text="3"
+                android:textColor="@color/white"
+                android:textSize="33sp"
+                android:background="@drawable/layout_challenge_red_time_back"/>
+                />
+
+
+
+        </LinearLayout>
+
+
+
     </RelativeLayout>
+
 
 
 

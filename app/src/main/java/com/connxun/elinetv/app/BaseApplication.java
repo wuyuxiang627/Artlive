@@ -174,7 +174,7 @@ public class BaseApplication extends MultiDexApplication {
         userNo = sp.getString("userNo", "");
         token = sp.getString("token", "");
 
-        Logger.d("开始了哟");
+        Logger.e("开始了哟");
         //创建文件
         fileCreat();
 

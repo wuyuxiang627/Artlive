@@ -7,6 +7,7 @@
 
     <!--挑战中间-->
 
+
     <Button
         android:id="@+id/btn_challenge_meddle_start"
         android:layout_width="@dimen/px_100"
@@ -39,6 +40,11 @@
     <include
         android:visibility="gone"
         layout="@layout/layout_challenge_meddle_ranking"/>
+
+    <include
+        layout="@layout/layout_challenge_grade_time"/>
+
+
 
     <include
         android:visibility="gone"
