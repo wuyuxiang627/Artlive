@@ -21,6 +21,7 @@ import com.connxun.elinetv.presenter.Presenter;
 import com.connxun.elinetv.util.ToastUtils;
 import com.connxun.elinetv.view.View;
 import com.connxun.elinetv.view.user.ITestView;
+import com.orhanobut.logger.Logger;
 
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
@@ -93,6 +94,7 @@ public class LivePresenter implements Presenter {
                         super.onCompleted();
                         if (openLive != null)
                             LogUtil.Log(TAG, LogUtil.LOG_E, "getLiveOpenLive成功请求回来的参数： " + openLive);
+                       Logger.e("开始了哟: "+ openLive);
                         if (openLive.getData() != null) {
                             testView.onSuccess(openLive);
                         } else {

@@ -10,8 +10,19 @@
         layout="@layout/layout_live_info"
         android:id="@+id/include4" />
 
-
+    <LinearLayout
+        android:id="@+id/llgiftcontent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/il_layout_challenge_meddle"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="40dp"
+        android:animateLayoutChanges="true"
+        android:gravity="top"
+        android:orientation="vertical" />
         <include
+            android:visibility="gone"
+            android:id="@+id/il_layout_challenge_meddle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             layout="@layout/layout_challenge_meddle"

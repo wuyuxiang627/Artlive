@@ -1,5 +1,8 @@
 package com.connxun.elinetv.view.LiveBroadcast;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
@@ -10,11 +13,14 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.OvershootInterpolator;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -28,12 +34,17 @@ import com.connxun.elinetv.adapter.Live.Challenge.ChallengradeAdapter;
 import com.connxun.elinetv.adapter.Live.CheetahStaffAdapter;
 import com.connxun.elinetv.app.BaseApplication;
 import com.connxun.elinetv.base.ui.BaseFragment;
+import com.connxun.elinetv.base.ui.CustomRoundView;
+import com.connxun.elinetv.base.ui.MagicTextView;
+import com.connxun.elinetv.entity.IMGift;
 import com.connxun.elinetv.entity.Live;
 import com.connxun.elinetv.entity.LiveModel;
+import com.connxun.elinetv.util.LiveGiftUtil;
 import com.connxun.elinetv.util.ToastUtils;
 import com.connxun.elinetv.view.MediaPreview.LIveRoomActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.netease.nimlib.sdk.chatroom.model.ChatRoomMember;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,7 +88,6 @@ public class LiveRoomUserFragment extends BaseFragment {
     RecyclerView rlvChallengeTopStaff;
     @BindView(R.id.rb_challenge_contribution)
     RadioButton rbChallengeContribution;
-
     //直播顶部
     @BindView(R.id.iv_media_preview_user_photo)
     SimpleDraweeView ivMediaPreviewUserPhoto;
@@ -150,8 +160,6 @@ public class LiveRoomUserFragment extends BaseFragment {
 
 
     //挑战中间时间
-    @BindView(R.id.tv_challenge_top_challenge_timer)
-    TextView tvChallengeTopChallengeTimer; //挑战时间
     @BindView(R.id.tv_challenge_top_challenge_timer_start)
     TextView tvChallengeTopChallengeTimerStart;
     @BindView(R.id.iv_challenge_top_challenge_timer)
@@ -162,12 +170,17 @@ public class LiveRoomUserFragment extends BaseFragment {
     LinearLayout llChallengeTopTime;
 
 
-
     //评分时间
-    @BindView(R.id.rcy_challenge_grade_list)
-    RecyclerView rcyChallengeGradeList;
     @BindView(R.id.rl_challenge_grade_time)
     RelativeLayout rlChallengeGradeTime;
+    @BindView(R.id.tv_challenge_top_challenge_timer)
+    TextView tvChallengeTopChallengeTimer;
+    @BindView(R.id.llgiftcontent)
+    LinearLayout llgiftcontent;
+    @BindView(R.id.textView6)
+    TextView textView6;
+    @BindView(R.id.rcy_challenge_grade_list)
+    RecyclerView rcyChallengeGradeList;
 
     private LIveRoomActivity liveActivity;
 
@@ -181,7 +194,10 @@ public class LiveRoomUserFragment extends BaseFragment {
     private static CheetahStaffAdapter cheetahStaffAdapter; //人员集合
     static List<ChatRoomMember> result = new ArrayList<>();
 
-
+    /**
+     * 动画相关
+     */
+    private LiveGiftUtil liveGiftUtil = new LiveGiftUtil();
 
     //这是接收回来处理的消息
     private Handler handler = new Handler() {
@@ -305,6 +321,7 @@ public class LiveRoomUserFragment extends BaseFragment {
 
     //主播方资料
     public void setPushUserDate() {
+        liveGiftUtil.clearTiming(llgiftcontent,getActivity());
         //直播
         if (PushLiveModel != null) {
             tvChallengeTopUserName.setText(BaseApplication.getUserSp().getString("nickName", "0"));
@@ -448,50 +465,49 @@ public class LiveRoomUserFragment extends BaseFragment {
     }
 
     //设置评分集合
-    private void setGradeListTime(){
+    private void setGradeListTime() {
         List<Integer> integers = new ArrayList<>();
-        for(int i = 1; i<11;i++){
+        for (int i = 1; i < 11; i++) {
             integers.add(i);
         }
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),5);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 5);
         rcyChallengeGradeList.setLayoutManager(gridLayoutManager);
-        ChallengradeAdapter challengradeAdapter = new ChallengradeAdapter(R.layout.item_challenge_grade_time,integers);
+        ChallengradeAdapter challengradeAdapter = new ChallengradeAdapter(R.layout.item_challenge_grade_time, integers);
         rcyChallengeGradeList.setAdapter(challengradeAdapter);
     }
 
 
     private void setChatRoom() {
-        gridLayoutManager = new GridLayoutManager(getActivity(),1);
+        gridLayoutManager = new GridLayoutManager(getActivity(), 1);
         gridLayoutManager.setOrientation(GridLayoutManager.HORIZONTAL);
         rlvCheetahStaff.setLayoutManager(gridLayoutManager);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),1);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 1);
         gridLayoutManager.setOrientation(GridLayoutManager.HORIZONTAL);
         rlvChallengeTopStaff.setLayoutManager(gridLayoutManager);
-        cheetahStaffAdapter = new CheetahStaffAdapter(getActivity(),result);
+        cheetahStaffAdapter = new CheetahStaffAdapter(getActivity(), result);
         rlvCheetahStaff.setAdapter(cheetahStaffAdapter);
         rlvChallengeTopStaff.setAdapter(cheetahStaffAdapter);
     }
 
 
-    public void setUSerPhotoNumber(List<ChatRoomMember> results){
+    public void setUSerPhotoNumber(List<ChatRoomMember> results) {
         result.clear();
-        result .addAll(results);
-        if(cheetahStaffAdapter != null){
+        result.addAll(results);
+        if (cheetahStaffAdapter != null) {
             cheetahStaffAdapter.notifyDataSetChanged();
         }
         //tv_challenge_top_watch_number
-        if(tvChallengeTopWatchNumber != null){
-            tvChallengeTopWatchNumber.setText(results.size()+"人在线");
+        if (tvChallengeTopWatchNumber != null) {
+            tvChallengeTopWatchNumber.setText(results.size() + "人在线");
         }
-        if(tvMediaPreviewWatchNumber != null){
-            tvMediaPreviewWatchNumber.setText(results.size()+"人在线");
+        if (tvMediaPreviewWatchNumber != null) {
+            tvMediaPreviewWatchNumber.setText(results.size() + "人在线");
         }
 
 
     }
 
-
-
-
-
+    public void setIMGift(IMGift imGift){
+        liveGiftUtil.showGift(imGift,llgiftcontent,getActivity());
+    }
 }

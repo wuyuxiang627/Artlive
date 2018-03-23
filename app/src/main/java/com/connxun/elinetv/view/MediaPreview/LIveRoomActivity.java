@@ -551,6 +551,7 @@ public class LIveRoomActivity extends BaseActivity implements View.OnClickListen
         }
 
 
+
         return false;
     }
 
@@ -646,7 +647,7 @@ public class LIveRoomActivity extends BaseActivity implements View.OnClickListen
                     if(isAudience){
                         mediaPreviewFragment.showGift(imGift);
                     }else {
-                        captureFragment.showGift(imGift);
+                        captureFragments.showGift(imGift);
                     }
                 }catch (Exception e){
 

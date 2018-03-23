@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.connxun.elinetv.R;
 import com.connxun.elinetv.app.BaseApplication;
 import com.connxun.elinetv.base.ui.BaseFragment;
+import com.connxun.elinetv.entity.IMGift;
 import com.connxun.elinetv.util.AnimationUtil;
 import com.connxun.elinetv.util.ToastUtils;
 import com.connxun.elinetv.view.LiveBroadcast.Challenge.ChallengeFragment;
@@ -362,11 +363,16 @@ public class PushFlowFragment extends BaseFragment implements CapturePreviewCont
     @Override
     public void showInputPanel() {
         liveActivity.showInputPanel();
-
     }
 
+    //设置在线人数
     public void setUSerPhotoNumber(List<ChatRoomMember> results){
         liveRoomUserFragment.setUSerPhotoNumber(results);
+    }
+
+    //收到礼物
+    public void showGift(IMGift imGift){
+        liveRoomUserFragment.setIMGift(imGift);
     }
 
 
