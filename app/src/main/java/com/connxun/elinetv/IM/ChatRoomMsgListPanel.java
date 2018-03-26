@@ -155,11 +155,11 @@ public class ChatRoomMsgListPanel {
         List<ChatRoomMessage> addedListItems = new ArrayList<>(messages.size());
         for (ChatRoomMessage message : messages) {
             int type = message.getMsgType().getValue();
-            Log.e("你知道吗: ","消息类型getMsgType: "+ type);
+//            Log.e("你知道吗: ","消息类型getMsgType: "+ type);
             String account = messages.get(0).getFromAccount();
             Map<String, Object> map = messages.get(0).getRemoteExtension();
             if(map != null){
-                Log.e("你知道吗: ","消息类型getRemoteExtension: "+  map.toString());
+//                Log.e("你知道吗: ","消息类型getRemoteExtension: "+  map.toString());
             }
             int msgType = message.getMsgType().getValue();
             //点赞 与 礼物 信息不显示在聊天列表

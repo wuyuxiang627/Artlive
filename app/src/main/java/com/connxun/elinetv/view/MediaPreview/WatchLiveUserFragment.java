@@ -99,8 +99,6 @@ public class WatchLiveUserFragment extends BaseFragment {
     RelativeLayout rlChallengeGradeTime;
     @BindView(R.id.tv_layout_challenge_meddle_grading_result_title)
     TextView tvLayoutChallengeMeddleGradingResultTitle;
-    @BindView(R.id.textView5)
-    TextView textView5;
     @BindView(R.id.rb_challenge_resue_results_title)
     RadioButton rbChallengeResueResultsTitle;
     @BindView(R.id.iv_challenge_resue_results_number_one)

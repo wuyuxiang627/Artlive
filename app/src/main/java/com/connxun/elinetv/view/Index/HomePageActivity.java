@@ -16,6 +16,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -39,6 +40,7 @@ import com.connxun.elinetv.presenter.Live.LivePresenter;
 import com.connxun.elinetv.util.ToastUtils;
 import com.connxun.elinetv.view.Find.FindFragment;
 import com.connxun.elinetv.view.Live.fragment.HotFragment;
+import com.connxun.elinetv.view.Live.fragment.HotOptimizationFragment;
 import com.connxun.elinetv.view.LiveBroadcast.PublishParam;
 import com.connxun.elinetv.view.MediaPreview.LIveRoomActivity;
 import com.connxun.elinetv.view.Video.VideoFragment;
@@ -259,73 +261,116 @@ public class  HomePageActivity extends BaseActivity{
      * 设置Listener
      */
     private void setClickListener() {
-        ibStartLive.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(!checkPublishPermission()){
-                    ToastUtils.showLong("请先允许app所需要的权限");
+
+        //lambda - 开始直播
+        ibStartLive.setOnClickListener(v->{
+            if(BaseApplication.getUserNo() != null){
+                String cityCode = BaseApplication.getUserSp().getString("cityCode","");
+
+                if(cityCode.equals("")){
                     return;
                 }
 
-//                NimUIKit.startP2PSession(context, "wuyuxiang1");
-
-//                Intent intent = new Intent(HomePageActivity.this, LiveActivity.class);
-//                intent.putExtra("data", publishParam);
-//                isLogin_startActivity(intent);
-
-                if(BaseApplication.getUserNo() != null){
-                    String cityCode = BaseApplication.getUserSp().getString("cityCode","");
-
-                    if(cityCode.equals("")){
-                        return;
-                    }
-
-                    presenter.onCreate();
-                    try {
-                        presenter.getLiveOpenLive(cityCode,"0");
-                    } catch (UnsupportedEncodingException e) {
-                        e.printStackTrace();
-                    }
-                    presenter.attachView(mOpensLive);
-                }else {
-                    startActivity(new Intent(HomePageActivity.this, LoginActivity.class));
+                presenter.onCreate();
+                try {
+                    presenter.getLiveOpenLive(cityCode,"0");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
                 }
-
-
-
-
-
+                presenter.attachView(mOpensLive);
+            }else {
+                startActivity(new Intent(HomePageActivity.this, LoginActivity.class));
             }
         });
 
-        radioGroupHome.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @SuppressLint("ResourceAsColor")
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                switch (i){
-                    case R.id.rb_home_live_broadcast:
-                        vpHomeViewpager.setCurrentItem(0);
-                        break;
-                    case R.id.rb_home_video:
+//
+//        ibStartLive.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(!checkPublishPermission()){
+//                    ToastUtils.showLong("请先允许app所需要的权限");
+//                    return;
+//                }
+//
+////                NimUIKit.startP2PSession(context, "wuyuxiang1");
+//
+////                Intent intent = new Intent(HomePageActivity.this, LiveActivity.class);
+////                intent.putExtra("data", publishParam);
+////                isLogin_startActivity(intent);
+//
+//                if(BaseApplication.getUserNo() != null){
+//                    String cityCode = BaseApplication.getUserSp().getString("cityCode","");
+//
+//                    if(cityCode.equals("")){
+//                        return;
+//                    }
+//
+//                    presenter.onCreate();
+//                    try {
+//                        presenter.getLiveOpenLive(cityCode,"0");
+//                    } catch (UnsupportedEncodingException e) {
+//                        e.printStackTrace();
+//                    }
+//                    presenter.attachView(mOpensLive);
+//                }else {
+//                    startActivity(new Intent(HomePageActivity.this, LoginActivity.class));
+//                }
+//
+//            }
+//        });
 
-                        vpHomeViewpager.setCurrentItem(1);
-                        break;
-                    case R.id.rb_home_find:
-                        vpHomeViewpager.setCurrentItem(2);
-                        break;
-                    case R.id.rb_home_mind:
-                        vpHomeViewpager.setCurrentItem(3);
-                        break;
-                }
+
+
+        //底部控制
+        radioGroupHome.setOnCheckedChangeListener((radioGroup,i)->{
+            switch (i){
+                case R.id.rb_home_live_broadcast:
+                    vpHomeViewpager.setCurrentItem(0);
+                    break;
+                case R.id.rb_home_video:
+
+                    vpHomeViewpager.setCurrentItem(1);
+                    break;
+                case R.id.rb_home_find:
+                    vpHomeViewpager.setCurrentItem(2);
+                    break;
+                case R.id.rb_home_mind:
+                    vpHomeViewpager.setCurrentItem(3);
+                    break;
             }
         });
+
+
+//
+//
+//        radioGroupHome.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//            @SuppressLint("ResourceAsColor")
+//            @Override
+//            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+//                switch (i){
+//                    case R.id.rb_home_live_broadcast:
+//                        vpHomeViewpager.setCurrentItem(0);
+//                        break;
+//                    case R.id.rb_home_video:
+//
+//                        vpHomeViewpager.setCurrentItem(1);
+//                        break;
+//                    case R.id.rb_home_find:
+//                        vpHomeViewpager.setCurrentItem(2);
+//                        break;
+//                    case R.id.rb_home_mind:
+//                        vpHomeViewpager.setCurrentItem(3);
+//                        break;
+//                }
+//            }
+//        });
     }
     /**
      * 设置ViewPager的Adapter
      */
     private void setAdapter() {
         fragments = new ArrayList<Fragment>();
-        fragments.add(new HotFragment());
+        fragments.add(new HotOptimizationFragment());
         fragments.add(new VideoFragment());
         fragments.add(new FindFragment());
         fragments.add(new MindFragment());
@@ -334,6 +379,33 @@ public class  HomePageActivity extends BaseActivity{
         pagerAdapter = new MainPagerAdapter(getSupportFragmentManager(), fragments);
         vpHomeViewpager.setAdapter(pagerAdapter);
         vpHomeViewpager.setOffscreenPageLimit(4);
+        vpHomeViewpager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+//        vpHomeViewpager.setOnPageChangeListener((position,positionOffset,positionOffsetPixels)->{
+//
+//        },positon->{
+//
+//        },state->{
+//
+//        });
+
+
+
 
     }
     public class MainPagerAdapter extends FragmentPagerAdapter {

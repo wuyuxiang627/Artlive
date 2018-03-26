@@ -12,6 +12,14 @@ android {
 
 
         multiDexEnabled true
+
+
+        //la
+        jackOptions{
+            enabled true
+        }
+
+
 //        flavorDimensions "versionCode"
 //        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -44,6 +52,12 @@ android {
                 JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
         ]
 
+    }
+
+
+    compileOptions{
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
 

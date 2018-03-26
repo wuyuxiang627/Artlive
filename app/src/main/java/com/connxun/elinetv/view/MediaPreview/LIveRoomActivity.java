@@ -49,6 +49,10 @@ import com.connxun.elinetv.entity.Gift;
 import com.connxun.elinetv.entity.IMGift;
 import com.connxun.elinetv.entity.Live;
 import com.connxun.elinetv.entity.LiveModel;
+import com.connxun.elinetv.entity.live.challenge.ChallengeEntity;
+import com.connxun.elinetv.entity.live.challenge.GradingResultsEntity;
+import com.connxun.elinetv.entity.live.challenge.RescueEntity;
+import com.connxun.elinetv.entity.live.challenge.RescueResultsEntity;
 import com.connxun.elinetv.entity.order.UserVC;
 import com.connxun.elinetv.presenter.Gift.GiftPresenter;
 import com.connxun.elinetv.presenter.Live.LivePresenter;
@@ -67,6 +71,7 @@ import com.netease.nimlib.sdk.chatroom.model.ChatRoomMember;
 import com.netease.nimlib.sdk.chatroom.model.ChatRoomMessage;
 import com.netease.nimlib.sdk.msg.constant.MsgTypeEnum;
 import com.netease.nimlib.sdk.msg.model.IMMessage;
+import com.orhanobut.logger.Logger;
 
 import org.xutils.view.annotation.ContentView;
 
@@ -342,7 +347,6 @@ public class LIveRoomActivity extends BaseActivity implements View.OnClickListen
                 }else {
                     ToastUtils.showLong("请选择礼物...");
                 }
-
             }
         });
     }
@@ -427,8 +431,6 @@ public class LIveRoomActivity extends BaseActivity implements View.OnClickListen
 
         }
     };
-
-
 
     private void handleIntent(Intent intent) {
         isAudience = intent.getBooleanExtra(IS_AUDIENCE, true);
@@ -645,13 +647,70 @@ public class LIveRoomActivity extends BaseActivity implements View.OnClickListen
 //
                 try{
                     map = msg.getRemoteExtension();
+                    int msgType = (int) map.get("msgType");
+
+                    Logger.e("msgtype :" + map.get("msgType"));
                     Gson gson = new Gson();
-                    IMGift imGift = gson.fromJson(gson.toJson(map),IMGift.class);
-                    if(isAudience){
-                        watchFragment.showGift(imGift);
-                    }else {
-                        captureFragments.showGift(imGift);
+                    switch (msgType)
+                    {
+                        case 2:
+                            //赠送礼物
+                            //聊天室礼物
+                            IMGift imGift = gson.fromJson(gson.toJson(map),IMGift.class);
+                            if(isAudience){
+                                watchFragment.showGift(imGift);
+                            }else {
+                                captureFragments.showGift(imGift);
+                            }
+                            break;
+                        case 104:
+                            //排行榜
+
+                            break;
+                        case 111:
+                            //开始评分
+                            watchFragment.showGradingView();
+                            break;
+
+                        case 121:
+                            //用户投送救援票
+                            RescueEntity rescueEntity = gson.fromJson(gson.toJson(map),RescueEntity.class);
+                            captureFragments.showRecue(rescueEntity);
+
+
+                            break;
+                        case 115:
+                            String json = gson.toJson(map);
+                            //评分结果推送
+                            GradingResultsEntity gradingResult = gson.fromJson(gson.toJson(map),GradingResultsEntity.class);
+                            if(isAudience){
+                                watchFragment.showFradingResult(gradingResult);
+                            }else {
+                                captureFragments.showFradingResult(gradingResult);
+                            }
+                            break;
+                        case 131:
+                            //救援结果
+                            RescueResultsEntity rescueResultsEntity = gson.fromJson(gson.toJson(map),RescueResultsEntity.class);
+                            if(isAudience){
+                                watchFragment.showRescueResults(rescueResultsEntity);
+                            }else {
+                                captureFragments.showRescueResults(rescueResultsEntity);
+                            }
+
+                            break;
+
+
+
+
                     }
+
+
+
+
+
+
+
                 }catch (Exception e){
 
                 }

@@ -19,6 +19,7 @@ import com.connxun.elinetv.entity.RegisterEntity;
 import com.connxun.elinetv.entity.Video.Talk;
 import com.connxun.elinetv.entity.live.ChallengeTypeThree;
 import com.connxun.elinetv.entity.live.EndLiveEntitiy;
+import com.connxun.elinetv.entity.live.challenge.ChallengeModelEntity;
 import com.connxun.elinetv.entity.order.UserVC;
 import com.connxun.elinetv.entity.UserVideoEntity;
 import com.connxun.elinetv.entity.order.VC;
@@ -748,8 +749,40 @@ public interface RetrofitService {
                                                                     @Field("time") String time);
 
 
+    /**
+     * 创建挑战
+     * @param menuNo
+     * @param challengeResourceNo
+     * @param liveNo
+     * @param time
+     * @return
+     */
 
+    @FormUrlEncoded
+    @POST("challenge/createChallenge")
+    Observable<EntityObject<ChallengeModelEntity>>  getChallengeCreatChallenge(@Field("menuNo") String menuNo,
+                                                                               @Field("challengeResourceNo") String challengeResourceNo,
+                                                                               @Field("liveNo") String liveNo,
+                                                                               @Field("time") String time);
 
+    /**
+     * 开始挑战
+     * @param time
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("challenge/startChallenge")
+    Observable<JsonEntity>  getChallengeStartChallenge(@Field("challengeNo") String challengeNo,
+                                                                               @Field("time") String time);
+    /**
+     * 挑战评分
+     * @param time
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("challenge/score")
+    Observable<JsonEntity>  getChallengeScore(@Field("score") String score,@Field("challengeNo") String challengeNo,
+                                                                               @Field("time") String time);
 
 
 

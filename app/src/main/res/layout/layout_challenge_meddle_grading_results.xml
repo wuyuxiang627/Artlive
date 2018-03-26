@@ -2,123 +2,161 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_marginTop="10dp"
+
     android:layout_height="wrap_content">
 
-    <!--评分结果-->
-    <TextView
-        android:id="@+id/tv_layout_challenge_meddle_grading_result_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        android:layout_centerHorizontal="true"
-        android:text="@string/challenge_meddle_grading_results"/>
-
-
-    <TextView
-        android:layout_below="@+id/tv_layout_challenge_meddle_grading_result_title"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/px_20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="F"
-        android:gravity="center"
-        android:textSize="50sp"
-        android:textColor="#5DD677"
-        android:background="@drawable/yjy_weitongguo"
-        android:id="@+id/textView5" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/px_67"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:background="@drawable/icon_challenge_meddle_success_btn"
-        android:text="@string/challenge_meddle_grade_success_start" />
 
     <RelativeLayout
-        android:layout_below="@+id/textView5"
+        android:background="@drawable/jy_beijing"
+        android:id="@+id/rl_grading_results"
         android:layout_width="match_parent"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="@dimen/px_36"
-        android:layout_height="20dp">
-
-        <LinearLayout
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:background="@drawable/yr_dengguang"
             android:layout_width="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
+
+            <!--评分结果-->
             <TextView
+                android:id="@+id/tv_layout_challenge_meddle_grading_result_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="@color/black"
-                android:text="@string/challenge_meddle_grade_average"/>
-            <TextView
-                android:layout_marginLeft="3dp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="12232"
-                android:textColor="#2BC254"
-                android:textSize="12sp"
-                />
+                android:textSize="18sp"
+                android:layout_marginTop="@dimen/px_10"
+                android:textColor="@color/white"
+                android:layout_centerHorizontal="true"
+                android:text="@string/challenge_meddle_grading_results"/>
 
-        </LinearLayout>
+            <ImageView
+                android:id="@+id/iv_challenge_grading_result_img"
+                android:layout_width="@dimen/px_120"
+                android:layout_height="@dimen/px_140"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/tv_layout_challenge_meddle_grading_result_title"
+                android:background="@drawable/pf_f"/>
 
-        <LinearLayout
-            android:layout_centerHorizontal="true"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="@color/black"
-                android:text="@string/challenge_meddle_grade_likes_number"/>
-            <TextView
-                android:layout_marginLeft="3dp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="12232"
-                android:textColor="#2BC254"
-                android:textSize="12sp"
-                />
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-            <TextView
+            <ImageView
+                android:id="@+id/iv_challenge_grading_result_suc_err"
+                android:layout_below="@+id/tv_layout_challenge_meddle_grading_result_title"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/px_37"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="@color/black"
-                android:text="@string/challenge_meddle_grade_gift_number"/>
-            <TextView
-                android:layout_marginLeft="3dp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="12232"
-                android:textColor="#2BC254"
-                android:textSize="12sp"
+                android:background="@drawable/yjy_weitongguo"
                 />
 
-        </LinearLayout>
+
+            <!--<TextView-->
+                <!--android:layout_below="@+id/tv_layout_challenge_meddle_grading_result_title"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:layout_marginTop="@dimen/px_37"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:gravity="center"-->
+                <!--android:textSize="50sp"-->
+                <!--android:textColor="#5DD677"-->
+                <!--android:background="@drawable/yjy_weitongguo"-->
+                <!--android:id="@+id/iv_challenge_grading_result_img" />-->
+
+            <Button
+                android:id="@+id/btn_challenge_grading_result"
+                android:layout_width="wrap_content"
+                android:maxHeight="40dp"
+                android:maxWidth="50dp"
+                android:layout_marginRight="@dimen/px_18"
+                android:layout_marginLeft="@dimen/px_10"
+                android:layout_height="35dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/icon_challenge_meddle_success_btn"
+                android:text="@string/challenge_meddle_grade_success_start" />
+
+            <RelativeLayout
+                android:layout_below="@+id/iv_challenge_grading_result_suc_err"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="@dimen/px_36"
+                android:layout_height="20dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:textColor="@color/white"
+                        android:text="@string/challenge_meddle_grade_average"/>
+                    <TextView
+                        android:id="@+id/tv_challenge_grading_results_average"
+                        android:layout_marginLeft="3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="0"
+                        android:textColor="#2BC254"
+                        android:textSize="12sp"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:textColor="@color/white"
+                        android:text="@string/challenge_meddle_grade_likes_number"/>
+                    <TextView
+                        android:id="@+id/tv_challenge_grading_results_live"
+                        android:layout_marginLeft="3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="0"
+                        android:textColor="#2BC254"
+                        android:textSize="12sp"
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:textColor="@color/white"
+                        android:text="@string/challenge_meddle_grade_gift_number"/>
+                    <TextView
+                        android:id="@+id/tv_challenge_grading_results_gife"
+                        android:layout_marginLeft="3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="0"
+                        android:textColor="#2BC254"
+                        android:textSize="12sp"
+                        />
+
+                </LinearLayout>
 
 
+
+
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
 
 
 
     </RelativeLayout>
-
-
-
-
-
-
-
 
 
 

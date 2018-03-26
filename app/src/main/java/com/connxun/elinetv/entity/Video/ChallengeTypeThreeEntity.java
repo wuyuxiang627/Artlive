@@ -12,7 +12,16 @@ public class ChallengeTypeThreeEntity {
     private int type;
     private String content;
     private String color;
+    private long showTime;
 
+
+    public long getShowTime() {
+        return showTime;
+    }
+
+    public void setShowTime(long showTime) {
+        this.showTime = showTime;
+    }
 
     public String getColor() {
         return color;

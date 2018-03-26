@@ -38,8 +38,6 @@ public class ChallengeStartFragment extends BaseFragment {
     RecyclerView rlvChallengeMeddleRankingListReight;
     @BindView(R.id.tv_layout_challenge_meddle_grading_result_title)
     TextView tvLayoutChallengeMeddleGradingResultTitle;
-    @BindView(R.id.textView5)
-    TextView textView5;
 
     @Nullable
     @Override
@@ -56,7 +54,7 @@ public class ChallengeStartFragment extends BaseFragment {
     }
 
 
-    @OnClick({R.id.relativeLayout4, R.id.btn_challenge_meddle_start, R.id.iv_layout_challenge_meddle_ranking_img, R.id.rlv_challenge_meddle_ranking_list_left, R.id.rlv_challenge_meddle_ranking_list_reight, R.id.tv_layout_challenge_meddle_grading_result_title, R.id.textView5})
+    @OnClick({R.id.relativeLayout4, R.id.btn_challenge_meddle_start, R.id.iv_layout_challenge_meddle_ranking_img, R.id.rlv_challenge_meddle_ranking_list_left, R.id.rlv_challenge_meddle_ranking_list_reight, R.id.tv_layout_challenge_meddle_grading_result_title})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.relativeLayout4:
@@ -70,8 +68,6 @@ public class ChallengeStartFragment extends BaseFragment {
             case R.id.rlv_challenge_meddle_ranking_list_reight:
                 break;
             case R.id.tv_layout_challenge_meddle_grading_result_title:
-                break;
-            case R.id.textView5:
                 break;
         }
     }

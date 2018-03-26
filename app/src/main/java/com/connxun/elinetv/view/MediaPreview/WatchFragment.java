@@ -15,6 +15,8 @@ import com.connxun.elinetv.R;
 import com.connxun.elinetv.base.ui.BaseFragment;
 import com.connxun.elinetv.entity.IMGift;
 import com.connxun.elinetv.entity.LiveModel;
+import com.connxun.elinetv.entity.live.challenge.GradingResultsEntity;
+import com.connxun.elinetv.entity.live.challenge.RescueResultsEntity;
 import com.connxun.elinetv.view.LiveBroadcast.LiveRoomUserFragment;
 import com.connxun.elinetv.view.MediaPreview.liveplayer.LivePlayerController;
 import com.connxun.elinetv.view.MediaPreview.liveplayer.NEVideoView;
@@ -188,9 +190,15 @@ public class WatchFragment extends BaseFragment implements PlayerContract.Player
     }
     //收到礼物
     public void showGift(IMGift imGift){
+
         liveRoomUserFragment.setIMGift(imGift);
     }
 
+    //显示评分
+    public void showGradingView(){
+
+        liveRoomUserFragment.showGradingView(String.valueOf(mLiveModel.getChallengeNo()) );
+    }
 
 
     @Override
@@ -199,4 +207,13 @@ public class WatchFragment extends BaseFragment implements PlayerContract.Player
         unbinder.unbind();
     }
 
+    //评分结果
+    public void showFradingResult(GradingResultsEntity gradingResult) {
+        liveRoomUserFragment.showFradingResult(gradingResult);
+    }
+
+    //救援结果
+    public void showRescueResults(RescueResultsEntity rescueResultsEntity) {
+        liveRoomUserFragment.showRescueResults(rescueResultsEntity);
+    }
 }

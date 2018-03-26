@@ -26,8 +26,10 @@ import com.connxun.elinetv.adapter.Live.Challenge.CardsThreeMusicAdapter;
 import com.connxun.elinetv.adapter.Live.Challenge.CardsThreeTextAdapter;
 import com.connxun.elinetv.app.BaseApplication;
 import com.connxun.elinetv.base.ui.BaseFragment;
+import com.connxun.elinetv.entity.Live;
 import com.connxun.elinetv.entity.Video.ChallengeTypeThreeEntity;
 import com.connxun.elinetv.entity.live.ChallengeTypeThree;
+import com.connxun.elinetv.entity.live.challenge.ChallengeModelEntity;
 import com.connxun.elinetv.presenter.Live.ChallengeTypePresenter;
 import com.connxun.elinetv.presenter.Live.LivePresenter;
 import com.connxun.elinetv.service.PlayMusicService;
@@ -75,12 +77,15 @@ public class AccompanimentFragment extends BaseFragment {
     private ServiceConnection conn;
 
     private ChallengeFragment challengeFragment;
+    private Live PushLiveModel;
+    private ChallengeModelEntity challengeModelEntity; //创建挑战model
+    private int shouwTime;
+    private String resourceNo;
 
 
     @SuppressLint("ValidFragment")
     public AccompanimentFragment(BaseFragment baseFragment){
         challengeFragment = (ChallengeFragment) baseFragment;
-
     }
 
 
@@ -91,7 +96,7 @@ public class AccompanimentFragment extends BaseFragment {
         view = inflater.inflate(R.layout.fragment_accompaniment_fragment, null);
         unbinder = ButterKnife.bind(this, view);
         //绑定播放音乐的service
-        bindMusicService();
+//        bindMusicService();
 
         //设置音乐
 //        setSongsData();
@@ -107,18 +112,17 @@ public class AccompanimentFragment extends BaseFragment {
      * 绑定service
      */
     private void bindMusicService() {
-        Intent intent = new Intent(getActivity(), PlayMusicService.class);
-        conn = new ServiceConnection() {
-            //异常断开时 执行
-            public void onServiceDisconnected(ComponentName name) {
-            }
-            //当与service绑定成功后 执行
-            public void onServiceConnected(ComponentName name, IBinder service) {
-                musicBinder = (PlayMusicService.MusicBinder) service;
-
-            }
-        };
-        getActivity().bindService(intent, conn, Service.BIND_AUTO_CREATE);
+//        Intent intent = new Intent(getActivity(), PlayMusicService.class);
+//        conn = new ServiceConnection() {
+//            //异常断开时 执行
+//            public void onServiceDisconnected(ComponentName name) {
+//            }
+//            //当与service绑定成功后 执行
+//            public void onServiceConnected(ComponentName name, IBinder service) {
+//                musicBinder = (PlayMusicService.MusicBinder) service;
+//            }
+//        };
+//        getActivity().bindService(intent, conn, Service.BIND_AUTO_CREATE);
     }
 
     public void setMusicLayout() {
@@ -132,29 +136,40 @@ public class AccompanimentFragment extends BaseFragment {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 BaseApplication.blLiveTypeLiveOrChallenge = false;
-                //进入直播
-                challengeFragment.setGoOutChallenge();
-//                presenter.onCreate();
-//                try {
-//                    presenter.getLiveStartLive("123","21312",getActivity().getIntent().getStringExtra("liveNo"));
-//                } catch (UnsupportedEncodingException e) {
-//                    e.printStackTrace();
-//                }
-//                presenter.attachView(mStartLive);
-
+//
+                shouwTime = challengeTypeThreeList.get(position).getShowTime();
+                resourceNo = String.valueOf(challengeTypeThreeList.get(position).getResourceNo());
+                String menuNo = String.valueOf(challengeTypeThreeEntity.getMenuNo());
+                PushLiveModel = (Live) getActivity().getIntent().getSerializableExtra("liveMOdel");
+                String liveNo = PushLiveModel.getLiveNo();
+                //开始挑战
+                challengeTypePresenter.onCreate();
+                challengeTypePresenter.getChallengeCreatChallenge(menuNo,resourceNo,liveNo);
+                challengeTypePresenter.attachView(mChallengeCreatView);
             }
         });
     }
 
+    private String ChallengeNo;
     /**
      * 开始直播
      */
-    public ITestView mStartLive = new ITestView() {
+    public ITestView mChallengeCreatView = new ITestView() {
         @Override
         public void onSuccess(Object object) {
 //            controller.liveStartStop();
-            //进入直播
-            challengeFragment.setGoOutChallenge();
+            challengeModelEntity = (ChallengeModelEntity) object;
+            challengeModelEntity.getLiveNo();
+            ChallengeNo = String.valueOf(challengeModelEntity.getChallengeNo());
+
+            try {
+                presenter.onCreate();
+                presenter.getLiveStartLive("a","a",challengeModelEntity.getLiveNo());
+                presenter.attachView(startLiveView);
+
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
         }
 
         @Override
@@ -162,6 +177,21 @@ public class AccompanimentFragment extends BaseFragment {
 
         }
     };
+
+
+    public ITestView startLiveView = new ITestView() {
+        @Override
+        public void onSuccess(Object object) {
+            //进入直播
+            challengeFragment.setGoOutChallenge(challengeModelEntity,shouwTime,ChallengeNo);
+        }
+
+        @Override
+        public void onError(Object object) {
+
+        }
+    };
+
 
 
 

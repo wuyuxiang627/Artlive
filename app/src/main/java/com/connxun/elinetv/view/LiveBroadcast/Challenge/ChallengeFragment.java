@@ -21,6 +21,7 @@ import com.connxun.elinetv.base.ui.BaseFragment;
 import com.connxun.elinetv.base.ui.GridRecyclerView;
 import com.connxun.elinetv.entity.ChallengeTypeEntity;
 import com.connxun.elinetv.entity.Video.ChallengeTypeThreeEntity;
+import com.connxun.elinetv.entity.live.challenge.ChallengeModelEntity;
 import com.connxun.elinetv.presenter.Live.ChallengeTypePresenter;
 import com.connxun.elinetv.util.AnimationUtil;
 import com.connxun.elinetv.util.RecyclerViewAnimation;
@@ -204,6 +205,7 @@ public class ChallengeFragment extends BaseFragment {
 
     //设置三级页面数据
     public static void setFragmentThree(ChallengeTypeThreeEntity typeThreeEntity,String typeName){
+        typeThreeEntity.getShowTime();
         if(typeThreeEntity.getContent().equals("音频")){
             frameCardsThreeMusic.setVisibility(View.VISIBLE);
             frameCardsThree.setVisibility(View.GONE);
@@ -224,12 +226,9 @@ public class ChallengeFragment extends BaseFragment {
     /**
      * 进入挑战界面
      */
-    public void setGoOutChallenge(){
+    public void setGoOutChallenge(ChallengeModelEntity challengeModelEntity, long showTime, String resourceNo){
+        pushFlowFragment.setChallengeEntity(challengeModelEntity,showTime,resourceNo);
         pushFlowFragment.contrellerLiveStartStop();
     }
-
-
-
-
 
 }

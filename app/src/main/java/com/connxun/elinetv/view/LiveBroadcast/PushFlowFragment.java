@@ -23,6 +23,10 @@ import com.connxun.elinetv.R;
 import com.connxun.elinetv.app.BaseApplication;
 import com.connxun.elinetv.base.ui.BaseFragment;
 import com.connxun.elinetv.entity.IMGift;
+import com.connxun.elinetv.entity.live.challenge.ChallengeModelEntity;
+import com.connxun.elinetv.entity.live.challenge.GradingResultsEntity;
+import com.connxun.elinetv.entity.live.challenge.RescueEntity;
+import com.connxun.elinetv.entity.live.challenge.RescueResultsEntity;
 import com.connxun.elinetv.util.AnimationUtil;
 import com.connxun.elinetv.util.ToastUtils;
 import com.connxun.elinetv.view.LiveBroadcast.Challenge.ChallengeFragment;
@@ -365,6 +369,11 @@ public class PushFlowFragment extends BaseFragment implements CapturePreviewCont
         liveActivity.showInputPanel();
     }
 
+    public void setChallengeEntity(ChallengeModelEntity challengeModelEntity, long showTime, String resourceNo){
+        liveRoomUserFragment.setCaptureChallenge(challengeModelEntity,showTime,resourceNo);
+    }
+
+
     //设置在线人数
     public void setUSerPhotoNumber(List<ChatRoomMember> results){
         liveRoomUserFragment.setUSerPhotoNumber(results);
@@ -376,4 +385,21 @@ public class PushFlowFragment extends BaseFragment implements CapturePreviewCont
     }
 
 
+    //显示评分结果
+    public void showFradingResult(GradingResultsEntity gradingResult) {
+        liveRoomUserFragment.showFradingResult(gradingResult);
+    }
+
+    //显示用户投递的救援票
+    public void showRecue(RescueEntity rescueEntity) {
+        liveRoomUserFragment.showRecue(rescueEntity);
+    }
+
+    //显示救援结果
+    public void showRescueResults(RescueResultsEntity rescueResultsEntity) {
+
+        liveRoomUserFragment.showRescueResults(rescueResultsEntity);
+
+
+    }
 }

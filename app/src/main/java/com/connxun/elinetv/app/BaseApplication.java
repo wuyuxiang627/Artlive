@@ -90,7 +90,7 @@ public class BaseApplication extends MultiDexApplication {
             @NonNull
             @Override
             public RefreshHeader createRefreshHeader(@NonNull Context context, @NonNull RefreshLayout layout) {
-                layout.setPrimaryColorsId(R.color.text_no_login, android.R.color.white);//全局设置主题颜色
+                layout.setPrimaryColorsId(R.color.white, R.color.actionsheet_gray);//全局设置主题颜色
                 return new ClassicsHeader(context);//.setTimeFormat(new DynamicTimeFormat("更新于 %s"));//指定为经典Header，默认是 贝塞尔雷达Header
 
             }

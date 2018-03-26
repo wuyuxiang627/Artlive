@@ -18,6 +18,7 @@ import com.connxun.elinetv.entity.RegisterEntity;
 import com.connxun.elinetv.entity.Video.Talk;
 import com.connxun.elinetv.entity.live.ChallengeTypeThree;
 import com.connxun.elinetv.entity.live.EndLiveEntitiy;
+import com.connxun.elinetv.entity.live.challenge.ChallengeModelEntity;
 import com.connxun.elinetv.entity.order.UserVC;
 import com.connxun.elinetv.entity.UserVideoEntity;
 import com.connxun.elinetv.entity.order.VC;
@@ -326,6 +327,19 @@ public class DataManager {
     //挑战三级菜单
     public Observable<Entity<ChallengeTypeThree>> getChallengeResourceList(String menuNo){
         return mRetrofitService.getChallengeResourceList(menuNo, BaseApplication.getTimeDate()+"" );
+    }
+
+    //创建挑战
+    public Observable<EntityObject<ChallengeModelEntity>> getChallengeCreatChallenge(String menuNo, String challengeResourceNo, String liveNo){
+        return mRetrofitService.getChallengeCreatChallenge(menuNo, challengeResourceNo,liveNo,BaseApplication.getTimeDate()+"" );
+    }
+    //开始挑战
+    public Observable<JsonEntity> getChallengeStartChallenge( String challengeNo){
+        return mRetrofitService.getChallengeStartChallenge( challengeNo,BaseApplication.getTimeDate()+"" );
+    }
+    //挑战评分
+    public Observable<JsonEntity> getChallengeScore(String score, String challengeNo){
+        return mRetrofitService.getChallengeScore( score,challengeNo,BaseApplication.getTimeDate()+"" );
     }
 
 

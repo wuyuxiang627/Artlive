@@ -30,6 +30,15 @@ public class LiveModel implements Serializable{
     private int menuNo;
     private long ctime;
     private String cid;
+    private long challengeNo;
+
+    public long getChallengeNo() {
+        return challengeNo;
+    }
+
+    public void setChallengeNo(long challengeNo) {
+        this.challengeNo = challengeNo;
+    }
 
     public int getMenuNo() {
         return menuNo;
