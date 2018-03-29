@@ -250,34 +250,10 @@ public class HotOptimizationFragment extends BaseFragment {
 
 
     }
-
-//    private void setAllAnchor() {
-//
-//        //设置下拉时圆圈的颜色（可以尤多种颜色拼成）
-//        swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_light,
-//                android.R.color.holo_red_light,
-//                android.R.color.holo_orange_light);
-//        //设置下拉时圆圈的背景颜色（这里设置成白色）
-//        swipeRefreshLayout.setProgressBackgroundColorSchemeResource(android.R.color.white);
-//
-//        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//                //人气主播
-//                setAnchor();
-//                //推荐主播
-//                setHotLive();
-//            }
-//        });
-//
-//    }
-
     private void setBanner() {
-
         otherPresenter.onCreate();
         otherPresenter.getAdList();
         otherPresenter.attachView(ohterBannerView);
-
     }
 
     /**
@@ -431,7 +407,6 @@ public class HotOptimizationFragment extends BaseFragment {
 
         }
     };
-
     /**
      * 推荐主播
      */

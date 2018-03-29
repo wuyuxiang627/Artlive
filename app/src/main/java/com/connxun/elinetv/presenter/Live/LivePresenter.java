@@ -180,7 +180,11 @@ public class LivePresenter implements Presenter {
                     public void onCompleted() {
                         super.onCompleted();
                         if (entitiyEntityObject != null) LogUtil.Log(TAG, LogUtil.LOG_E, "getLiveEndLive 成功请求回来的参数： " + entitiyEntityObject.toString());
-                        testView.onSuccess(entitiyEntityObject);
+                        if(entitiyEntityObject.getCode().equals("200")){
+                            testView.onSuccess(entitiyEntityObject);
+                        }else {
+                            ToastUtils.showLong(entitiyEntityObject.getMsg().toString());
+                        }
                     }
 
                     @Override
@@ -217,7 +221,11 @@ public class LivePresenter implements Presenter {
                     public void onCompleted() {
                         super.onCompleted();
                         if (jsonEntity != null) LogUtil.Log(TAG, LogUtil.LOG_E, "getHeartBeat成功请求回来的参数： " + jsonEntity.toString());
-                        testView.onSuccess(jsonEntity);
+                        if(jsonEntity.getCode().equals("200")){
+                            testView.onSuccess(jsonEntity);
+                        }else {
+                            ToastUtils.showLong(jsonEntity.getMsg().toString());
+                        }
                     }
 
                     @Override
@@ -255,7 +263,12 @@ public class LivePresenter implements Presenter {
                     public void onCompleted() {
                         super.onCompleted();
                         if (watchLive != null) LogUtil.Log(TAG, LogUtil.LOG_E, "getliveRanKingList成功请求回来的参数： " + watchLive.toString());
-                        testView.onSuccess(watchLive);
+                        if(watchLive.getCode().equals("200")){
+                            testView.onSuccess(watchLive);
+                        }else {
+                            ToastUtils.showLong(watchLive.getMsg().toString());
+                        }
+
                     }
 
                     @Override
@@ -292,7 +305,11 @@ public class LivePresenter implements Presenter {
                     public void onCompleted() {
                         super.onCompleted();
                         if (watchLive != null) LogUtil.Log(TAG, LogUtil.LOG_E, "getliveHotLiveList 成功请求回来的参数： " + watchLive.toString());
-                        testView.onSuccess(watchLive);
+                        if(watchLive.getCode().equals("200")){
+                            testView.onSuccess(watchLive);
+                        }else {
+                            ToastUtils.showLong(watchLive.getMsg().toString());
+                        }
                     }
 
                     @Override
