@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.ContentLoadingProgressBar;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -21,7 +20,6 @@ import com.bumptech.glide.Glide;
 import com.connxun.elinetv.R;
 import com.connxun.elinetv.adapter.Live.HOtRecommendAdapter;
 import com.connxun.elinetv.adapter.Live.PopularAnchorAdapter;
-import com.connxun.elinetv.adapter.VideoShortAdapter.SoundTrackAdapter;
 import com.connxun.elinetv.app.BaseApplication;
 import com.connxun.elinetv.base.ui.BaseFragment;
 import com.connxun.elinetv.entity.AD;
@@ -45,6 +43,10 @@ import org.xutils.x;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * Created by connxun-16 on 2017/12/28.
@@ -70,12 +72,32 @@ public class HotOptimizationFragment extends BaseFragment {
 
     @ViewInject(R.id.iv_live_title_search)
     ImageView ivSearch;
+    @BindView(R.id.tv_live_title_text)
+    TextView tvLiveTitleText;
+    @BindView(R.id.iv_live_title_search)
+    ImageView ivLiveTitleSearch;
+    @BindView(R.id.iv_live_title_news)
+    ImageView ivLiveTitleNews;
+    @BindView(R.id.rl_live_title)
+    RelativeLayout rlLiveTitle;
+    @BindView(R.id.banner)
+    CustomBanner banner;
+    @BindView(R.id.layout_rl_live_hot_anchor_title)
+    RelativeLayout layoutRlLiveHotAnchorTitle;
+    @BindView(R.id.layout_rlv_hot_anchor_view)
+    RecyclerView layoutRlvHotAnchorView;
+    @BindView(R.id.layout_rl_live_hot_recommened_title)
+    RelativeLayout layoutRlLiveHotRecommenedTitle;
+    @BindView(R.id.layout_rlv_hot_recommened_view)
+    RecyclerView layoutRlvHotRecommenedView;
+    @BindView(R.id.rlv_hot_live_all_anchor)
+    RecyclerView rlvHotLiveAllAnchor;
+    Unbinder unbinder;
 
     private MyAdapter myAdapter;
     PopularAnchorAdapter anchorAdapter;//人气主播
     HOtRecommendAdapter hotRecommendedAdapter;//推荐主播
     HOtRecommendAdapter ListLiveAdapter;//直播列表
-
 
 
     ArrayList<String> images;
@@ -104,21 +126,10 @@ public class HotOptimizationFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_live_hot_optimization, null);
         x.view().inject(this, view);
-
-//        ivSearch.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(getActivity(), SearchActivity.class));
-////                Intent intent = new Intent(getActivity(), MediaPreviewActivity.class);
-////                startActivity(intent);
-//            }
-//        });
-        ivSearch.setOnClickListener(v->{
+        ivSearch.setOnClickListener(v -> {
             startActivity(new Intent(getActivity(), SearchActivity.class));
 
         });
-
-
 
         //设置banner
         setBanner();
@@ -151,6 +162,7 @@ public class HotOptimizationFragment extends BaseFragment {
 
         setListener();
 
+        unbinder = ButterKnife.bind(this, view);
         return view;
     }
 
@@ -158,7 +170,7 @@ public class HotOptimizationFragment extends BaseFragment {
     private void setLiveList() {
         liveListPresenter.onCreate();
         try {
-            liveListPresenter.getliveList("20","1");
+            liveListPresenter.getliveList("20", "1");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -171,7 +183,7 @@ public class HotOptimizationFragment extends BaseFragment {
     private void setHotLive() {
         liveHotPresenter.onCreate();
         try {
-            liveHotPresenter.getliveHotLiveList("20","1");
+            liveHotPresenter.getliveHotLiveList("20", "1");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -184,7 +196,7 @@ public class HotOptimizationFragment extends BaseFragment {
     private void setAnchor() {
         livePresenter.onCreate();
         try {
-            livePresenter.getliveRanKingList("20","1");
+            livePresenter.getliveRanKingList("20", "1");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -193,7 +205,7 @@ public class HotOptimizationFragment extends BaseFragment {
 
 
     private void setListener() {
-        swiperefreshlayout.setOnRefreshListener((refreshlayout)->{
+        swiperefreshlayout.setOnRefreshListener((refreshlayout) -> {
             //人气主播
             setAnchor();
 //                //推荐主播
@@ -202,11 +214,10 @@ public class HotOptimizationFragment extends BaseFragment {
             refreshlayout.finishRefresh(2000/*,false*/);//传入false表示刷新失败
         });
 
-        swiperefreshlayout.setOnLoadMoreListener((refreshlayout)->{
+        swiperefreshlayout.setOnLoadMoreListener((refreshlayout) -> {
 
             refreshlayout.finishLoadMore(2000);
         });
-
 
 
     }
@@ -240,16 +251,16 @@ public class HotOptimizationFragment extends BaseFragment {
         images.add("https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=4026968818,2898285081&fm=27&gp=0.jpg");
         images.add("https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=4026968818,2898285081&fm=27&gp=0.jpg");
 
-        try{
+        try {
             //设置banner
 //            setBanner();
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
 
 
-
     }
+
     private void setBanner() {
         otherPresenter.onCreate();
         otherPresenter.getAdList();
@@ -257,7 +268,7 @@ public class HotOptimizationFragment extends BaseFragment {
     }
 
     /**
-     *设置banner
+     * 设置banner
      */
     private ITestView ohterBannerView = new ITestView() {
         @Override
@@ -293,7 +304,7 @@ public class HotOptimizationFragment extends BaseFragment {
 
 
     /**
-     *设置热门推荐
+     * 设置热门推荐
      */
     private void setHotRecommended() {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
@@ -304,7 +315,7 @@ public class HotOptimizationFragment extends BaseFragment {
     }
 
     /**
-     *设置热门推荐
+     * 设置热门推荐
      */
     private void setAllLlist() {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
@@ -326,6 +337,12 @@ public class HotOptimizationFragment extends BaseFragment {
 //        if (swipeRefreshLayout.isRefreshing()) {
 //            swipeRefreshLayout.setRefreshing(false);
 //        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 
 
@@ -394,10 +411,10 @@ public class HotOptimizationFragment extends BaseFragment {
             anchorAdapter.notifyDataSetChanged();
             anchorAdapter.setOnItemClickListener((view, position) -> {
                 BaseApplication.blLiveTypeLiveOrChallenge = false;
-                Intent intent = new Intent(getActivity(),LIveRoomActivity.class);
-                intent.putExtra("mVideoPath",watchLives.getData().getList().get(position).getRtmpPullUrl());
-                intent.putExtra("roomId",watchLives.getData().getList().get(position).getRoomid()+"");
-                intent.putExtra("mLiveModel",watchLives.getData().getList().get(position));
+                Intent intent = new Intent(getActivity(), LIveRoomActivity.class);
+                intent.putExtra("mVideoPath", watchLives.getData().getList().get(position).getRtmpPullUrl());
+                intent.putExtra("roomId", watchLives.getData().getList().get(position).getRoomid() + "");
+                intent.putExtra("mLiveModel", watchLives.getData().getList().get(position));
                 startActivity(intent);
             });
         }
@@ -422,10 +439,10 @@ public class HotOptimizationFragment extends BaseFragment {
             hotRecommendedAdapter.notifyDataSetChanged();
             hotRecommendedAdapter.setOnItemClickListener((view, position) -> {
                 BaseApplication.blLiveTypeLiveOrChallenge = false;
-                Intent intent = new Intent(getActivity(),LIveRoomActivity.class);
-                intent.putExtra("mVideoPath",watchHotLives.getData().getList().get(position).getRtmpPullUrl());
-                intent.putExtra("roomId",watchHotLives.getData().getList().get(position).getRoomid()+"");
-                intent.putExtra("mLiveModel",watchHotLives.getData().getList().get(position));
+                Intent intent = new Intent(getActivity(), LIveRoomActivity.class);
+                intent.putExtra("mVideoPath", watchHotLives.getData().getList().get(position).getRtmpPullUrl());
+                intent.putExtra("roomId", watchHotLives.getData().getList().get(position).getRoomid() + "");
+                intent.putExtra("mLiveModel", watchHotLives.getData().getList().get(position));
                 startActivity(intent);
             });
         }
@@ -450,14 +467,14 @@ public class HotOptimizationFragment extends BaseFragment {
             ListLiveAdapter.notifyDataSetChanged();
             ListLiveAdapter.setOnItemClickListener((view, position) -> {
                 String name = watchListLives.getData().getList().get(position).getName();
-                if(name.equals("none")){
+                if (name.equals("none")) {
                     BaseApplication.blLiveTypeLiveOrChallenge = false;
                 }
 
-                Intent intent = new Intent(getActivity(),LIveRoomActivity.class);
-                intent.putExtra("mVideoPath",watchListLives.getData().getList().get(position).getRtmpPullUrl());
-                intent.putExtra("roomId",watchListLives.getData().getList().get(position).getRoomid()+"");
-                intent.putExtra("mLiveModel",watchListLives.getData().getList().get(position));
+                Intent intent = new Intent(getActivity(), LIveRoomActivity.class);
+                intent.putExtra("mVideoPath", watchListLives.getData().getList().get(position).getRtmpPullUrl());
+                intent.putExtra("roomId", watchListLives.getData().getList().get(position).getRoomid() + "");
+                intent.putExtra("mLiveModel", watchListLives.getData().getList().get(position));
                 startActivity(intent);
             });
         }
