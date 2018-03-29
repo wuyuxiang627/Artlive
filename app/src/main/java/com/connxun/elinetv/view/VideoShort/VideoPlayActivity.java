@@ -115,11 +115,14 @@ public class VideoPlayActivity extends BaseActivity {
 
 
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+//    protected void onCreate(@Nullable Bundle savedInstanceState) {
+////        super.onCreate(savedInstanceState);
+//        setOnClick();
+//        registerListener();
+//    }
 
-    }
+
+
 
 
 
@@ -140,14 +143,7 @@ public class VideoPlayActivity extends BaseActivity {
             attentionPresenter.getAttentionIsUserAttention(positionVideoEntity.getUserNo(),"0");
             attentionPresenter.attachView(IsUserArttentionView);
         }
-
-
     }
-
-
-
-
-
 
     @Override
     protected void onPause() {

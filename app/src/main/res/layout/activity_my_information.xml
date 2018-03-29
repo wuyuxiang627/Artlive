@@ -122,15 +122,18 @@
             android:textSize="12dp" />
 
         <ImageView
+            android:layout_toRightOf="@+id/tv_my_information_name"
             android:id="@+id/gggg"
             android:layout_width="9dp"
             android:layout_height="11dp"
-            android:layout_marginLeft="62dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="72dp"
             android:src="@mipmap/icon_wuman" />
 
         <TextView
+            android:layout_toRightOf="@+id/gggg"
             android:id="@+id/tv_my_information_sex"
+            android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/tv_my_information_name"
@@ -141,9 +144,10 @@
             android:textSize="12dp" />
 
         <ImageView
+            android:layout_toRightOf="@+id/tv_my_information_sex"
             android:layout_width="30dp"
             android:layout_height="12dp"
-            android:layout_marginLeft="114dp"
+            android:layout_marginLeft="12dp"
             android:layout_marginTop="72dp"
             android:src="@mipmap/wdzl_dengji" />
 
