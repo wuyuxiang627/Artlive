@@ -33,7 +33,10 @@
             android:layout_height="220dp"
             android:background="@color/challenge_top_user"
             android:layout_alignParentBottom="true"
-            />
+            >
+
+
+        </RelativeLayout>
 
     <include
         android:layout_height="wrap_content"
@@ -41,6 +44,46 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/px_15"
         layout="@layout/layout_challenge_bottom"/>
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/rl_challenge_gift"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ib_challenge_bottom_gift"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:background="@color/challenge_top_user"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_challenge_gift_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="3dp"
+            android:text="1艺币/个"
+            android:textColor="#999999" />
+
+
+    </LinearLayout>
+
+
+
+    <ImageButton
+        android:id="@+id/ib_challenge_bottom_gift"
+        android:layout_width="20dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/px_25"
+        android:scaleType="centerInside"
+        android:background="@drawable/icon_challenge_contribution_number"/>
 
 
 </RelativeLayout>

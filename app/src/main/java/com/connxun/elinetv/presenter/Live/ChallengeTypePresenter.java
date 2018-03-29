@@ -15,11 +15,14 @@ import com.connxun.elinetv.base.util.LogUtil;
 import com.connxun.elinetv.entity.ChallengeTypeEntity;
 import com.connxun.elinetv.entity.Entity;
 import com.connxun.elinetv.entity.EntityObject;
+import com.connxun.elinetv.entity.Gift;
 import com.connxun.elinetv.entity.JsonEntity;
 import com.connxun.elinetv.entity.OpenLive;
 import com.connxun.elinetv.entity.WatchLive;
+import com.connxun.elinetv.entity.live.ChallengeStratEntity;
 import com.connxun.elinetv.entity.live.ChallengeTypeThree;
 import com.connxun.elinetv.entity.live.challenge.ChallengeModelEntity;
+import com.connxun.elinetv.entity.live.challenge.challengeLikeEntity;
 import com.connxun.elinetv.presenter.Presenter;
 import com.connxun.elinetv.util.ToastUtils;
 import com.connxun.elinetv.view.View;
@@ -42,6 +45,9 @@ public class ChallengeTypePresenter implements Presenter {
     private Context mContext;
     private ITestView testView;
     private JsonEntity jsonEntity;
+    private challengeLikeEntity challengeLikeEntity;
+    private Entity<Gift> giftEntity;
+    private EntityObject<ChallengeStratEntity> challengeStratEntityEntity;
     private Entity<ChallengeTypeEntity> ChallengeType;
     private Entity<ChallengeTypeThree> challengeTypeThree;
     private EntityObject<ChallengeModelEntity> challengeModelEntityEntityObject;
@@ -290,6 +296,221 @@ public class ChallengeTypePresenter implements Presenter {
         );
 
     }
+
+    //投送救援票
+    public void getChallengeRescue(String roomid,String challengeNo)  {
+
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("roomid", roomid);
+        hashMap.put("challengeNo", challengeNo);
+        hashMap.put("time", BaseApplication.getTimeDate() + "");
+        BaseApplication.setSign(hashMap);
+        Logger.e("challenge score: "+ roomid);
+        Logger.e("challenge changeno: "+ challengeNo);
+        Logger.e("challenge time: "+ BaseApplication.getTimeDate() + "");
+
+        mCompositeSubscription.add(manager.getChallengeRescue(roomid, challengeNo )
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new BaseSubscriber<JsonEntity>(BaseActivity.context) {
+                    @Override
+                    public void onCompleted() {
+                        super.onCompleted();
+                        if (jsonEntity != null) LogUtil.Log(TAG, LogUtil.LOG_E, "getChallengeRescue 成功请求回来的参数： " + jsonEntity.toString());
+                        if(jsonEntity.getCode().equals("200")){
+                            testView.onSuccess(jsonEntity);
+                            return;
+                        }
+                        testView.onError(jsonEntity.getMsg());
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        LogUtil.Log(TAG, LogUtil.LOG_E, "getChallengeRescue 失败了请求回来的参数： " + e.toString());
+                        ToastUtils.showLong(e.toString());
+                    }
+
+                    @Override
+                    public void onNext(JsonEntity jsonentitiy) {
+                        jsonEntity = jsonentitiy;
+                    }
+
+                })
+        );
+
+    }
+
+    //开启挑战推流
+    public void getLiveStartChallenge(String liveNo)  {
+
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("liveNo", liveNo);
+        hashMap.put("time", BaseApplication.getTimeDate() + "");
+        BaseApplication.setSign(hashMap);
+        Logger.e("challenge","liveNo: "+ liveNo);
+        Logger.e("challenge","time: "+ BaseApplication.getTimeDate() + "");
+
+        mCompositeSubscription.add(manager.getLiveStartChallenge(liveNo )
+                .subscribeOn(Schedulers.io())
+
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new BaseSubscriber<JsonEntity>(BaseActivity.context) {
+                    @Override
+                    public void onCompleted() {
+                        super.onCompleted();
+                        if (jsonEntity != null) LogUtil.Log(TAG, LogUtil.LOG_E, "getLiveStartChallenge 成功请求回来的参数： " + jsonEntity.toString());
+                        if(jsonEntity.getCode().equals("200")){
+                            testView.onSuccess(jsonEntity);
+                            return;
+                        }
+                        testView.onError(jsonEntity.getMsg());
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        LogUtil.Log(TAG, LogUtil.LOG_E, "getLiveStartChallenge 失败了请求回来的参数： " + e.toString());
+                        ToastUtils.showLong(e.toString());
+                    }
+
+                    @Override
+                    public void onNext(JsonEntity jsonentitiy) {
+                        jsonEntity = jsonentitiy;
+                    }
+
+                })
+        );
+
+    }
+
+    //挑战点赞
+    public void getChallengeLove(String challengeNo)  {
+
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("challengeNo", challengeNo);
+        hashMap.put("time", BaseApplication.getTimeDate() + "");
+        BaseApplication.setSign(hashMap);
+        Logger.e("challenge","challengeNo: "+ challengeNo);
+        Logger.e("challenge","time: "+ BaseApplication.getTimeDate() + "");
+
+        mCompositeSubscription.add(manager.getChallengeLove(challengeNo )
+                .subscribeOn(Schedulers.io())
+
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new BaseSubscriber<challengeLikeEntity>(BaseActivity.context) {
+                    @Override
+                    public void onCompleted() {
+                        super.onCompleted();
+                        if (challengeLikeEntity != null) LogUtil.Log(TAG, LogUtil.LOG_E, "getLiveStartChallenge 成功请求回来的参数： " + challengeLikeEntity.toString());
+                        if(challengeLikeEntity.getCode().equals("200")){
+                            testView.onSuccess(challengeLikeEntity);
+                            return;
+                        }
+                        testView.onError(challengeLikeEntity.getMsg());
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        LogUtil.Log(TAG, LogUtil.LOG_E, "getLiveStartChallenge 失败了请求回来的参数： " + e.toString());
+                        ToastUtils.showLong(e.toString());
+                    }
+
+                    @Override
+                    public void onNext(challengeLikeEntity jsonentitiy) {
+                        challengeLikeEntity = jsonentitiy;
+                    }
+
+                })
+        );
+
+    }
+
+    //挑战礼物
+    public void getChallengeGiftList(String menuNo)  {
+
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("menuNo", menuNo);
+        hashMap.put("time", BaseApplication.getTimeDate() + "");
+        BaseApplication.setSign(hashMap);
+        Logger.e("challenge","challengeNo: "+ menuNo);
+        Logger.e("challenge","time: "+ BaseApplication.getTimeDate() + "");
+
+        mCompositeSubscription.add(manager.getChallengeGiftList(menuNo )
+                .subscribeOn(Schedulers.io())
+
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new BaseSubscriber<Entity<Gift>>(BaseActivity.context) {
+                    @Override
+                    public void onCompleted() {
+                        super.onCompleted();
+                        if (giftEntity != null) LogUtil.Log(TAG, LogUtil.LOG_E, "getChallengeGiftList 成功请求回来的参数： " + giftEntity.toString());
+                        if(giftEntity.getCode().equals("200")){
+                            testView.onSuccess(giftEntity);
+                            return;
+                        }
+                        testView.onError(giftEntity.getMsg());
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        LogUtil.Log(TAG, LogUtil.LOG_E, "getChallengeGiftList 失败了请求回来的参数： " + e.toString());
+                        ToastUtils.showLong(e.toString());
+                    }
+
+                    @Override
+                    public void onNext(Entity<Gift> jsonentitiy) {
+                        giftEntity = jsonentitiy;
+                    }
+
+                })
+        );
+
+    }
+
+    //观看挑战
+    public void getChallengeVIew(String challengeNo)  {
+
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("challengeNo", challengeNo);
+        hashMap.put("time", BaseApplication.getTimeDate() + "");
+        BaseApplication.setSign(hashMap);
+        Logger.e("challenge","challengeNo: "+ challengeNo);
+        Logger.e("challenge","time: "+ BaseApplication.getTimeDate() + "");
+
+        mCompositeSubscription.add(manager.getChallengeVIew(challengeNo )
+                .subscribeOn(Schedulers.io())
+
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new BaseSubscriber<EntityObject<ChallengeStratEntity>>(BaseActivity.context) {
+                    @Override
+                    public void onCompleted() {
+                        super.onCompleted();
+                        if (challengeStratEntityEntity != null) LogUtil.Log(TAG, LogUtil.LOG_E, "getChallengeVIew 成功请求回来的参数： " + challengeStratEntityEntity.toString());
+                        if(challengeStratEntityEntity.getCode().equals("200")){
+                            testView.onSuccess(challengeStratEntityEntity);
+                            return;
+                        }
+                        testView.onError(challengeStratEntityEntity.getMsg());
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        LogUtil.Log(TAG, LogUtil.LOG_E, "getChallengeVIew 失败了请求回来的参数： " + e.toString());
+                        ToastUtils.showLong(e.toString());
+                    }
+
+                    @Override
+                    public void onNext(EntityObject<ChallengeStratEntity> jsonentitiy) {
+                        challengeStratEntityEntity = jsonentitiy;
+                    }
+
+                })
+        );
+
+    }
+
+
+
+
 
 
 

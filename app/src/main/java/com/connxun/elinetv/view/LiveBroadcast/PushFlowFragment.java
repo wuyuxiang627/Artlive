@@ -22,9 +22,11 @@ import android.widget.TextView;
 import com.connxun.elinetv.R;
 import com.connxun.elinetv.app.BaseApplication;
 import com.connxun.elinetv.base.ui.BaseFragment;
+import com.connxun.elinetv.entity.ChallengeLove;
 import com.connxun.elinetv.entity.IMGift;
 import com.connxun.elinetv.entity.live.challenge.ChallengeModelEntity;
 import com.connxun.elinetv.entity.live.challenge.GradingResultsEntity;
+import com.connxun.elinetv.entity.live.challenge.RankEntity;
 import com.connxun.elinetv.entity.live.challenge.RescueEntity;
 import com.connxun.elinetv.entity.live.challenge.RescueResultsEntity;
 import com.connxun.elinetv.util.AnimationUtil;
@@ -126,9 +128,27 @@ public class PushFlowFragment extends BaseFragment implements CapturePreviewCont
     @Override
     public void onDetach() {
         super.onDetach();
+        controller.onDestroy();
         liveActivity = null;
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        controller.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        controller.onResume();
+    }
+
+//    @Override
+//    public void onStop() {
+//        super.onStop();
+//        controller.on
+//    }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -399,7 +419,15 @@ public class PushFlowFragment extends BaseFragment implements CapturePreviewCont
     public void showRescueResults(RescueResultsEntity rescueResultsEntity) {
 
         liveRoomUserFragment.showRescueResults(rescueResultsEntity);
+    }
 
+    //排行榜
+    public void showRankList(RankEntity rankEntity) {
+        liveRoomUserFragment.showRankList(rankEntity);
+    }
 
+    //显示点赞数
+    public void showLoveNum(ChallengeLove challengeLove) {
+        liveRoomUserFragment.showLoveNum(challengeLove);
     }
 }

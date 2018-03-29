@@ -37,6 +37,7 @@ import com.connxun.elinetv.view.MediaPreview.MediaPreviewActivity;
 import com.connxun.elinetv.view.SearchActivity;
 import com.connxun.elinetv.view.user.ITestView;
 import com.donkingliang.banner.CustomBanner;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
@@ -53,8 +54,8 @@ public class HotOptimizationFragment extends BaseFragment {
     View view;
 
     //控件
-//    @ViewInject(R.id.swiperefreshlayout)
-//    SwipeRefreshLayout swipeRefreshLayout;
+    @ViewInject(R.id.swiperefreshlayout)
+    SmartRefreshLayout swiperefreshlayout;
     @ViewInject(R.id.layout_rlv_hot_anchor_view)
     RecyclerView rlvAnchor;
     @ViewInject(R.id.layout_rlv_hot_recommened_view)
@@ -170,7 +171,7 @@ public class HotOptimizationFragment extends BaseFragment {
     private void setHotLive() {
         liveHotPresenter.onCreate();
         try {
-            liveHotPresenter.getliveHotLiveList("10","1");
+            liveHotPresenter.getliveHotLiveList("20","1");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -183,7 +184,7 @@ public class HotOptimizationFragment extends BaseFragment {
     private void setAnchor() {
         livePresenter.onCreate();
         try {
-            livePresenter.getliveRanKingList("10","1");
+            livePresenter.getliveRanKingList("20","1");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -192,6 +193,20 @@ public class HotOptimizationFragment extends BaseFragment {
 
 
     private void setListener() {
+        swiperefreshlayout.setOnRefreshListener((refreshlayout)->{
+            //人气主播
+            setAnchor();
+//                //推荐主播
+            setHotLive();
+            setLiveList();
+            refreshlayout.finishRefresh(2000/*,false*/);//传入false表示刷新失败
+        });
+
+        swiperefreshlayout.setOnLoadMoreListener((refreshlayout)->{
+
+            refreshlayout.finishLoadMore(2000);
+        });
+
 
 
     }
@@ -401,16 +416,13 @@ public class HotOptimizationFragment extends BaseFragment {
             liveModels = watchLives.getData().getList();
             anchorAdapter.getList().addAll(liveModels);
             anchorAdapter.notifyDataSetChanged();
-            anchorAdapter.setOnItemClickListener(new SoundTrackAdapter.OnItemClickListener() {
-                @Override
-                public void onItemClick(View view, int position) {
-
-                    Intent intent = new Intent(getActivity(),LIveRoomActivity.class);
-                    intent.putExtra("mVideoPath",watchLives.getData().getList().get(position).getRtmpPullUrl());
-                    intent.putExtra("roomId",watchLives.getData().getList().get(position).getRoomid()+"");
-                    intent.putExtra("mLiveModel",watchLives.getData().getList().get(position));
-                    startActivity(intent);
-                }
+            anchorAdapter.setOnItemClickListener((view, position) -> {
+                BaseApplication.blLiveTypeLiveOrChallenge = false;
+                Intent intent = new Intent(getActivity(),LIveRoomActivity.class);
+                intent.putExtra("mVideoPath",watchLives.getData().getList().get(position).getRtmpPullUrl());
+                intent.putExtra("roomId",watchLives.getData().getList().get(position).getRoomid()+"");
+                intent.putExtra("mLiveModel",watchLives.getData().getList().get(position));
+                startActivity(intent);
             });
         }
 
@@ -433,15 +445,13 @@ public class HotOptimizationFragment extends BaseFragment {
             hotLiveModels = watchHotLives.getData().getList();
             hotRecommendedAdapter.getList().addAll(hotLiveModels);
             hotRecommendedAdapter.notifyDataSetChanged();
-            hotRecommendedAdapter.setOnItemClickListener(new SoundTrackAdapter.OnItemClickListener() {
-                @Override
-                public void onItemClick(View view, int position) {
-                    Intent intent = new Intent(getActivity(),LIveRoomActivity.class);
-                    intent.putExtra("mVideoPath",watchHotLives.getData().getList().get(position).getRtmpPullUrl());
-                    intent.putExtra("roomId",watchHotLives.getData().getList().get(position).getRoomid()+"");
-                    intent.putExtra("mLiveModel",watchHotLives.getData().getList().get(position));
-                    startActivity(intent);
-                }
+            hotRecommendedAdapter.setOnItemClickListener((view, position) -> {
+                BaseApplication.blLiveTypeLiveOrChallenge = false;
+                Intent intent = new Intent(getActivity(),LIveRoomActivity.class);
+                intent.putExtra("mVideoPath",watchHotLives.getData().getList().get(position).getRtmpPullUrl());
+                intent.putExtra("roomId",watchHotLives.getData().getList().get(position).getRoomid()+"");
+                intent.putExtra("mLiveModel",watchHotLives.getData().getList().get(position));
+                startActivity(intent);
             });
         }
 
@@ -463,20 +473,17 @@ public class HotOptimizationFragment extends BaseFragment {
             LiveListModels = watchListLives.getData().getList();
             ListLiveAdapter.getList().addAll(LiveListModels);
             ListLiveAdapter.notifyDataSetChanged();
-            ListLiveAdapter.setOnItemClickListener(new SoundTrackAdapter.OnItemClickListener() {
-                @Override
-                public void onItemClick(View view, int position) {
-                    String name = watchListLives.getData().getList().get(position).getName();
-                    if(name.equals("none")){
-                        BaseApplication.blLiveTypeLiveOrChallenge = false;
-                    }
-
-                    Intent intent = new Intent(getActivity(),LIveRoomActivity.class);
-                    intent.putExtra("mVideoPath",watchListLives.getData().getList().get(position).getRtmpPullUrl());
-                    intent.putExtra("roomId",watchListLives.getData().getList().get(position).getRoomid()+"");
-                    intent.putExtra("mLiveModel",watchListLives.getData().getList().get(position));
-                    startActivity(intent);
+            ListLiveAdapter.setOnItemClickListener((view, position) -> {
+                String name = watchListLives.getData().getList().get(position).getName();
+                if(name.equals("none")){
+                    BaseApplication.blLiveTypeLiveOrChallenge = false;
                 }
+
+                Intent intent = new Intent(getActivity(),LIveRoomActivity.class);
+                intent.putExtra("mVideoPath",watchListLives.getData().getList().get(position).getRtmpPullUrl());
+                intent.putExtra("roomId",watchListLives.getData().getList().get(position).getRoomid()+"");
+                intent.putExtra("mLiveModel",watchListLives.getData().getList().get(position));
+                startActivity(intent);
             });
         }
 

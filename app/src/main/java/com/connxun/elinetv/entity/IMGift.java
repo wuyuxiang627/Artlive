@@ -38,11 +38,19 @@ public class IMGift {
 
 
         private int giftNo;
+        private int giftNum;
         private String giftName;
         private String giftPic;
         private SendUser sendUser;
         private ReceiveUser receiveUser;
 
+        public int getGiftNum() {
+            return giftNum;
+        }
+
+        public void setGiftNum(int giftNum) {
+            this.giftNum = giftNum;
+        }
 
         public int getGiftNo() {
             return giftNo;

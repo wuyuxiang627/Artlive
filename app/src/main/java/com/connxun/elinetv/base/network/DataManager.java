@@ -16,9 +16,11 @@ import com.connxun.elinetv.entity.ObjectEntity;
 import com.connxun.elinetv.entity.OpenLive;
 import com.connxun.elinetv.entity.RegisterEntity;
 import com.connxun.elinetv.entity.Video.Talk;
+import com.connxun.elinetv.entity.live.ChallengeStratEntity;
 import com.connxun.elinetv.entity.live.ChallengeTypeThree;
 import com.connxun.elinetv.entity.live.EndLiveEntitiy;
 import com.connxun.elinetv.entity.live.challenge.ChallengeModelEntity;
+import com.connxun.elinetv.entity.live.challenge.challengeLikeEntity;
 import com.connxun.elinetv.entity.order.UserVC;
 import com.connxun.elinetv.entity.UserVideoEntity;
 import com.connxun.elinetv.entity.order.VC;
@@ -340,6 +342,26 @@ public class DataManager {
     //挑战评分
     public Observable<JsonEntity> getChallengeScore(String score, String challengeNo){
         return mRetrofitService.getChallengeScore( score,challengeNo,BaseApplication.getTimeDate()+"" );
+    }
+    //投送救援票
+    public Observable<JsonEntity> getChallengeRescue(String roomid, String challengeNo){
+        return mRetrofitService.getChallengeRescue( roomid,challengeNo,BaseApplication.getTimeDate()+"" );
+    }
+    //开启挑战推流
+    public Observable<JsonEntity> getLiveStartChallenge(String liveNo){
+        return mRetrofitService.getLiveStartChallenge( liveNo,BaseApplication.getTimeDate()+"" );
+    }
+    //点赞挑战
+    public Observable<challengeLikeEntity> getChallengeLove(String challengeNo){
+        return mRetrofitService.getChallengeLove( challengeNo,BaseApplication.getTimeDate()+"" );
+    }
+    //挑战礼物
+    public Observable<Entity<Gift>> getChallengeGiftList(String menuNo){
+        return mRetrofitService.getChallengeGiftList( menuNo,BaseApplication.getTimeDate()+"" );
+    }
+    //观看挑战
+    public Observable<EntityObject<ChallengeStratEntity>> getChallengeVIew(String challengeNo){
+        return mRetrofitService.getChallengeVIew( challengeNo,BaseApplication.getTimeDate()+"" );
     }
 
 

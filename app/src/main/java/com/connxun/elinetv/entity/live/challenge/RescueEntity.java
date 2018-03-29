@@ -38,25 +38,16 @@ public class RescueEntity {
     public class  Data {
 
 
-        int pushId;
-        int rescueNum;
+        private long pushId;
         private String msg;
+        private int rescueNum;
 
-
-        public int getPushId() {
+        public long getPushId() {
             return pushId;
         }
 
-        public void setPushId(int pushId) {
+        public void setPushId(long pushId) {
             this.pushId = pushId;
-        }
-
-        public int getRescueNum() {
-            return rescueNum;
-        }
-
-        public void setRescueNum(int rescueNum) {
-            this.rescueNum = rescueNum;
         }
 
         public String getMsg() {
@@ -65,6 +56,14 @@ public class RescueEntity {
 
         public void setMsg(String msg) {
             this.msg = msg;
+        }
+
+        public int getRescueNum() {
+            return rescueNum;
+        }
+
+        public void setRescueNum(int rescueNum) {
+            this.rescueNum = rescueNum;
         }
     }
 }

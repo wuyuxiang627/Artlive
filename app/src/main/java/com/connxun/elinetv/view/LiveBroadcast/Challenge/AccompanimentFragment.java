@@ -132,21 +132,18 @@ public class AccompanimentFragment extends BaseFragment {
         rlvAccompanimenList.setAdapter(cardsThreeMusicAdapter);
         cardsThreeMusicAdapter.openLoadAnimation();
 
-        cardsThreeMusicAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                BaseApplication.blLiveTypeLiveOrChallenge = false;
+        cardsThreeMusicAdapter.setOnItemClickListener((adapter, view, position) -> {
+            BaseApplication.blLiveTypeLiveOrChallenge = false;
 //
-                shouwTime = challengeTypeThreeList.get(position).getShowTime();
-                resourceNo = String.valueOf(challengeTypeThreeList.get(position).getResourceNo());
-                String menuNo = String.valueOf(challengeTypeThreeEntity.getMenuNo());
-                PushLiveModel = (Live) getActivity().getIntent().getSerializableExtra("liveMOdel");
-                String liveNo = PushLiveModel.getLiveNo();
-                //开始挑战
-                challengeTypePresenter.onCreate();
-                challengeTypePresenter.getChallengeCreatChallenge(menuNo,resourceNo,liveNo);
-                challengeTypePresenter.attachView(mChallengeCreatView);
-            }
+            shouwTime = challengeTypeThreeList.get(position).getShowTime();
+            resourceNo = String.valueOf(challengeTypeThreeList.get(position).getResourceNo());
+            String menuNo = String.valueOf(challengeTypeThreeEntity.getMenuNo());
+            PushLiveModel = (Live) getActivity().getIntent().getSerializableExtra("liveMOdel");
+            String liveNo = PushLiveModel.getLiveNo();
+            //开始挑战
+            challengeTypePresenter.onCreate();
+            challengeTypePresenter.getChallengeCreatChallenge(menuNo,resourceNo,liveNo);
+            challengeTypePresenter.attachView(mChallengeCreatView);
         });
     }
 
@@ -157,19 +154,14 @@ public class AccompanimentFragment extends BaseFragment {
     public ITestView mChallengeCreatView = new ITestView() {
         @Override
         public void onSuccess(Object object) {
-//            controller.liveStartStop();
             challengeModelEntity = (ChallengeModelEntity) object;
             challengeModelEntity.getLiveNo();
             ChallengeNo = String.valueOf(challengeModelEntity.getChallengeNo());
 
-            try {
-                presenter.onCreate();
-                presenter.getLiveStartLive("a","a",challengeModelEntity.getLiveNo());
-                presenter.attachView(startLiveView);
+                challengeTypePresenter.onCreate();
+                challengeTypePresenter.getLiveStartChallenge(challengeModelEntity.getLiveNo());
+                challengeTypePresenter.attachView(startLiveView);
 
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
         }
 
         @Override

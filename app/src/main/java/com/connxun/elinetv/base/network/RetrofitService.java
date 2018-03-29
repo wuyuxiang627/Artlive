@@ -17,9 +17,11 @@ import com.connxun.elinetv.entity.ObjectEntity;
 import com.connxun.elinetv.entity.OpenLive;
 import com.connxun.elinetv.entity.RegisterEntity;
 import com.connxun.elinetv.entity.Video.Talk;
+import com.connxun.elinetv.entity.live.ChallengeStratEntity;
 import com.connxun.elinetv.entity.live.ChallengeTypeThree;
 import com.connxun.elinetv.entity.live.EndLiveEntitiy;
 import com.connxun.elinetv.entity.live.challenge.ChallengeModelEntity;
+import com.connxun.elinetv.entity.live.challenge.challengeLikeEntity;
 import com.connxun.elinetv.entity.order.UserVC;
 import com.connxun.elinetv.entity.UserVideoEntity;
 import com.connxun.elinetv.entity.order.VC;
@@ -461,7 +463,7 @@ public interface RetrofitService {
      * @return
      */
     @FormUrlEncoded
-    @POST("hotLive/list")
+    @POST("challenge/challengeList")
     Observable<WatchLive> getliveHotLiveList(@Field("page")String page,
                                               @Field("length")String length,
                                               @Field("time")String time);
@@ -473,7 +475,7 @@ public interface RetrofitService {
      * @return
      */
     @FormUrlEncoded
-    @POST("live/rankingList")
+    @POST("challenge/challengeList")
     Observable<WatchLive> getliveRanKingList(@Field("page")String page,
                                              @Field("length")String length,
                                              @Field("time")String time);
@@ -783,10 +785,46 @@ public interface RetrofitService {
     @POST("challenge/score")
     Observable<JsonEntity>  getChallengeScore(@Field("score") String score,@Field("challengeNo") String challengeNo,
                                                                                @Field("time") String time);
+    /**
+     * 投送救援票
+     * @param time
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("challenge/rescue")
+    Observable<JsonEntity>  getChallengeRescue(@Field("roomid") String roomid,@Field("challengeNo") String challengeNo,
+                                                                               @Field("time") String time);
+    /**
+     * 开启挑战推流
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("live/startChallengeLive")
+    Observable<JsonEntity>  getLiveStartChallenge(@Field("liveNo") String liveNo,@Field("time") String time);
 
+    /**
+     * 点赞挑战
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("challenge/love")
+    Observable<challengeLikeEntity>  getChallengeLove(@Field("challengeNo") String challengeNo, @Field("time") String time);
 
+    /**
+     * 获取挑战礼物
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("challenge/giftList")
+    Observable<Entity<Gift>>  getChallengeGiftList(@Field("menuNo") String menuNo, @Field("time") String time);
 
-
+    /**
+     * 观看挑战
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("challenge/viewChallenge")
+    Observable<EntityObject<ChallengeStratEntity>>  getChallengeVIew(@Field("challengeNo") String menuNo, @Field("time") String time);
 
 
 }

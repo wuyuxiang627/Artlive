@@ -13,10 +13,14 @@ import android.widget.ImageView;
 
 import com.connxun.elinetv.R;
 import com.connxun.elinetv.base.ui.BaseFragment;
+import com.connxun.elinetv.entity.ChallengeLove;
 import com.connxun.elinetv.entity.IMGift;
 import com.connxun.elinetv.entity.LiveModel;
 import com.connxun.elinetv.entity.live.challenge.GradingResultsEntity;
+import com.connxun.elinetv.entity.live.challenge.RankEntity;
+import com.connxun.elinetv.entity.live.challenge.RescueEntity;
 import com.connxun.elinetv.entity.live.challenge.RescueResultsEntity;
+import com.connxun.elinetv.util.ToastUtils;
 import com.connxun.elinetv.view.LiveBroadcast.LiveRoomUserFragment;
 import com.connxun.elinetv.view.MediaPreview.liveplayer.LivePlayerController;
 import com.connxun.elinetv.view.MediaPreview.liveplayer.NEVideoView;
@@ -209,11 +213,25 @@ public class WatchFragment extends BaseFragment implements PlayerContract.Player
 
     //评分结果
     public void showFradingResult(GradingResultsEntity gradingResult) {
+        ToastUtils.showLong("watch");
         liveRoomUserFragment.showFradingResult(gradingResult);
     }
 
     //救援结果
     public void showRescueResults(RescueResultsEntity rescueResultsEntity) {
         liveRoomUserFragment.showRescueResults(rescueResultsEntity);
+    }
+    //排行榜
+    public void showRankList(RankEntity rankEntity) {
+        liveRoomUserFragment.showRankList(rankEntity);
+    }
+
+    //用户投送救援票
+    public void showRecue(RescueEntity rescueEntity) {
+        liveRoomUserFragment.showRecue(rescueEntity);
+    }
+
+    public void showLoveNum(ChallengeLove challengeLove) {
+        liveRoomUserFragment.showLoveNum(challengeLove);
     }
 }

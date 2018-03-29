@@ -6,6 +6,7 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.net.Uri;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -187,7 +188,7 @@ public class LiveGiftUtil {
             final SimpleDraweeView ivGift = (SimpleDraweeView) giftView.findViewById(R.id.ivgift);/*找到数量控件*/
             final TextView tvUserName = (TextView) giftView.findViewById(R.id.tv_gift_user_name);/*找到数量控件*/
             final TextView tvGiftName = (TextView) giftView.findViewById(R.id.tv_gift_send_gift_name);/*找到数量控件*/
-            giftNum.setText("x1");/*设置礼物数量*/
+            giftNum.setText("x"+imGift.getData().getGiftNum());/*设置礼物数量*/
             crvheadimage.setTag(System.currentTimeMillis());/*设置时间标记*/
             giftNum.setTag(1);/*给数量控件设置标记*/
             String coverPath = imGift.getData().getSendUser().getAvatar();
@@ -228,7 +229,14 @@ public class LiveGiftUtil {
             CustomRoundView crvheadimage = (CustomRoundView) giftView.findViewById(R.id.crvheadimage);/*找到头像控件*/
             MagicTextView giftNum = (MagicTextView) giftView.findViewById(R.id.giftNum);/*找到数量控件*/
             int showNum = (Integer) giftNum.getTag() + 1;
-            giftNum.setText("x"+showNum);
+            Log.e("礼物: ","礼物数量 :  "+ imGift.getData().getGiftNum());
+            Log.e("礼物: ","textview礼物数量 :  "+ giftNum.getText().toString());
+
+            String oldGiftNumStr = giftNum.getText().toString();
+            int oldGiftNum = Integer.parseInt(oldGiftNumStr.replaceAll("x",""));
+//            int giftNums = Integer.parseInt(giftNum.getText().toString())+imGift.getData().getGiftNum();
+            int giftNumInt = oldGiftNum + imGift.getData().getGiftNum();
+            giftNum.setText("x"+giftNumInt);
             giftNum.setTag(showNum);
             crvheadimage.setTag(System.currentTimeMillis());
             giftNumAnim.start(giftNum);

@@ -74,8 +74,8 @@ public class LiveHotPresenter implements Presenter {
     public void getliveHotLiveList(String length,String page) throws UnsupportedEncodingException {
 
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("length", length);
         hashMap.put("page", page);
+        hashMap.put("length", length);
         hashMap.put("time", BaseApplication.getTimeDate() + "");
 
         BaseApplication.setSign(hashMap);
@@ -88,6 +88,11 @@ public class LiveHotPresenter implements Presenter {
                     public void onCompleted() {
                         super.onCompleted();
                         if (watchLive != null) LogUtil.Log(TAG, LogUtil.LOG_E, "getliveHotLiveList 成功请求回来的参数： " + watchLive.toString());
+                        if(!watchLive.getCode().equals("200")){
+                            ToastUtils.showLong(watchLive.getMsg());
+                            return;
+
+                        }
                         testView.onSuccess(watchLive);
                     }
 

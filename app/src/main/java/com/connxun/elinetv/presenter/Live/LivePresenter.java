@@ -169,6 +169,7 @@ public class LivePresenter implements Presenter {
         hashMap.put("liveNo", liveNo);
         hashMap.put("time", BaseApplication.getTimeDate() + "");
 
+
         BaseApplication.setSign(hashMap);
 
         mCompositeSubscription.add(manager.getLiveEndLive(liveNo)

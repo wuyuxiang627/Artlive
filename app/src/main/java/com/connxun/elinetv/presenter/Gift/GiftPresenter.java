@@ -81,7 +81,7 @@ public class GiftPresenter implements Presenter {
                     public void onCompleted() {
                         super.onCompleted();
                         LogUtil.Log(TAG,LogUtil.LOG_E,giftEntity.toString());
-                        if(giftEntity != null) LogUtil.Log(TAG,LogUtil.LOG_E,"getAdList请求回来的参数： "+ giftEntity.toString());
+                        if(giftEntity != null) LogUtil.Log(TAG,LogUtil.LOG_E,"getGiftList 请求回来的参数： "+ giftEntity.toString());
                         if(giftEntity.getData()!= null){
                             testView.onSuccess(giftEntity);
                         }else{
@@ -90,7 +90,7 @@ public class GiftPresenter implements Presenter {
                     }
                     @Override
                     public void onError(Throwable e) {
-                        if(giftEntity != null) LogUtil.Log(TAG,LogUtil.LOG_E,"getAdList 失败了请求回来的参数： "+ giftEntity.toString());
+                        if(giftEntity != null) LogUtil.Log(TAG,LogUtil.LOG_E,"getGiftList 失败了请求回来的参数： "+ giftEntity.toString());
                         testView.onError("请求失败！！");
                     }
 
@@ -163,7 +163,7 @@ public class GiftPresenter implements Presenter {
                     public void onCompleted() {
                         super.onCompleted();
                         LogUtil.Log(TAG,LogUtil.LOG_E,jsonEntity.toString());
-                        if(jsonEntity != null) LogUtil.Log(TAG,LogUtil.LOG_E,"getAdList请求回来的参数： "+ jsonEntity.toString());
+                        if(jsonEntity != null) LogUtil.Log(TAG,LogUtil.LOG_E,"getGiveGift 请求回来的参数： "+ jsonEntity.toString());
                         if(jsonEntity.getData()!= null && jsonEntity.getCode().equals("200")){
                             testView.onSuccess(jsonEntity);
 //                            ToastUtils.showLong(jsonEntity.getMsg());
@@ -173,7 +173,7 @@ public class GiftPresenter implements Presenter {
                     }
                     @Override
                     public void onError(Throwable e) {
-                        if(jsonEntity != null) LogUtil.Log(TAG,LogUtil.LOG_E,"getAdList 失败了请求回来的参数： "+ giftEntity.toString());
+                        if(jsonEntity != null) LogUtil.Log(TAG,LogUtil.LOG_E,"getGiveGift 失败了请求回来的参数： "+ giftEntity.toString());
                         testView.onError("请求失败！！");
                     }
 

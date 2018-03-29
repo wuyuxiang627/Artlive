@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
@@ -28,6 +29,7 @@ import android.widget.TextView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.connxun.elinetv.app.BaseApplication;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -633,6 +635,15 @@ public class MBaseViewHolder extends BaseViewHolder {
 
         ImageView view = getView(viewId);
         Picasso.with(BaseApplication.baseContext).load(imgPath).into(view);
+        return this;
+    }
+    //加载网络图片
+    public BaseViewHolder setSimpleImg(@IdRes int viewId, String imgPath){
+
+        SimpleDraweeView view = getView(viewId);
+//        Picasso.with(BaseApplication.baseContext).load(imgPath).into(view);
+        Uri uri = Uri.parse(imgPath);
+        view.setImageURI(uri);
         return this;
     }
 

@@ -236,7 +236,8 @@ public class PhoneLoginActivity extends BaseActivity {
             tvVerifiCode.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    time.start();
+
+
                 }
             });
         }

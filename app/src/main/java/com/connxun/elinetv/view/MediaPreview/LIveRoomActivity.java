@@ -43,6 +43,7 @@ import com.connxun.elinetv.app.BaseApplication;
 import com.connxun.elinetv.base.Dialog.ActionSheetDialog;
 import com.connxun.elinetv.base.ui.BaseActivity;
 import com.connxun.elinetv.base.ui.BubbleView;
+import com.connxun.elinetv.entity.ChallengeLove;
 import com.connxun.elinetv.entity.Entity;
 import com.connxun.elinetv.entity.EntityObject;
 import com.connxun.elinetv.entity.Gift;
@@ -51,6 +52,7 @@ import com.connxun.elinetv.entity.Live;
 import com.connxun.elinetv.entity.LiveModel;
 import com.connxun.elinetv.entity.live.challenge.ChallengeEntity;
 import com.connxun.elinetv.entity.live.challenge.GradingResultsEntity;
+import com.connxun.elinetv.entity.live.challenge.RankEntity;
 import com.connxun.elinetv.entity.live.challenge.RescueEntity;
 import com.connxun.elinetv.entity.live.challenge.RescueResultsEntity;
 import com.connxun.elinetv.entity.order.UserVC;
@@ -66,9 +68,11 @@ import com.connxun.elinetv.view.MediaPreview.fragment.UserLiveFragment;
 import com.connxun.elinetv.view.user.ITestView;
 import com.google.gson.Gson;
 import com.netease.nim.uikit.business.chatroom.viewholder.ChatRoomMsgViewHolderText;
+import com.netease.nimlib.sdk.NIMClient;
 import com.netease.nimlib.sdk.chatroom.model.ChatRoomInfo;
 import com.netease.nimlib.sdk.chatroom.model.ChatRoomMember;
 import com.netease.nimlib.sdk.chatroom.model.ChatRoomMessage;
+import com.netease.nimlib.sdk.msg.MsgService;
 import com.netease.nimlib.sdk.msg.constant.MsgTypeEnum;
 import com.netease.nimlib.sdk.msg.model.IMMessage;
 import com.orhanobut.logger.Logger;
@@ -450,7 +454,11 @@ public class LIveRoomActivity extends BaseActivity implements View.OnClickListen
     FragmentTransaction transaction = fragmentManager.beginTransaction();
         if(isAudience){
 //            ll_liwu.setVisibility(View.VISIBLE);
-        iv_gift.setVisibility(View.VISIBLE);
+            if(!BaseApplication.blLiveTypeLiveOrChallenge){
+                iv_gift.setVisibility(View.GONE);
+            }else {
+                iv_gift.setVisibility(View.VISIBLE);
+            }
 //        mediaPreviewFragment = new MediaPreviewFragment();
          watchFragment = new WatchFragment();
         transaction.replace(R.id.layout_main_content, watchFragment);
@@ -648,7 +656,7 @@ public class LIveRoomActivity extends BaseActivity implements View.OnClickListen
                 try{
                     map = msg.getRemoteExtension();
                     int msgType = (int) map.get("msgType");
-
+                    NIMClient.getService(MsgService.class).sendMessageReceipt(msg.getSessionId(), msg);
                     Logger.e("msgtype :" + map.get("msgType"));
                     Gson gson = new Gson();
                     switch (msgType)
@@ -663,8 +671,27 @@ public class LIveRoomActivity extends BaseActivity implements View.OnClickListen
                                 captureFragments.showGift(imGift);
                             }
                             break;
+                        case 103:
+                            //显示点赞数
+                            String json = gson.toJson(map);
+                            ChallengeLove challengeLove = gson.fromJson(json,ChallengeLove.class);
+                            if(isAudience){
+                                watchFragment.showLoveNum(challengeLove);
+                            }else {
+                                captureFragments.showLoveNum(challengeLove);
+                            }
+                            break;
                         case 104:
                             //排行榜
+
+                            RankEntity rankEntity = gson.fromJson(gson.toJson(map),RankEntity.class);
+                            if(isAudience){
+                                watchFragment.showRankList(rankEntity);
+                            }else {
+                                captureFragments.showRankList(rankEntity);
+                            }
+
+
 
                             break;
                         case 111:
@@ -674,13 +701,19 @@ public class LIveRoomActivity extends BaseActivity implements View.OnClickListen
 
                         case 121:
                             //用户投送救援票
+
                             RescueEntity rescueEntity = gson.fromJson(gson.toJson(map),RescueEntity.class);
-                            captureFragments.showRecue(rescueEntity);
+                            if(isAudience){
+                                watchFragment.showRecue(rescueEntity);
+                            }else {
+                                captureFragments.showRecue(rescueEntity);
+                            }
+
 
 
                             break;
                         case 115:
-                            String json = gson.toJson(map);
+                            String jsona = gson.toJson(map);
                             //评分结果推送
                             GradingResultsEntity gradingResult = gson.fromJson(gson.toJson(map),GradingResultsEntity.class);
                             if(isAudience){
@@ -724,6 +757,10 @@ public class LIveRoomActivity extends BaseActivity implements View.OnClickListen
         });
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 
     /**
      * 直播开始完成的回调
@@ -908,6 +945,11 @@ public class LIveRoomActivity extends BaseActivity implements View.OnClickListen
         Resources r = context.getResources();
         return (int) TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP, dipValue, r.getDisplayMetrics());
+    }
+
+
+    public void setGiftVibility(){
+        iv_gift.setVisibility(View.GONE);
     }
 
 

@@ -600,6 +600,7 @@ public class LivePlayerController implements PlayerContract.MediaPlayControllerB
                 return false;
             }
         });
+//        mMediaPlayer.stop();
 
         mMediaPlayer.setOnCompletionListener(new NELivePlayer.OnCompletionListener() {
             @Override
@@ -612,14 +613,9 @@ public class LivePlayerController implements PlayerContract.MediaPlayControllerB
             @Override
             public boolean onInfo(NELivePlayer neLivePlayer, int i,  int i1) {
                 Logger.e("setOnInfoListener : "+ i + " i1 :" + i1);
-
-
-
-
                 return false;
             }
         });
-
 
 //        mMediaPlayer = neMediaPlayer;
 //        attachControlLayout();
