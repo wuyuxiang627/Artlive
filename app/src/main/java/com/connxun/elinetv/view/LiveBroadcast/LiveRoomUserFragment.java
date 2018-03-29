@@ -631,11 +631,13 @@ public class LiveRoomUserFragment extends BaseFragment {
                 }
                 break;
             case R.id.ib_challenge_bottom_gengduo:
+                pushFlowFragment.startMusic();
                 break;
             case R.id.ib_challenge_bottom_xiaoxi:
                 liveActivity.showInputPanel();
                 break;
             case R.id.ib_challenge_bottom_fenxiang:
+                pushFlowFragment.stopMusic();
                 break;
             case R.id.ib_challenge_bottom_fanzhuan:
                 break;

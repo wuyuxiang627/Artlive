@@ -31,8 +31,9 @@ public class CardsBAdapter extends BaseQuickAdapter<ChallengeTypeThreeEntity,MBa
 
     @Override
     protected void convert(MBaseViewHolder helper, ChallengeTypeThreeEntity item) {
-        helper.setCardBackgroundColor(R.id.item_challenge_type_card,item.getColor());
+//        helper.setCardBackgroundColor(R.id.item_challenge_type_card,item.getColor());
         helper.setText(R.id.item_challenge_type_card_title,item.getName());
+        helper.setLinearGradient(R.id.item_challenge_type_card_title);
     }
 }
 

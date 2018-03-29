@@ -146,8 +146,8 @@
 
     <style name="AppTheme_test" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#00000000</item>
-        <item name="colorPrimaryDark">#00000000</item>
+        <item name="colorPrimary">#66000000</item>
+        <item name="colorPrimaryDark">#66000000</item>
         <!--<item name="colorAccent">@color/app_color</item>-->
         <!-- 声明为透明状态栏 -->
         <item name="android:windowIsTranslucent">true</item>

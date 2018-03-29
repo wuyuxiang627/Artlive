@@ -174,6 +174,14 @@ public class CapturePreviewController extends CapturePreviewContract.CapturePrev
         }
     });
 
+    public void startMusic(String s) {
+        mLSMediaCapture.startPlayMusic(s,false);
+    }
+
+    public void stopMusic() {
+        mLSMediaCapture.pausePlayMusic();
+    }
+
 
     /**
      * 伴音相关 广播接收器
@@ -325,6 +333,7 @@ public class CapturePreviewController extends CapturePreviewContract.CapturePrev
             }
 
         });
+
 //
 //
 //        mLSMediaCapture.setCaptureRawDataCB();

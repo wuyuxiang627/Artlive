@@ -3,6 +3,7 @@ package com.connxun.elinetv.util;
 import android.content.Context;
 import android.database.Cursor;
 import android.provider.MediaStore;
+import android.util.Log;
 
 import com.connxun.elinetv.entity.Song;
 
@@ -80,6 +81,7 @@ public class AudioUtils {
                 // 文件路径
                 if (cursor.getString(9) != null) {
                     song.setFileUrl(cursor.getString(9));
+                    Log.e("songs"," flksdjf  : "+cursor.getString(9));
                 }
                 songs.add(song);
             } while (cursor.moveToNext());

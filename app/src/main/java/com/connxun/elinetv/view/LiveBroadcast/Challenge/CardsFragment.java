@@ -59,6 +59,7 @@ public class CardsFragment extends BaseFragment {
     public void setChallengeType(List<ChallengeTypeThreeEntity> challengeTypeThreeList, final String typeName) {
         tvChallengeTypeTitle.setText(typeName);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         layoutChallengeTypeRecy.setLayoutManager(linearLayoutManager);
         challengeTypeThreeLists  = challengeTypeThreeList;
         for(ChallengeTypeThreeEntity entity : challengeTypeThreeList){

@@ -1,8 +1,11 @@
 package com.connxun.elinetv.base.ui;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
+import android.graphics.Shader;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -28,6 +31,7 @@ import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.connxun.elinetv.R;
 import com.connxun.elinetv.app.BaseApplication;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.squareup.picasso.Picasso;
@@ -644,6 +648,18 @@ public class MBaseViewHolder extends BaseViewHolder {
 //        Picasso.with(BaseApplication.baseContext).load(imgPath).into(view);
         Uri uri = Uri.parse(imgPath);
         view.setImageURI(uri);
+        return this;
+    }
+
+    //设置字体渐变色
+    public BaseViewHolder setLinearGradient(@IdRes int viewId){
+
+        TextView view = getView(viewId);
+        @SuppressLint("ResourceAsColor")
+        LinearGradient mLinearGradient
+                = new LinearGradient(0, 0, 0,
+                view.getPaint().getTextSize(), Color.BLUE, Color.RED, Shader.TileMode.MIRROR);
+        view.getPaint().setShader(mLinearGradient);
         return this;
     }
 

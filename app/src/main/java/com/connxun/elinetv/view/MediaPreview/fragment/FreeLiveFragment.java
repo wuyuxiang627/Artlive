@@ -169,6 +169,7 @@ public class FreeLiveFragment extends BaseFragment implements INotifyListener {
                     FileUploadUtil.getUploadImageToken(getActivity(),LivePath,REUST_CODE_IMAGE_COVER);
                 }
                 blLiveType = true; //开启直播
+                BaseApplication.blLiveTypeLiveOrChallenge = true;
                 BaseApplication.blLIveStart = true;
                 break;
         }

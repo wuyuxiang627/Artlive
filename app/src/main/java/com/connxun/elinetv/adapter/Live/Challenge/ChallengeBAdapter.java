@@ -30,42 +30,40 @@ public class ChallengeBAdapter extends BaseQuickAdapter<ChallengeTypeEntity,MBas
 
     @Override
     protected void convert(MBaseViewHolder helper, ChallengeTypeEntity item) {
-        helper.setCardBackgroundColor(R.id.rl_challenge_type,"#F8ABFF");
+//        helper.setCardBackgroundColor(R.id.rl_challenge_type,"#F8ABFF");
         helper.setText(R.id.tv_item_challenge_type_name,item.getName());
         helper.setText(R.id.tv_item_challenge_type_text,item.getContent());
         switch (item.getSort())
         {
-            case 7:
-                helper.setCardBackgroundColor(R.id.rl_challenge_type,"#F8ABFF");
+            case 8:
+//                helper.setCardBackgroundColor(R.id.rl_challenge_type,"#F8ABFF");
                 helper.setBackgroundResource(R.id.iv_item_challenge_type_img,R.drawable.icon_challenge_type_singe);
                 break;
             case 6:
-                helper.setCardBackgroundColor(R.id.rl_challenge_type,"#6DCEFF");
+//                helper.setCardBackgroundColor(R.id.rl_challenge_type,"#6DCEFF");
                 helper.setBackgroundResource(R.id.iv_item_challenge_type_img,R.drawable.icon_challenge_type_rap);
 
                 break;
             case 5:
-                helper.setCardBackgroundColor(R.id.rl_challenge_type,"#FDAA6F");
+//                helper.setCardBackgroundColor(R.id.rl_challenge_type,"#FDAA6F");
                 helper.setBackgroundResource(R.id.iv_item_challenge_type_img,R.drawable.icon_challenge_type_dance);
 
                 break;
             case 4:
-                helper.setCardBackgroundColor(R.id.rl_challenge_type,"#63E52A");
+//                helper.setCardBackgroundColor(R.id.rl_challenge_type,"#63E52A");
                 helper.setBackgroundResource(R.id.iv_item_challenge_type_img,R.drawable.icon_challenge_type_music);
 
                 break;
             case 3:
-                helper.setCardBackgroundColor(R.id.rl_challenge_type,"#A78FFF");
+//                helper.setCardBackgroundColor(R.id.rl_challenge_type,"#A78FFF");
                 helper.setBackgroundResource(R.id.iv_item_challenge_type_img,R.drawable.icon_challenge_type_perform);
 
                 break;
             case 2:
-                helper.setCardBackgroundColor(R.id.rl_challenge_type,"#7FE2FF");
+//                helper.setCardBackgroundColor(R.id.rl_challenge_type,"#7FE2FF");
                 helper.setBackgroundResource(R.id.iv_item_challenge_type_img,R.drawable.icon_challenge_type_eloquence);
 
                 break;
         }
-
-
     }
 }

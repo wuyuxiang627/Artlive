@@ -466,11 +466,11 @@ public class HotOptimizationFragment extends BaseFragment {
             ListLiveAdapter.getList().addAll(LiveListModels);
             ListLiveAdapter.notifyDataSetChanged();
             ListLiveAdapter.setOnItemClickListener((view, position) -> {
-                String name = watchListLives.getData().getList().get(position).getName();
-                if (name.equals("none")) {
-                    BaseApplication.blLiveTypeLiveOrChallenge = false;
-                }
-
+//                String name = watchListLives.getData().getList().get(position).getName();
+//                if (name.equals("none")) {
+//                    BaseApplication.blLiveTypeLiveOrChallenge = false;
+//                }
+                BaseApplication.blLiveTypeLiveOrChallenge = true;
                 Intent intent = new Intent(getActivity(), LIveRoomActivity.class);
                 intent.putExtra("mVideoPath", watchListLives.getData().getList().get(position).getRtmpPullUrl());
                 intent.putExtra("roomId", watchListLives.getData().getList().get(position).getRoomid() + "");

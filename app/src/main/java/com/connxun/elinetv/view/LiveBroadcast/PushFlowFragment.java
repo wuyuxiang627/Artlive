@@ -230,7 +230,7 @@ public class PushFlowFragment extends BaseFragment implements CapturePreviewCont
     @Override
     public void onStartLivingFinished() {
 
-
+        BaseApplication.blLIveStart = false;
         liveRoomUserFragment.setPushUserDate();
         rlPushFlowTypeBottom.setVisibility(View.GONE);
         rlPushFlowTop.setVisibility(View.GONE);
@@ -383,6 +383,16 @@ public class PushFlowFragment extends BaseFragment implements CapturePreviewCont
     public void contrellerLiveStartStop() {
         controller.liveStartStop();
     }
+
+
+    public void startMusic(){
+        controller.startMusic("/storage/emulated/0/netease/cloudmusic/Music/迟青 - 体面.mp3");
+    }
+
+    public void stopMusic(){
+        controller.stopMusic();
+    }
+
 
     @Override
     public void showInputPanel() {
